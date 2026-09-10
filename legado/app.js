@@ -195,7 +195,7 @@ function renderStage() {
         <div class="field"><label>${state.profile === 'kids' ? 'NOME DO RESPONSÁVEL' : 'SEU NOME'}</label><input id="name" autocomplete="name" placeholder="Como podemos te chamar?" value="${esc(state.name)}"></div>
         <div class="field"><label>WHATSAPP</label><input id="phone" inputmode="tel" autocomplete="tel" placeholder="(22) 99999-9999" value="${esc(state.phone)}"></div>
       </div>
-      <div class="actions"><button class="back" id="back">VOLTAR</button><button class="next" id="finish">CONCLUIR</button></div>
+      <div class="actions"><button class="back" id="back">VOLTAR</button><button class="next" id="finish">CONTINUAR</button></div>
     </div>`;
   document.getElementById('back').onclick = () => { state.step = 4; render(); };
   document.getElementById('finish').onclick = () => {
@@ -246,7 +246,7 @@ function renderPreviews() {
   }
 
   leadPreview.innerHTML = `
-    <div class="preview-name">${esc(state.name || 'SEU PEDIDO')}</div>
+    <div class="preview-name">${esc(state.name || 'SEU INTERESSE')}</div>
     <div class="preview-phone">${esc(state.phone || 'Aula experimental')}</div>
     ${summaryGrid()}
     ${state.name && state.phone ? `<a class="wa-button" href="${whatsappLink()}" target="_blank" rel="noopener">CONTINUAR NO WHATSAPP</a>` : ''}`;
