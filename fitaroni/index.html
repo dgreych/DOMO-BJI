@@ -8,14 +8,22 @@
   <meta property="og:title" content="Eduardo Fitaroni Jiu-Jitsu" />
   <meta property="og:description" content="Jiu-Jitsu infantil e juvenil. Disciplina, coordenação e formação de caráter." />
   <title>Eduardo Fitaroni Jiu-Jitsu</title>
-  <link rel="icon" href="logo.svg" type="image/svg+xml" />
+  <link rel="icon" href="logo-oficial.svg" type="image/svg+xml" />
   <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="refinements.css" />
 </head>
 <body>
+  <svg class="svg-sprite" aria-hidden="true" width="0" height="0">
+    <symbol id="icon-chat" viewBox="0 0 24 24"><path d="M5.5 18.5 3 21l.8-4.3A8.5 8.5 0 1 1 5.5 18.5Z"/></symbol>
+    <symbol id="icon-down" viewBox="0 0 24 24"><path d="m7 9 5 5 5-5"/></symbol>
+    <symbol id="icon-next" viewBox="0 0 24 24"><path d="m9 6 6 6-6 6"/></symbol>
+    <symbol id="icon-external" viewBox="0 0 24 24"><path d="M14 5h5v5M19 5l-8 8"/><path d="M18 13v5a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></symbol>
+  </svg>
+
   <div class="grain" aria-hidden="true"></div>
   <header class="topbar">
     <a class="brand" href="#inicio" aria-label="Eduardo Fitaroni Jiu-Jitsu">
-      <img src="logo.svg" alt="Logo Eduardo Fitaroni Jiu-Jitsu" />
+      <img src="logo-oficial.svg" alt="Logo Eduardo Fitaroni Jiu-Jitsu" />
       <span><strong>EDUARDO FITARONI</strong><small>JIU-JITSU</small></span>
     </a>
     <nav aria-label="Navegação principal">
@@ -23,7 +31,7 @@
       <a href="#horarios">Horários</a>
       <a href="#modalidades">Modalidades</a>
     </nav>
-    <a class="cta cta-small" data-wa="general" href="#">FALAR NO WHATSAPP</a>
+    <a class="cta cta-small" data-form-open="general" href="#contato">FALAR NO WHATSAPP <svg class="ui-icon"><use href="#icon-chat"/></svg></a>
   </header>
 
   <main>
@@ -33,14 +41,14 @@
         <h1>JIU-JITSU<br><em>DESDE CEDO.</em></h1>
         <p class="lead">Especializado em metodologia de Jiu-Jitsu Infantil e Juvenil.</p>
         <div class="hero-actions">
-          <a class="cta" data-wa="general" href="#">AGENDAR UMA AULA <span>↗</span></a>
-          <a class="ghost" href="#turmas">VER TURMAS <span>↓</span></a>
+          <a class="cta" data-form-open="general" href="#contato">AGENDAR UMA AULA <svg class="ui-icon"><use href="#icon-chat"/></svg></a>
+          <a class="ghost" href="#turmas">VER TURMAS <svg class="ui-icon"><use href="#icon-down"/></svg></a>
         </div>
       </div>
       <div class="hero-visual reveal delay-1">
         <div class="logo-stage">
           <div class="orbit orbit-a"></div><div class="orbit orbit-b"></div>
-          <img src="logo.svg" alt="Emblema Eduardo Fitaroni" />
+          <img src="logo-oficial.svg" alt="Emblema Eduardo Fitaroni" />
           <span class="stamp stamp-a">JIU-JITSU</span>
           <span class="stamp stamp-b">KRAV MAGA</span>
         </div>
@@ -93,7 +101,7 @@
         <div class="section-label light">04 / HORÁRIOS PUBLICADOS</div>
         <h2>SEMANA<br>NO TATAME.</h2>
         <p>Grade de Jiu-Jitsu infantil e juvenil divulgada pela escola.</p>
-        <a class="cta cta-white" data-wa="schedule" href="#">CONFIRMAR HORÁRIO <span>↗</span></a>
+        <a class="cta cta-white" data-form-open="schedule" href="#contato">CONFIRMAR HORÁRIO <svg class="ui-icon"><use href="#icon-chat"/></svg></a>
       </div>
       <div class="schedule-board reveal delay-1">
         <article>
@@ -111,10 +119,10 @@
       <div class="section-label reveal">05 / MODALIDADES</div>
       <div class="modality-grid">
         <article class="modality-card reveal">
-          <span>01</span><div><h2>JIU-JITSU</h2><p>Infantil e juvenil em turmas por faixa etária.</p></div><b>→</b>
+          <span>01</span><div><h2>JIU-JITSU</h2><p>Infantil e juvenil em turmas por faixa etária.</p></div>
         </article>
         <article class="modality-card reveal delay-1">
-          <span>02</span><div><h2>KRAV MAGA</h2><p>Fale com a escola para informações sobre turmas e horários.</p></div><b>→</b>
+          <span>02</span><div><h2>KRAV MAGA</h2><p>Fale com a escola para informações sobre turmas e horários.</p></div>
         </article>
       </div>
     </section>
@@ -122,30 +130,59 @@
     <section class="contact section-pad" id="contato">
       <div class="contact-top">
         <div class="section-label light reveal">06 / CONTATO DIRETO</div>
-        <p class="contact-kicker reveal">ESCOLHA O ASSUNTO. A MENSAGEM JÁ SAI PRONTA.</p>
+        <p class="contact-kicker reveal">ESCOLHA O INTERESSE. O WHATSAPP JÁ ABRE COM TUDO ORGANIZADO.</p>
       </div>
       <div class="contact-grid">
         <div class="contact-title reveal"><h2>VAMOS<br>PRO TATAME?</h2></div>
-        <div class="contact-actions reveal delay-1">
-          <button data-interest="baby"><span>BABY</span><small>4–6 anos</small><b>↗</b></button>
-          <button data-interest="juniors"><span>JUNIORS</span><small>7–10 anos</small><b>↗</b></button>
-          <button data-interest="teens"><span>TEENS</span><small>11–16 anos</small><b>↗</b></button>
-          <button data-interest="general"><span>OUTRO ASSUNTO</span><small>Falar direto com a escola</small><b>↗</b></button>
+        <div class="contact-actions reveal delay-1" aria-label="Escolha de interesse">
+          <button type="button" data-interest="baby"><span>BABY</span><small>4–6 anos</small><svg class="ui-icon"><use href="#icon-next"/></svg></button>
+          <button type="button" data-interest="juniors"><span>JUNIORS</span><small>7–10 anos</small><svg class="ui-icon"><use href="#icon-next"/></svg></button>
+          <button type="button" data-interest="teens"><span>TEENS</span><small>11–16 anos</small><svg class="ui-icon"><use href="#icon-next"/></svg></button>
+          <button type="button" data-interest="krav"><span>KRAV MAGA</span><small>Informações sobre aulas</small><svg class="ui-icon"><use href="#icon-next"/></svg></button>
+          <button type="button" data-interest="general"><span>OUTRO ASSUNTO</span><small>Falar direto com a escola</small><svg class="ui-icon"><use href="#icon-next"/></svg></button>
         </div>
       </div>
+
+      <form class="interest-form reveal" id="interest-form">
+        <div class="form-row">
+          <label>Seu nome
+            <input id="lead-name" name="name" autocomplete="name" required placeholder="Como podemos te chamar?" />
+          </label>
+          <label>Interesse
+            <select id="lead-interest" name="interest" required>
+              <option value="general">Informações gerais</option>
+              <option value="baby">Baby · 4–6 anos</option>
+              <option value="juniors">Juniors · 7–10 anos</option>
+              <option value="teens">Teens · 11–16 anos</option>
+              <option value="krav">Krav Maga</option>
+              <option value="schedule">Confirmar horários do Jiu-Jitsu</option>
+            </select>
+          </label>
+        </div>
+        <div class="form-row" id="student-fields">
+          <label id="age-wrap">Idade do aluno <span class="optional">opcional</span>
+            <input id="lead-age" name="age" inputmode="numeric" placeholder="Ex.: 8 anos" />
+          </label>
+          <label id="schedule-wrap">Horário de interesse <span class="optional">opcional</span>
+            <select id="lead-schedule" name="schedule"></select>
+          </label>
+        </div>
+        <p class="form-hint">Ao continuar, o WhatsApp abre com essas informações preenchidas para você revisar antes de enviar.</p>
+        <button class="form-submit" type="submit">CONTINUAR NO WHATSAPP <svg class="ui-icon"><use href="#icon-chat"/></svg></button>
+      </form>
+
       <div class="contact-footer reveal">
-        <a href="https://www.instagram.com/fitaroni.jiujitsu/" target="_blank" rel="noreferrer">@fitaroni.jiujitsu ↗</a>
-        <span>WHATSAPP · (22) 99839-9626</span>
+        <a href="https://www.instagram.com/fitaroni.jiujitsu/" target="_blank" rel="noreferrer">@fitaroni.jiujitsu <svg class="ui-icon"><use href="#icon-external"/></svg></a>
       </div>
     </section>
   </main>
 
   <footer>
     <div><b>EDUARDO FITARONI</b><span>JIU-JITSU · KRAV MAGA</span></div>
-    <a href="https://www.instagram.com/fitaroni.jiujitsu/" target="_blank" rel="noreferrer">INSTAGRAM ↗</a>
+    <a href="https://www.instagram.com/fitaroni.jiujitsu/" target="_blank" rel="noreferrer">INSTAGRAM <svg class="ui-icon"><use href="#icon-external"/></svg></a>
   </footer>
 
-  <div class="mobile-cta"><a data-wa="general" href="#">FALAR NO WHATSAPP <span>↗</span></a></div>
+  <div class="mobile-cta"><a data-form-open="general" href="#contato">FALAR NO WHATSAPP <svg class="ui-icon"><use href="#icon-chat"/></svg></a></div>
   <script src="app.js"></script>
 </body>
 </html>
