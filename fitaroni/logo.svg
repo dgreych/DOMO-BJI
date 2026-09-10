@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" role="img" aria-labelledby="title desc">
+  <title id="title">Eduardo Fitaroni Jiu-Jitsu</title>
+  <desc id="desc">Emblema circular preto, branco e vermelho da Escola de Lutas Eduardo Fitaroni.</desc>
+  <rect width="1000" height="1000" fill="#fff"/>
+  <circle cx="500" cy="500" r="454" fill="#fff" stroke="#0b0b0b" stroke-width="24"/>
+  <g fill="#0b0b0b" font-family="Arial Black, Impact, sans-serif" font-style="italic" text-anchor="middle">
+    <text x="500" y="185" font-size="82" letter-spacing="8">EDUARDO</text>
+    <text x="500" y="285" font-size="126" letter-spacing="3">FITARONI</text>
+  </g>
+  <g transform="translate(175 320)">
+    <path d="M15 35 L285 185 L175 250 L95 205 L95 285 L285 390 L175 455 L15 365 Z" fill="#050505"/>
+    <path d="M635 35 L365 185 L480 250 L555 205 L555 285 L365 390 L480 455 L635 365 Z" fill="#050505"/>
+    <path d="M95 265 L325 395 L555 265 L555 340 L325 470 L95 340 Z" fill="#050505"/>
+    <path d="M215 355 L325 415 L420 360 L350 322 L280 362 Z" fill="#ed1c24"/>
+    <path d="M400 382 L425 368 L450 382 L425 396 Z" fill="#ed1c24"/>
+    <path d="M438 403 L472 384 L498 399 L464 419 Z" fill="#ed1c24"/>
+  </g>
+  <g fill="#0b0b0b" font-family="Arial Black, Impact, sans-serif" font-size="55" font-style="italic" letter-spacing="3">
+    <text x="210" y="840" transform="rotate(16 210 840)">JIU-JITSU</text>
+    <text x="610" y="850" transform="rotate(-16 610 850)">KRAV MAGA</text>
+  </g>
+</svg>
