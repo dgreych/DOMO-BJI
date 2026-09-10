@@ -1,4 +1,4 @@
-const WA_NUMBER = '5522998399626';
+const WA_NUMBER = '5522998432748';
 
 const adultModalities = [
   ['Jiu-Jitsu', 'Adulto'],
