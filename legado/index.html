@@ -1,1 +1,183 @@
-placeholder
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#b51f25">
+  <meta name="description" content="Legado Escola de Lutas — aula experimental">
+  <title>Legado Escola de Lutas</title>
+  <link rel="stylesheet" href="./styles.css">
+  <link rel="stylesheet" href="./logo.css">
+</head>
+<body>
+  <div class="page-shell">
+    <header class="site-header">
+      <div class="brand-row wrap">
+        <button class="brand-mark" type="button" data-go="inicio" aria-label="Ir para o início">
+          <span class="logo-img" role="img" aria-label="Legado Escola de Lutas"></span>
+        </button>
+        <div class="brand-copy">
+          <strong>LEGADO</strong>
+          <span>ESCOLA DE LUTAS</span>
+        </div>
+        <button class="header-cta" type="button" data-start="adult">AULA EXPERIMENTAL</button>
+      </div>
+      <nav class="tabbar wrap" aria-label="Seções da página">
+        <button class="nav-tab active" type="button" data-go="inicio">INÍCIO</button>
+        <button class="nav-tab" type="button" data-go="modalidades">MODALIDADES</button>
+        <button class="nav-tab" type="button" data-go="equipe">EQUIPE</button>
+      </nav>
+    </header>
+
+    <main>
+      <section class="view active" id="view-inicio">
+        <div class="hero wrap">
+          <div class="hero-panel">
+            <div class="hero-copy">
+              <span class="hero-kicker">BOM JESUS DO ITABAPOANA</span>
+              <h1><span>AGENDE</span><br>SUA AULA<br><em>EXPERIMENTAL</em></h1>
+              <div class="hero-rule"></div>
+              <div class="hero-start">
+                <button class="profile-start" type="button" data-start="adult">
+                  <span class="profile-index">01</span>
+                  <span class="profile-text"><b>PARA MIM</b><small>Adulto</small></span>
+                  <span class="profile-arrow">→</span>
+                </button>
+                <button class="profile-start" type="button" data-start="kids">
+                  <span class="profile-index">02</span>
+                  <span class="profile-text"><b>PARA MEU FILHO(A)</b><small>Criança ou adolescente</small></span>
+                  <span class="profile-arrow">→</span>
+                </button>
+              </div>
+            </div>
+
+            <div class="hero-art" aria-hidden="true">
+              <div class="art-circle art-circle-one"></div>
+              <div class="art-circle art-circle-two"></div>
+              <div class="art-stripe stripe-a"></div>
+              <div class="art-stripe stripe-b"></div>
+              <div class="art-logo-wrap">
+                <span class="logo-img" aria-hidden="true"></span>
+              </div>
+              <div class="art-word">LEGADO</div>
+            </div>
+          </div>
+        </div>
+
+        <section class="quick-strip wrap" aria-label="Modalidades em destaque">
+          <button type="button" data-pick="adult|Jiu-Jitsu">JIU-JITSU</button>
+          <button type="button" data-pick="adult|Judô">JUDÔ</button>
+          <button type="button" data-pick="adult|Krav Magá">KRAV MAGÁ</button>
+          <button type="button" data-pick="adult|Jiu-Jitsu No-Gi">NO-GI</button>
+          <button type="button" data-pick="adult|Funcional 50+">FUNCIONAL 50+</button>
+          <button type="button" data-pick="kids|Jiu-Jitsu Kids">KIDS</button>
+        </section>
+
+        <section class="flow-section wrap" id="fluxo">
+          <div class="flow-grid">
+            <div class="flow-card">
+              <div class="flow-head">
+                <div>
+                  <span class="micro-label">AULA EXPERIMENTAL</span>
+                  <h2 id="flowTitle">COMECE POR AQUI</h2>
+                </div>
+                <span class="step-chip" id="stepChip">01 / 05</span>
+              </div>
+              <div class="progress" id="progress" aria-hidden="true"></div>
+              <div id="stage"></div>
+            </div>
+
+            <aside class="lead-card" id="leadCard">
+              <div class="lead-topline">
+                <span>NOVO INTERESSE</span>
+                <span class="live-dot">●</span>
+              </div>
+              <div id="leadPreview"></div>
+            </aside>
+          </div>
+        </section>
+      </section>
+
+      <section class="view" id="view-modalidades">
+        <div class="modalities wrap">
+          <div class="section-mast">
+            <span class="micro-label">LEGADO ESCOLA DE LUTAS</span>
+            <h2>ENCONTRE<br><em>SEU TATAME.</em></h2>
+          </div>
+
+          <div class="mode-grid">
+            <article class="mode-card mode-red">
+              <span class="mode-num">01</span>
+              <div><small>ADULTO</small><h3>JIU-JITSU</h3><p>Comece com uma aula experimental.</p></div>
+              <button type="button" data-pick="adult|Jiu-Jitsu">QUERO CONHECER →</button>
+            </article>
+            <article class="mode-card mode-ink">
+              <span class="mode-num">02</span>
+              <div><small>ADULTO</small><h3>JIU-JITSU<br>NO-GI</h3><p>Treino sem kimono.</p></div>
+              <button type="button" data-pick="adult|Jiu-Jitsu No-Gi">QUERO CONHECER →</button>
+            </article>
+            <article class="mode-card mode-orange">
+              <span class="mode-num">03</span>
+              <div><small>ADULTO</small><h3>JUDÔ</h3><p>Primeiro contato direto com a equipe.</p></div>
+              <button type="button" data-pick="adult|Judô">QUERO CONHECER →</button>
+            </article>
+            <article class="mode-card mode-light">
+              <span class="mode-num">04</span>
+              <div><small>ADULTO</small><h3>KRAV<br>MAGÁ</h3><p>Defesa pessoal.</p></div>
+              <button type="button" data-pick="adult|Krav Magá">QUERO CONHECER →</button>
+            </article>
+            <article class="mode-card mode-light">
+              <span class="mode-num">05</span>
+              <div><small>ADULTO</small><h3>FUNCIONAL<br>50+</h3><p>Condicionamento em movimento.</p></div>
+              <button type="button" data-pick="adult|Funcional 50+">QUERO CONHECER →</button>
+            </article>
+            <article class="mode-card mode-kids">
+              <span class="mode-num">06</span>
+              <div><small>KIDS</small><h3>JIU-JITSU<br>& JUDÔ</h3><p>Fluxo pensado para o responsável.</p></div>
+              <button type="button" data-pick="kids|Jiu-Jitsu Kids">VER KIDS →</button>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="view" id="view-equipe">
+        <div class="team-view wrap">
+          <div class="section-mast team-mast">
+            <span class="micro-label">VISÃO DA EQUIPE</span>
+            <h2>CHEGA<br><em>ORGANIZADO.</em></h2>
+          </div>
+          <div class="team-layout">
+            <div class="team-phone">
+              <div class="phone-bar"><span>LEGADO</span><span>WHATSAPP</span></div>
+              <div class="phone-body" id="teamPreview"></div>
+            </div>
+            <div class="team-side">
+              <div class="team-block">
+                <span>01</span>
+                <strong>PERFIL</strong>
+              </div>
+              <div class="team-block">
+                <span>02</span>
+                <strong>MODALIDADE + OBJETIVO</strong>
+              </div>
+              <div class="team-block">
+                <span>03</span>
+                <strong>WHATSAPP</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="wrap footer-row">
+        <span>LEGADO ESCOLA DE LUTAS</span>
+        <span class="domo-sign">DOMO</span>
+      </div>
+    </footer>
+  </div>
+
+  <script src="./app.js"></script>
+</body>
+</html>
