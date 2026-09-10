@@ -21,7 +21,8 @@ button{cursor:pointer}
 .site-header{position:sticky;top:0;z-index:30;background:rgba(241,239,236,.95);backdrop-filter:blur(14px);border-bottom:1px solid rgba(181,31,37,.12)}
 .brand-row{height:82px;display:flex;align-items:center;gap:14px}
 .brand-mark{border:0;background:transparent;padding:0;display:grid;place-items:center}
-.brand-mark img{height:58px;width:auto;display:block}
+.logo-img{display:block;background-image:url("./assets/legado-logo.webp");background-repeat:no-repeat;background-position:center;background-size:contain}
+.brand-mark .logo-img{height:58px;width:54px}
 .brand-copy{display:flex;flex-direction:column;line-height:.95;letter-spacing:.03em}
 .brand-copy strong{font-family:"Arial Narrow",Impact,Arial,sans-serif;font-stretch:condensed;font-size:19px;letter-spacing:.08em}
 .brand-copy span{font-size:9px;font-weight:900;letter-spacing:.19em;margin-top:5px}
@@ -55,7 +56,7 @@ button{cursor:pointer}
 .stripe-a{width:340px;height:22px;left:-120px;bottom:110px}
 .stripe-b{width:260px;height:8px;left:-70px;bottom:78px;background:#fff;opacity:.72}
 .art-logo-wrap{position:absolute;left:50%;top:50%;transform:translate(-50%,-55%);width:68%;max-width:360px;aspect-ratio:1/1;background:#fff;border-radius:50%;display:grid;place-items:center;box-shadow:0 22px 70px rgba(0,0,0,.17);padding:52px}
-.art-logo-wrap img{width:100%;height:auto}
+.art-logo-wrap .logo-img{width:100%;height:100%}
 .art-word{position:absolute;left:20px;bottom:12px;color:rgba(255,255,255,.11);font-family:Impact,"Arial Narrow",sans-serif;font-size:92px;letter-spacing:.04em;line-height:.8}
 .quick-strip{display:grid;grid-template-columns:repeat(6,1fr);gap:1px;margin-top:16px;background:#1c1c1c;border-radius:22px;overflow:hidden}
 .quick-strip button{border:0;background:#1c1c1c;color:#fff;padding:17px 10px;font-size:10px;font-weight:900;letter-spacing:.09em;transition:.15s}
@@ -89,7 +90,7 @@ footer{border-top:1px solid var(--line);padding:24px 0 32px}.footer-row{display:
   .hero-panel,.flow-grid,.team-layout{grid-template-columns:1fr}.hero-art{min-height:390px;order:-1}.hero-panel{min-height:0}.hero-copy{padding:38px 30px}.lead-card{position:static}.quick-strip{grid-template-columns:repeat(3,1fr)}.mode-grid{grid-template-columns:repeat(2,1fr)}
 }
 @media(max-width:620px){
-  .wrap{width:min(100% - 20px,1180px)}.brand-row{height:70px}.brand-mark img{height:48px}.brand-copy strong{font-size:16px}.brand-copy span{font-size:8px}.header-cta{padding:10px 12px;font-size:9px}
+  .wrap{width:min(100% - 20px,1180px)}.brand-row{height:70px}.brand-mark .logo-img{height:48px;width:45px}.brand-copy strong{font-size:16px}.brand-copy span{font-size:8px}.header-cta{padding:10px 12px;font-size:9px}
   .hero{padding-top:10px}.hero-panel{border-radius:24px}.hero-art{min-height:270px}.art-logo-wrap{padding:34px;max-width:205px}.art-word{font-size:62px}.hero-copy{padding:28px 20px}.hero h1{font-size:40px;line-height:.84;margin-top:16px}.profile-start{grid-template-columns:42px 1fr 30px;padding:13px}.profile-text b{font-size:14px}
   .quick-strip{grid-template-columns:repeat(2,1fr);border-radius:18px}.quick-strip button{padding:14px 8px}
   .flow-section{padding-top:18px}.flow-card,.lead-card{padding:18px;border-radius:22px}.flow-head h2{font-size:30px}.question h3{font-size:29px}.options,.form-row,.preview-grid{grid-template-columns:1fr}.section-mast{display:block}.section-mast h2{font-size:58px}.mode-grid{grid-template-columns:1fr}.mode-card{min-height:235px}.mode-card h3{font-size:38px}.team-phone{border-radius:24px}.phone-body{min-height:330px}.footer-row{flex-direction:column}
