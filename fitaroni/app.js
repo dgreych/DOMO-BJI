@@ -1,5 +1,14 @@
 const PHONE = '5522998399626';
 
+document.querySelectorAll('img[src="logo-oficial.jpg"], img[src="logo-oficial.svg"]').forEach(img => {
+  img.src = 'logo-final.jpg?v=42';
+});
+const favicon = document.querySelector('link[rel="icon"]');
+if (favicon) {
+  favicon.href = 'logo-final.jpg?v=42';
+  favicon.type = 'image/jpeg';
+}
+
 const classes = {
   baby: {
     label: 'BABY', age: '4–6 ANOS',
@@ -130,22 +139,22 @@ form.addEventListener('submit', event => {
   const key = interestSelect.value;
   const age = ageInput.value.trim();
   const schedule = scheduleSelect.value;
+
   const lines = [`Olá! Meu nome é ${name}.`];
 
   if (classes[key]) {
     lines.push(classes[key].message);
     if (age) lines.push(`Idade do aluno: ${age}.`);
     if (schedule) lines.push(`Horário de interesse: ${schedule}.`);
-    lines.push('Gostaria de saber mais.');
   } else if (key === 'krav') {
     lines.push('Tenho interesse em Krav Maga.');
-    lines.push('Gostaria de saber mais.');
   } else if (key === 'schedule') {
     lines.push('Gostaria de confirmar os horários das turmas de Jiu-Jitsu.');
   } else {
     lines.push('Gostaria de saber mais sobre as aulas da Escola de Lutas Eduardo Fitaroni.');
   }
 
+  lines.push('Gostaria de saber mais.');
   window.open(wa(lines.join('\n')), '_blank', 'noopener,noreferrer');
 });
 
