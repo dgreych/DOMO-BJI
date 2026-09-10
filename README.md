@@ -1,19 +1,27 @@
 # DOMO-BJI
 
-Vitrine pública de demonstrações comerciais da Domo.
+Vitrine pública oficial da **Domo — software sob medida** e repositório de demonstrações comerciais estáticas.
 
-## Organização
+## Homepage
 
-Cada demonstração vive em uma pasta própria e pode ser publicada diretamente via GitHub Pages.
+A raiz contém a vitrine institucional da Domo, em HTML, CSS e JavaScript puros, pronta para publicação direta no GitHub Pages.
 
-- `legado/` — demonstração personalizada para Legado Escola de Lutas.
+- `index.html` — vitrine pública;
+- `assets/site.css` — identidade e responsividade;
+- `assets/site.js` — interações e CTAs contextuais de WhatsApp;
+- `assets/domo-*.svg` — assets finais da identidade Domo;
+- `robots.txt`, `sitemap.xml` e `404.html` — indexação e navegação.
 
-O repositório não contém inteligência comercial, pricing interno, dossiês, automações de prospecção ou dados privados. Esses materiais permanecem fora da vitrine pública.
+## Demos
 
-## Política de demos
+Cada demonstração vive em pasta própria e é mantida independente da homepage.
 
-- negociações ativas podem receber uma URL direta não listada na página inicial;
-- negócios que não fecharem não permanecem identificados publicamente por padrão;
-- cases só entram em portfólio permanente com autorização;
-- componentes podem ser reaproveitados em futuras demos desde que descaracterizados;
-- nenhum segredo, credencial ou dado real de lead deve ser publicado aqui.
+- `legado/` — demonstração personalizada já existente, preservada sem alterações.
+
+Demonstrações personalizadas não são listadas como cases públicos sem autorização do negócio.
+
+## Publicação
+
+Compatível com GitHub Pages sem etapa de build. `.nojekyll` mantém a publicação estática direta.
+
+Nenhum segredo, credencial, dataset, inteligência comercial ou dado privado deve ser publicado neste repositório.

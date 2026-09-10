@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://dgreych.github.io/DOMO-BJI/sitemap.xml
