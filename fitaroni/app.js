@@ -1,11 +1,11 @@
 const PHONE = '5522998399626';
 
 document.querySelectorAll('img[src="logo-oficial.jpg"], img[src="logo-oficial.svg"]').forEach(img => {
-  img.src = 'logo-final.jpg?v=42';
+  img.src = 'logo-final.jpg?v=43';
 });
 const favicon = document.querySelector('link[rel="icon"]');
 if (favicon) {
-  favicon.href = 'logo-final.jpg?v=42';
+  favicon.href = 'logo-final.jpg?v=43';
   favicon.type = 'image/jpeg';
 }
 
