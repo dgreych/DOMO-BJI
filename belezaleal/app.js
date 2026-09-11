@@ -40,13 +40,8 @@ const pathData = {
   }
 };
 
-function waUrl(message) {
-  return `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(message)}`;
-}
-
-function openWhatsApp(kind = 'general') {
-  window.open(waUrl(waMessages[kind] || waMessages.general), '_blank', 'noopener');
-}
+const waUrl = message => `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(message)}`;
+const openWhatsApp = (kind = 'general') => window.open(waUrl(waMessages[kind] || waMessages.general), '_blank', 'noopener');
 
 document.querySelectorAll('[data-wa]').forEach(link => {
   link.addEventListener('click', event => {
@@ -73,15 +68,13 @@ function setPath(key, animate = true) {
     panelPoints.innerHTML = data.points.map(point => `<span>${point}</span>`).join('');
     panelCta.dataset.wa = data.wa;
   };
-  if (!animate || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    apply();
-    return;
+  if (animate && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    pathPanel.animate([
+      { opacity: 1, transform: 'translateY(0)' },
+      { opacity: .45, transform: 'translateY(6px)' },
+      { opacity: 1, transform: 'translateY(0)' }
+    ], { duration: 330, easing: 'cubic-bezier(.2,.7,.2,1)' });
   }
-  pathPanel.animate([
-    { opacity: 1, transform: 'translateY(0)' },
-    { opacity: .45, transform: 'translateY(6px)' },
-    { opacity: 1, transform: 'translateY(0)' }
-  ], { duration: 330, easing: 'cubic-bezier(.2,.7,.2,1)' });
   apply();
 }
 
@@ -95,11 +88,6 @@ document.querySelectorAll('.path-card').forEach(card => {
 });
 setPath('weight', false);
 
-panelCta.addEventListener('click', event => {
-  event.preventDefault();
-  openWhatsApp(panelCta.dataset.wa || 'general');
-});
-
 const form = document.getElementById('contactForm');
 const leadName = document.getElementById('leadName');
 const leadInterest = document.getElementById('leadInterest');
@@ -111,19 +99,14 @@ function chooseInterest(value) {
   setTimeout(() => leadName.focus({ preventScroll: true }), 520);
 }
 
-document.querySelectorAll('[data-interest]').forEach(button => {
-  button.addEventListener('click', () => chooseInterest(button.dataset.interest));
-});
+document.querySelectorAll('[data-interest]').forEach(button => button.addEventListener('click', () => chooseInterest(button.dataset.interest)));
 
 form.addEventListener('submit', event => {
   event.preventDefault();
   const name = leadName.value.trim();
   const interest = leadInterest.value;
   const note = leadNote.value.trim();
-  if (!name) {
-    leadName.focus();
-    return;
-  }
+  if (!name) return leadName.focus();
   let text = `Olá! Meu nome é ${name}. Vim pelo site da Beleza Leal e tenho interesse em: ${interest}.`;
   if (note) text += `\n\nQueria acrescentar: ${note}`;
   text += '\n\nGostaria de entender como funciona e qual seria o melhor próximo passo.';
@@ -140,8 +123,7 @@ function closeMenu() {
   menuBtn.querySelectorAll('span').forEach(span => span.style.transform = '');
 }
 menuBtn.addEventListener('click', () => {
-  const open = !mobileMenu.classList.contains('open');
-  if (!open) return closeMenu();
+  if (mobileMenu.classList.contains('open')) return closeMenu();
   mobileMenu.classList.add('open');
   mobileMenu.setAttribute('aria-hidden', 'false');
   menuBtn.setAttribute('aria-expanded', 'true');
@@ -153,12 +135,11 @@ menuBtn.addEventListener('click', () => {
 mobileMenu.querySelectorAll('a').forEach(link => link.addEventListener('click', closeMenu));
 
 const topbar = document.getElementById('topbar');
-const progress = document.getElementById('scrollProgress');
+const scrollProgress = document.getElementById('scrollProgress');
 function onScroll() {
   topbar.classList.toggle('scrolled', window.scrollY > 40);
   const max = document.documentElement.scrollHeight - window.innerHeight;
-  const ratio = max > 0 ? Math.min(1, Math.max(0, window.scrollY / max)) : 0;
-  progress.style.width = `${ratio * 100}%`;
+  scrollProgress.style.width = `${(max > 0 ? Math.min(1, Math.max(0, window.scrollY / max)) : 0) * 100}%`;
 }
 window.addEventListener('scroll', onScroll, { passive: true });
 onScroll();
@@ -166,10 +147,9 @@ onScroll();
 const reveals = document.querySelectorAll('.reveal');
 const revealObserver = new IntersectionObserver(entries => {
   entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
-      revealObserver.unobserve(entry.target);
-    }
+    if (!entry.isIntersecting) return;
+    entry.target.classList.add('visible');
+    revealObserver.unobserve(entry.target);
   });
 }, { threshold: .12, rootMargin: '0px 0px -6% 0px' });
 reveals.forEach(element => revealObserver.observe(element));
@@ -194,9 +174,9 @@ if (!reducedMotion && canHover) {
     const rect = heroVisual.getBoundingClientRect();
     const x = (event.clientX - rect.left) / rect.width - .5;
     const y = (event.clientY - rect.top) / rect.height - .5;
-    heroPhoto.style.transform = `rotateY(${x * 4}deg) rotateX(${y * -4}deg) translateZ(0)`;
+    heroPhoto.style.transform = `rotateY(${x * 4}deg) rotateX(${y * -4}deg)`;
   });
-  heroVisual?.addEventListener('pointerleave', () => heroPhoto.style.transform = '');
+  heroVisual?.addEventListener('pointerleave', () => { heroPhoto.style.transform = ''; });
 }
 
 function initHeroCanvas() {
@@ -204,11 +184,8 @@ function initHeroCanvas() {
   if (!canvas || reducedMotion) return;
   const ctx = canvas.getContext('2d');
   const hero = canvas.parentElement;
-  let width = 0;
-  let height = 0;
-  let dpr = 1;
-  let raf = 0;
-  let pointer = { x: .72, y: .34 };
+  let width = 0, height = 0, dpr = 1, raf = 0;
+  const pointer = { x: .72, y: .34 };
   const particles = Array.from({ length: 28 }, (_, i) => ({
     x: ((i * 37) % 101) / 101,
     y: ((i * 61) % 97) / 97,
@@ -216,63 +193,43 @@ function initHeroCanvas() {
     s: .00009 + (i % 5) * .000025,
     p: i * .7
   }));
-
   function resize() {
     const rect = hero.getBoundingClientRect();
-    width = Math.max(1, rect.width);
-    height = Math.max(1, rect.height);
+    width = Math.max(1, rect.width); height = Math.max(1, rect.height);
     dpr = Math.min(window.devicePixelRatio || 1, 1.5);
-    canvas.width = Math.round(width * dpr);
-    canvas.height = Math.round(height * dpr);
-    canvas.style.width = `${width}px`;
-    canvas.style.height = `${height}px`;
+    canvas.width = Math.round(width * dpr); canvas.height = Math.round(height * dpr);
+    canvas.style.width = `${width}px`; canvas.style.height = `${height}px`;
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
   }
-
   hero.addEventListener('pointermove', event => {
     const rect = hero.getBoundingClientRect();
     pointer.x = (event.clientX - rect.left) / rect.width;
     pointer.y = (event.clientY - rect.top) / rect.height;
   }, { passive: true });
-
   function draw(time) {
     ctx.clearRect(0, 0, width, height);
-    const gx = width * pointer.x;
-    const gy = height * pointer.y;
+    const gx = width * pointer.x, gy = height * pointer.y;
     const glow = ctx.createRadialGradient(gx, gy, 0, gx, gy, Math.min(width, height) * .48);
-    glow.addColorStop(0, 'rgba(189,139,60,.055)');
-    glow.addColorStop(1, 'rgba(189,139,60,0)');
-    ctx.fillStyle = glow;
-    ctx.fillRect(0, 0, width, height);
-
+    glow.addColorStop(0, 'rgba(189,139,60,.055)'); glow.addColorStop(1, 'rgba(189,139,60,0)');
+    ctx.fillStyle = glow; ctx.fillRect(0, 0, width, height);
     particles.forEach((particle, index) => {
       const wobble = Math.sin(time * particle.s + particle.p);
       const x = width * (particle.x + wobble * .012);
       const y = height * (particle.y + Math.cos(time * particle.s * .8 + particle.p) * .014);
-      ctx.beginPath();
-      ctx.arc(x, y, particle.r, 0, Math.PI * 2);
-      ctx.fillStyle = `rgba(185,133,50,${.08 + (index % 4) * .025})`;
-      ctx.fill();
+      ctx.beginPath(); ctx.arc(x, y, particle.r, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(185,133,50,${.08 + (index % 4) * .025})`; ctx.fill();
     });
-
-    ctx.beginPath();
-    ctx.arc(width * .78, height * .44, Math.min(width, height) * .31, 0, Math.PI * 2);
-    ctx.strokeStyle = 'rgba(185,133,50,.08)';
-    ctx.lineWidth = 1;
-    ctx.stroke();
-    ctx.beginPath();
-    ctx.arc(width * .78, height * .44, Math.min(width, height) * .39, 0, Math.PI * 2);
-    ctx.strokeStyle = 'rgba(185,133,50,.045)';
-    ctx.stroke();
+    [.31, .39].forEach((radius, index) => {
+      ctx.beginPath(); ctx.arc(width * .78, height * .44, Math.min(width, height) * radius, 0, Math.PI * 2);
+      ctx.strokeStyle = index ? 'rgba(185,133,50,.045)' : 'rgba(185,133,50,.08)'; ctx.lineWidth = 1; ctx.stroke();
+    });
     raf = requestAnimationFrame(draw);
   }
-
   resize();
   window.addEventListener('resize', resize, { passive: true });
   raf = requestAnimationFrame(draw);
   document.addEventListener('visibilitychange', () => {
-    if (document.hidden) cancelAnimationFrame(raf);
-    else raf = requestAnimationFrame(draw);
+    if (document.hidden) cancelAnimationFrame(raf); else raf = requestAnimationFrame(draw);
   });
 }
 initHeroCanvas();
