@@ -3,158 +3,106 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#f6efe5">
+<meta name="theme-color" content="#f4efe7">
 <meta name="description" content="Beleza Leal, clínica de estética e emagrecimento em Bom Jesus do Itabapoana. Método BL, acompanhamento médico, linha própria e cuidados estéticos.">
-<meta property="og:title" content="Beleza Leal | Clínica de Estética e Emagrecimento">
-<meta property="og:description" content="Você não precisa de mais uma dieta. Precisa do método certo. Conheça o Método BL e fale com a equipe.">
 <title>Beleza Leal | Clínica de Estética e Emagrecimento</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Allura&family=Bodoni+Moda:opsz,wght@6..96,400;6..96,500;6..96,600&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="v4-1.css?v=4">
-<link rel="stylesheet" href="v4-2.css?v=4">
-<link rel="stylesheet" href="v4-3.css?v=4">
+<link rel="stylesheet" href="media.css?v=6">
+<link rel="stylesheet" href="site.css?v=6">
 </head>
 <body>
-<div class="progress" aria-hidden="true"><span id="progress"></span></div>
-<svg width="0" height="0" class="sprite" aria-hidden="true">
-<symbol id="wa" viewBox="0 0 24 24"><path d="M20.2 11.7a8.2 8.2 0 0 1-12 7.2L4 20l1.2-4A8.2 8.2 0 1 1 20.2 11.7Z"/><path d="M8.4 7.8c.2-.4.4-.5.8-.5h.5c.2 0 .4.1.6.5l.8 1.8c.1.3.1.5-.1.8l-.7.8c-.2.2-.1.4 0 .7.9 1.5 2.1 2.7 3.7 3.4.3.1.5.1.7-.1l1-1.1c.2-.3.5-.3.8-.2l1.8.8c.4.2.5.3.5.6 0 .3-.2 1.2-.7 1.8-.5.6-1.5 1.1-2.5 1.1-.8 0-1.7-.2-3.3-.9-3-1.4-5-4.5-5.2-4.8-.2-.3-1.3-1.7-1.3-3.2 0-.9.5-1.8.8-2.2Z"/></symbol>
-<symbol id="pin" viewBox="0 0 24 24"><path d="M12 21s6-5.3 6-11a6 6 0 1 0-12 0c0 5.7 6 11 6 11Z"/><circle cx="12" cy="10" r="2"/></symbol>
-<symbol id="arrow" viewBox="0 0 24 24"><path d="M5 12h14M14 7l5 5-5 5"/></symbol>
-<symbol id="spark" viewBox="0 0 24 24"><path d="M12 2l1.6 5.2L19 9l-5.4 1.8L12 16l-1.6-5.2L5 9l5.4-1.8L12 2Z"/><path d="M19 15l.9 2.7L23 19l-3.1 1.1L19 23l-1-2.9L15 19l3-1.3L19 15Z"/></symbol>
-</svg>
-
-<header class="header" id="header">
-  <a class="brand" href="#inicio" aria-label="Beleza Leal, início"><strong>Beleza Leal</strong><span>CLÍNICA DE ESTÉTICA</span></a>
-  <nav class="nav" aria-label="Navegação"><a href="#metodo">Método BL</a><a href="#acompanhamento">Acompanhamento</a><a href="#estetica">Estética</a><a href="#clinica">A clínica</a></nav>
-  <a class="header-wa" data-wa="geral" href="#contato">Falar no WhatsApp <svg><use href="#wa"/></svg></a>
-  <button class="menu" id="menu" aria-label="Abrir menu" aria-expanded="false"><span></span><span></span></button>
+<header class="topbar">
+  <a class="brand" href="#inicio" aria-label="Beleza Leal"><span class="brand-logo" aria-hidden="true"></span></a>
+  <nav><a href="#metodo">Método BL</a><a href="#acompanhamento">Acompanhamento</a><a href="#estetica">Estética</a><a href="#clinica">A clínica</a></nav>
+  <button class="topwa wa" data-kind="geral">Falar com a equipe</button>
+  <button class="menu" aria-label="Abrir menu"><span></span><span></span></button>
 </header>
-<div class="drawer" id="drawer" aria-hidden="true"><a href="#metodo">Método BL</a><a href="#acompanhamento">Acompanhamento</a><a href="#estetica">Estética</a><a href="#clinica">A clínica</a><a data-wa="geral" href="#contato">Falar no WhatsApp</a></div>
-
+<div class="drawer"><a href="#metodo">Método BL</a><a href="#acompanhamento">Acompanhamento</a><a href="#estetica">Estética</a><a href="#clinica">A clínica</a><button class="wa" data-kind="geral">WhatsApp</button></div>
 <main>
 <section class="hero" id="inicio">
-  <div class="hero-rings" aria-hidden="true"><i></i><i></i><i></i></div>
-  <div class="hero-copy reveal">
-    <p class="eyebrow">BELEZA LEAL · BOM JESUS DO ITABAPOANA</p>
-    <div class="hero-wordmark">Beleza Leal</div>
-    <p class="hero-signature">SAÚDE · BELEZA · BEM-ESTAR</p>
-    <h1>Você não precisa de<br><em>mais uma dieta.</em></h1>
-    <p class="hero-thesis">Você precisa do método certo.</p>
-    <p class="hero-desc">Emagrecimento com acompanhamento médico e multidisciplinar, Método BL, linha própria de produtos e cuidados estéticos para cada fase da sua jornada.</p>
-    <div class="hero-actions"><a class="cta primary" data-wa="emagrecimento" href="#contato">Quero começar <svg><use href="#wa"/></svg></a><a class="cta secondary" href="#metodo">Conhecer o Método BL <svg><use href="#arrow"/></svg></a></div>
+  <div class="hero-copy">
+    <p class="eyebrow">CLÍNICA DE ESTÉTICA E EMAGRECIMENTO · BOM JESUS DO ITABAPOANA</p>
+    <h1>Você não precisa de mais uma dieta.<br><span>Precisa do método certo.</span></h1>
+    <p class="hero-lead">Método BL, emagrecimento com acompanhamento médico e multidisciplinar, linha própria e cuidados estéticos pensados para acompanhar a sua jornada de verdade.</p>
+    <div class="actions"><button class="btn gold wa" data-kind="emagrecimento">Quero entender meu caminho</button><a class="btn ghost" href="https://www.google.com/maps/dir/?api=1&destination=Beleza+Leal+Clinica+de+Estetica&destination_place_id=ChIJiZ9BnmJtvAARz3dU5nVmhoI" target="_blank" rel="noopener">Quero chegar</a></div>
+    <div class="chips"><span>Emagrecimento</span><span>Método BL</span><span>Mounjaro</span><span>Flacidez</span><span>Gordura localizada</span><span>Pós-cirúrgico</span></div>
   </div>
-  <aside class="route-card reveal delay-1">
-    <p class="route-label">O QUE VOCÊ ESTÁ VIVENDO AGORA?</p>
-    <h2>Comece pela sua realidade.</h2>
-    <p>Escolha um ponto de partida. A página organiza o caminho e o WhatsApp já abre com o seu interesse.</p>
-    <div class="routes">
-      <button data-route="emagrecimento"><span>01</span><b>Quero emagrecer com acompanhamento</b></button>
-      <button data-route="mounjaro"><span>02</span><b>Já uso Mounjaro e estou sem orientação</b></button>
-      <button data-route="metodo"><span>03</span><b>Quero entender o Método BL</b></button>
-      <button data-route="estetica"><span>04</span><b>Quero tratar flacidez, gordura ou pós-cirúrgico</b></button>
-    </div>
-  </aside>
+  <div class="hero-visual">
+    <div class="hero-photo" role="img" aria-label="Beleza Leal"></div>
+    <div class="hero-caption"><small>BELEZA LEAL</small><strong>Mais que emagrecer:</strong><b>transformar, aprender e manter.</b></div>
+  </div>
 </section>
 
-<section class="facts" aria-label="Informações da Beleza Leal">
-  <div><small>DESDE</small><b>2019</b><span>em Bom Jesus do Itabapoana</span></div>
-  <div><small>FOCO</small><b>Emagrecimento</b><span>com estratégia e acompanhamento</span></div>
-  <div><small>MÉTODO PRÓPRIO</small><b>BL Exclusivo</b><span>transformar, aprender e manter</span></div>
-  <div><small>CONTATO DIRETO</small><b>(22) 99821-7560</b><span>WhatsApp da clínica</span></div>
-</section>
+<section class="brand-strip"><span>MÉTODO PRÓPRIO</span><span>ACOMPANHAMENTO PRÓXIMO</span><span>LINHA BL</span><span>SAÚDE · BELEZA · BEM-ESTAR</span></section>
 
 <section class="method" id="metodo">
-  <div class="method-copy reveal">
-    <p class="eyebrow">MÉTODO BL · BL EXCLUSIVO</p>
-    <h2>Mais que emagrecer:<br><em>transformar, aprender e manter.</em></h2>
-    <p>O Método BL organiza o processo em uma jornada acompanhada. Estratégia personalizada, educação alimentar, leitura de evolução, suporte próximo e ajustes ao longo do caminho.</p>
-    <div class="method-points">
-      <div><span>01</span><b>Emagrecimento inteligente</b><p>Estratégias personalizadas para emagrecer com saúde e constância.</p></div>
-      <div><span>02</span><b>Aprender a manter</b><p>Educação alimentar e hábitos que deixam de ser uma fase temporária.</p></div>
-      <div><span>03</span><b>Mente, corpo e emoções</b><p>O processo não termina no número da balança.</p></div>
-      <div><span>04</span><b>Acompanhamento próximo</b><p>Equipe multidisciplinar, evolução acompanhada e ajustes personalizados.</p></div>
+  <div class="method-copy">
+    <p class="eyebrow">TRATAMENTO BL EXCLUSIVO</p>
+    <h2>Mais que emagrecer:<br><span>transformar, aprender e manter.</span></h2>
+    <p>O Método BL foi construído para tirar o emagrecimento do modo “tentativa e erro”. A proposta combina estratégia personalizada, acompanhamento contínuo, educação para hábitos e leitura de evolução ao longo do processo.</p>
+    <div class="method-list">
+      <article><b>01</b><div><strong>Emagrecimento inteligente</strong><p>Estratégias personalizadas para saúde, constância e evolução.</p></div></article>
+      <article><b>02</b><div><strong>Aprender a manter</strong><p>Educação alimentar e hábitos que possam existir depois da fase de emagrecimento.</p></div></article>
+      <article><b>03</b><div><strong>Mente, corpo e emoções</strong><p>O processo não é reduzido à balança. Rotina e comportamento também entram na conversa.</p></div></article>
+      <article><b>04</b><div><strong>Acompanhamento humano e próximo</strong><p>Equipe, ajustes e plano pensado para a realidade de cada pessoa.</p></div></article>
     </div>
-    <a class="text-cta" data-wa="metodo" href="#contato">Quero saber como funciona <svg><use href="#arrow"/></svg></a>
+    <button class="textlink wa" data-kind="metodo">Quero conhecer o Método BL →</button>
   </div>
-  <aside class="campaign-card reveal delay-1" aria-label="Resumo do BL Exclusivo">
-    <div class="campaign-brand"><small>TRATAMENTO</small><strong>BL Exclusivo</strong><span>BELEZA LEAL</span></div>
-    <p class="campaign-quote">Mais que emagrecer:<br><b>transformar,<br>aprender e manter.</b></p>
-    <div class="campaign-list">
-      <div><i>01</i><span><b>Emagrecimento inteligente</b><small>Estratégias personalizadas para saúde e constância.</small></span></div>
-      <div><i>02</i><span><b>Aprenda a manter o seu peso</b><small>Educação alimentar e hábitos para a vida real.</small></span></div>
-      <div><i>03</i><span><b>Mente, corpo e emoções</b><small>Suporte para atravessar o processo de forma mais inteira.</small></span></div>
-      <div><i>04</i><span><b>Acompanhamento humano e próximo</b><small>Plano individual e ajustes ao longo da jornada.</small></span></div>
-    </div>
-    <div class="campaign-bottom"><span>Você não precisa de mais uma dieta.</span><b>Você precisa do método certo.</b></div>
-  </aside>
+  <div class="bl-panel">
+    <div class="bl-top"><small>TRATAMENTO</small><strong>BL EXCLUSIVO</strong></div>
+    <p>Você não precisa de mais uma dieta.</p><h3>Você precisa do método certo.</h3>
+    <div class="bl-tags"><span>menos peso, mais saúde</span><span>resultados sustentáveis</span><span>você no controle</span><span>ajustes personalizados</span></div>
+    <button class="btn dark wa" data-kind="metodo">Falar sobre o método</button>
+  </div>
 </section>
 
 <section class="care" id="acompanhamento">
-  <div class="care-copy reveal">
+  <div class="care-copy">
     <p class="eyebrow light">JÁ USA MOUNJARO POR CONTA PRÓPRIA?</p>
-    <h2>Você não precisa continuar no escuro.</h2>
-    <p class="care-lead">Muita gente começa sozinha e só depois percebe quantas dúvidas aparecem. Se esse é o seu caso, a Beleza Leal pode ser o lugar para organizar o cuidado sem julgamento.</p>
-    <div class="care-box"><svg><use href="#spark"/></svg><div><b>Acolher não é incentivar automedicação.</b><p>A equipe pode acompanhar sua rotina, evolução e hábitos e orientar quando é necessário atendimento médico. Prescrição, dose, troca ou interrupção de medicamento dependem de profissional habilitado.</p></div></div>
-    <a class="cta gold" data-wa="mounjaro" href="#contato">Já uso e quero acompanhamento <svg><use href="#wa"/></svg></a>
+    <h2>Começou sozinho?<br>Você ainda pode organizar esse cuidado.</h2>
+    <p>Tem gente que começa sem orientação e só depois percebe quantas dúvidas aparecem. A Beleza Leal pode ser uma porta de entrada para acompanhamento da rotina, evolução e hábitos, sem julgamento e sem fingir que automedicação é simples.</p>
+    <div class="warning"><strong>Importante</strong><span>Prescrição, dose, troca ou interrupção de medicamento devem ser tratadas com profissional habilitado. O acompanhamento não substitui consulta médica.</span></div>
+    <button class="btn gold wa" data-kind="mounjaro">Já uso e quero acompanhamento</button>
   </div>
-  <div class="care-rail reveal delay-1">
-    <article><span>01</span><h3>Conte o que já está fazendo</h3><p>Sem esconder uso, sintomas, rotina ou dificuldades.</p></article>
-    <article><span>02</span><h3>Organize o que precisa ser acompanhado</h3><p>Alimentação, composição corporal, evolução, sinais e hábitos.</p></article>
-    <article><span>03</span><h3>Saiba quando procurar o médico</h3><p>Acompanhamento sério também significa reconhecer limites profissionais.</p></article>
-  </div>
+  <div class="care-media" role="img" aria-label="Avaliação na Beleza Leal"></div>
 </section>
 
-<section class="journey" id="estetica">
-  <div class="journey-head reveal"><p class="eyebrow">ESTÉTICA QUE ACOMPANHA A JORNADA</p><h2>O corpo muda durante o processo.<br><em>O cuidado pode mudar junto.</em></h2></div>
+<section class="services" id="estetica">
+  <div class="section-head"><p class="eyebrow">ESTÉTICA DENTRO DA JORNADA</p><h2>O corpo muda. O cuidado acompanha.</h2><p>Nem todo incômodo pede a mesma resposta. A avaliação organiza prioridades e evita protocolo jogado no automático.</p></div>
   <div class="service-grid">
-    <button class="service reveal" data-interest="Flacidez"><span>01</span><b>Flacidez</b><p>Converse com a equipe para entender quais cuidados fazem sentido para o seu momento.</p><i>Tenho interesse</i></button>
-    <button class="service reveal" data-interest="Gordura localizada"><span>02</span><b>Gordura localizada</b><p>A avaliação ajuda a separar expectativa, indicação e estratégia corporal.</p><i>Tenho interesse</i></button>
-    <button class="service reveal" data-interest="Pós-cirúrgico"><span>03</span><b>Pós-cirúrgico</b><p>Cuidado estético no período de recuperação conforme avaliação da equipe.</p><i>Tenho interesse</i></button>
-    <button class="service reveal" data-interest="Linha BL"><span>04</span><b>Linha BL</b><p>Produtos próprios desenvolvidos para apoiar a jornada proposta pelo método.</p><i>Quero conhecer</i></button>
+    <button data-interest="Flacidez"><span>01</span><strong>Flacidez</strong><small>Tenho interesse →</small></button>
+    <button data-interest="Gordura localizada"><span>02</span><strong>Gordura localizada</strong><small>Tenho interesse →</small></button>
+    <button data-interest="Pós-cirúrgico"><span>03</span><strong>Pós-cirúrgico</strong><small>Tenho interesse →</small></button>
+    <button data-interest="Linha BL"><span>04</span><strong>Linha BL</strong><small>Quero conhecer →</small></button>
   </div>
 </section>
 
-<section class="identity-section" id="clinica">
-  <div class="identity-wall reveal">
-    <span class="identity-kicker">BOM JESUS DO ITABAPOANA</span>
-    <strong>Beleza Leal</strong>
-    <small>CLÍNICA DE ESTÉTICA</small>
-    <div class="identity-line">SAÚDE · BELEZA · BEM-ESTAR</div>
-  </div>
-  <div class="identity-copy reveal delay-1">
-    <p class="eyebrow">UMA CLÍNICA COM MÉTODO PRÓPRIO</p>
-    <h2>Não é só sobre perder peso.</h2>
-    <p>É sobre ter estratégia, acompanhamento, um lugar para tirar dúvidas e uma equipe que conhece o processo para além da primeira consulta.</p>
-    <div class="identity-facts">
-      <div><b>Desde 2019</b><span>presença local em Bom Jesus do Itabapoana</span></div>
-      <div><b>Método BL</b><span>uma proposta própria de acompanhamento</span></div>
-      <div><b>Linha própria</b><span>produtos integrados à jornada quando fizer sentido</span></div>
-      <div><b>Equipe multidisciplinar</b><span>acompanhamento próximo e individualizado</span></div>
-    </div>
-    <a class="text-cta" href="https://www.instagram.com/emagrecimento_belezaleal/" target="_blank" rel="noopener">Conhecer a Beleza Leal no Instagram <svg><use href="#arrow"/></svg></a>
+<section class="products">
+  <div class="products-media" role="img" aria-label="Linha própria de produtos Beleza Leal"></div>
+  <div class="products-copy"><p class="eyebrow">LINHA PRÓPRIA BL</p><h2>O método também ganhou uma linha própria.</h2><p>Os produtos BL aparecem dentro da proposta da clínica como apoio à jornada, não como uma prateleira solta. A orientação da equipe define o que faz sentido para cada pessoa.</p><button class="textlink wa" data-kind="linha">Quero conhecer a Linha BL →</button></div>
+</section>
+
+<section class="clinic" id="clinica">
+  <div class="section-head"><p class="eyebrow">POR DENTRO DA BELEZA LEAL</p><h2>Uma clínica real. Uma equipe presente.</h2><p>Atendimento, conversa, avaliação e acompanhamento fazem parte da experiência. É isso que o site precisa mostrar, e não um banco de imagens fingindo ser vocês.</p></div>
+  <div class="clinic-grid">
+    <figure><div class="consult-media" role="img" aria-label="Atendimento na Beleza Leal"></div><figcaption>Conversa e acompanhamento</figcaption></figure>
+    <figure><div class="tech-media" role="img" aria-label="Avaliação e tecnologia na Beleza Leal"></div><figcaption>Avaliação e leitura de evolução</figcaption></figure>
+    <aside class="clinic-card"><span>BELEZA LEAL</span><h3>Saúde, beleza e bem-estar.</h3><p>Uma presença local em Bom Jesus do Itabapoana, com método próprio, linha própria e acompanhamento próximo.</p><a href="https://www.instagram.com/emagrecimento_belezaleal/" target="_blank" rel="noopener">Ver Instagram →</a></aside>
   </div>
 </section>
 
 <section class="location">
-  <div class="location-copy reveal"><p class="eyebrow">BELEZA LEAL · CENTRO</p><h2>Perto o suficiente<br>para acompanhar de verdade.</h2><p>R. Dr. Abreu Lima, 200 · salas 201/202<br>Centro · Bom Jesus do Itabapoana · RJ</p><div class="hours"><span><small>SEG–SEX</small><b>09:00–18:00</b></span><span><small>SÁBADO</small><b>09:00–12:00</b></span></div><div class="location-actions"><a class="cta primary" href="https://www.google.com/maps/dir/?api=1&destination=Beleza+Leal+Clinica+de+Estetica&destination_place_id=ChIJiZ9BnmJtvAARz3dU5nVmhoI" target="_blank" rel="noopener">Quero chegar <svg><use href="#pin"/></svg></a><a class="cta secondary" data-wa="geral" href="#contato">Falar com a clínica <svg><use href="#wa"/></svg></a></div></div>
-  <div class="map-card reveal delay-1" aria-hidden="true"><div class="map-lines"></div><div class="pin"><i></i></div><span>CENTRO</span><strong>BELEZA<br>LEAL</strong><small>Bom Jesus do Itabapoana</small></div>
+  <div><p class="eyebrow">VENHA CONHECER</p><h2>Beleza Leal</h2><p>R. Dr. Abreu Lima, 200 · salas 201/202<br>Centro · Bom Jesus do Itabapoana · RJ</p><div class="hours"><span><b>Segunda a sexta</b> 09h às 18h</span><span><b>Sábado</b> 09h às 12h</span></div></div>
+  <div class="location-actions"><a class="btn gold" href="https://www.google.com/maps/dir/?api=1&destination=Beleza+Leal+Clinica+de+Estetica&destination_place_id=ChIJiZ9BnmJtvAARz3dU5nVmhoI" target="_blank" rel="noopener">Quero chegar</a><button class="btn ghost wa" data-kind="geral">Falar no WhatsApp</button></div>
 </section>
 
 <section class="contact" id="contato">
-  <div class="contact-head reveal"><p class="eyebrow light">COMECE PELA CONVERSA</p><h2>O que você quer cuidar hoje?</h2><p>Escolha seu interesse e a mensagem já chega organizada para a equipe.</p></div>
-  <form class="contact-form reveal delay-1" id="form">
-    <label><span>Seu nome</span><input id="name" autocomplete="name" placeholder="Como podemos te chamar?" required></label>
-    <label><span>Seu interesse</span><select id="interest"><option>Emagrecimento com acompanhamento</option><option>Método BL</option><option>Já uso Mounjaro e quero acompanhamento</option><option>Flacidez</option><option>Gordura localizada</option><option>Pós-cirúrgico</option><option>Linha BL</option><option>Outro cuidado estético</option></select></label>
-    <label><span>Se quiser, conte um pouco</span><textarea id="note" rows="4" placeholder="Ex.: já comecei a emagrecer, quero entender o Método BL, tenho dúvidas sobre meu acompanhamento..."></textarea></label>
-    <button type="submit" class="cta gold">Abrir conversa no WhatsApp <svg><use href="#wa"/></svg></button>
-    <small>O site não substitui consulta ou avaliação profissional. Medicamentos sujeitos a prescrição devem ser utilizados com orientação adequada.</small>
-  </form>
+  <div><p class="eyebrow">CONVERSA PRIMEIRO</p><h2>Conte de onde você está começando.</h2><p>O WhatsApp já abre com o assunto organizado para a equipe entender seu interesse antes da primeira resposta.</p></div>
+  <form id="form"><input id="name" placeholder="Seu nome" required><select id="interest"><option>Emagrecimento com acompanhamento</option><option>Método BL</option><option>Já uso Mounjaro e quero acompanhamento</option><option>Flacidez</option><option>Gordura localizada</option><option>Pós-cirúrgico</option><option>Linha BL</option><option>Outro cuidado estético</option></select><textarea id="note" placeholder="Se quiser, conte um pouco do que você está buscando"></textarea><button class="btn dark" type="submit">Abrir conversa no WhatsApp</button></form>
 </section>
 </main>
-
-<footer><div class="footer-brand"><strong>Beleza Leal</strong><span>SAÚDE · BELEZA · BEM-ESTAR</span></div><div><a href="#metodo">Método BL</a><a href="#acompanhamento">Acompanhamento</a><a href="#estetica">Estética</a></div><small>Bom Jesus do Itabapoana · RJ</small></footer>
-<a class="fab" data-wa="geral" href="#contato" aria-label="Falar com a Beleza Leal no WhatsApp"><svg><use href="#wa"/></svg></a>
-<script src="site-v4.js?v=4"></script>
-</body>
-</html>
+<footer><span class="footer-logo" aria-hidden="true"></span><span>Saúde · Beleza · Bem-estar</span><span>Bom Jesus do Itabapoana · RJ</span></footer>
+<button class="fab wa" data-kind="geral" aria-label="Falar no WhatsApp">WA</button>
+<script src="media-v5/logo.js?v=6"></script>
+<script>if(window.__BLMEDIA&&window.__BLMEDIA.logo){document.documentElement.style.setProperty('--logo-img','url("data:image/webp;base64,'+window.__BLMEDIA.logo+'")')}</script>
+<script src="site.js?v=6"></script>
+</body></html>
