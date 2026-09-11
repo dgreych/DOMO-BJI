@@ -1,0 +1,1 @@
+window.BL7=window.BL7||{};BL7.clinic=BL7.hero||'';
