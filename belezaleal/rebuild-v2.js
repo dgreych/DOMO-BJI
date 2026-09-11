@@ -198,3 +198,34 @@ if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches && window.mat
     hero.style.setProperty('--my', `${y}%`);
   });
 }
+
+const methodSection = document.querySelector('.method-section');
+if (methodSection) {
+  const proof = document.createElement('section');
+  proof.className = 'bl-proof reveal';
+  proof.innerHTML = `
+    <div class="bl-proof-copy">
+      <p class="kicker">MATERIAL REAL DA CLÍNICA</p>
+      <h2>O Método BL já existe fora da tela.</h2>
+      <p>Estratégia de emagrecimento, acompanhamento próximo e uma linha própria de produtos aparecem no material que a Beleza Leal já utiliza hoje. Aqui o site organiza isso sem transformar tudo em catálogo.</p>
+      <div class="bl-proof-points"><span>Estratégia personalizada</span><span>Educação de hábitos</span><span>Acompanhamento contínuo</span><span>Linha BL</span></div>
+      <a class="btn btn-outline" href="#contato" id="proofCta">Quero saber como funciona <svg><use href="#i-arrow"/></svg></a>
+    </div>
+    <figure class="bl-proof-media">
+      <img src="assets/bl-exclusivo.webp" alt="Material original do Tratamento BL Exclusivo da Beleza Leal" loading="lazy" decoding="async">
+      <figcaption>Material original da Beleza Leal, exibido inteiro e sem recorte destrutivo.</figcaption>
+    </figure>`;
+  methodSection.insertAdjacentElement('afterend', proof);
+
+  const style = document.createElement('style');
+  style.textContent = `
+    .bl-proof{max-width:1240px;margin:0 auto;padding:20px var(--pad) 120px;display:grid;grid-template-columns:minmax(0,1fr) minmax(320px,460px);gap:clamp(38px,7vw,90px);align-items:center}.bl-proof-copy h2{margin:0;font:500 clamp(48px,5vw,76px)/.94 "Cormorant Garamond",serif;letter-spacing:-.05em}.bl-proof-copy>p:not(.kicker){margin:22px 0 0;max-width:620px;font-size:13px;line-height:1.75;color:var(--muted)}.bl-proof-points{display:flex;gap:8px;flex-wrap:wrap;margin:24px 0}.bl-proof-points span{padding:9px 11px;border:1px solid var(--line);border-radius:999px;font-size:9px;font-weight:700;color:var(--muted)}.bl-proof-media{margin:0;padding:12px;border-radius:24px;background:#fff;border:1px solid rgba(63,40,32,.12);box-shadow:0 24px 60px rgba(71,45,31,.1)}.bl-proof-media img{display:block;width:100%;height:auto;border-radius:14px}.bl-proof-media figcaption{padding:10px 4px 1px;font-size:8px;line-height:1.45;color:var(--muted);text-align:center}@media(max-width:820px){.bl-proof{grid-template-columns:1fr;padding:10px 18px 78px}.bl-proof-media{max-width:520px;margin:auto}.bl-proof-copy h2{font-size:clamp(44px,12vw,58px)}}`;
+  document.head.appendChild(style);
+
+  proof.querySelector('#proofCta').addEventListener('click', event => {
+    event.preventDefault();
+    openWhatsApp('method');
+  });
+
+  requestAnimationFrame(() => observer.observe(proof));
+}
