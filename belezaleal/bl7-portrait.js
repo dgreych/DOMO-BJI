@@ -1,0 +1,1 @@
+window.BL7=window.BL7||{};BL7.portrait=BL7.hero||'';
