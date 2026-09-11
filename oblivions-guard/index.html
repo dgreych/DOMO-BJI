@@ -1,0 +1,363 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#09040f">
+  <meta name="color-scheme" content="dark">
+  <meta name="description" content="Oblivion's Guard MLBB — comunidade de Mobile Legends com campeonatos, sorteios, parcerias e Raiden Assistant.">
+  <meta property="og:title" content="Oblivion's Guard MLBB">
+  <meta property="og:description" content="Entre no ecossistema Oblivion's Guard: comunidade, campeonatos, sorteios, parcerias e Raiden Assistant.">
+  <meta property="og:type" content="website">
+  <title>Oblivion's Guard MLBB</title>
+  <link rel="manifest" href="./manifest.webmanifest">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Orbitron:wght@600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg:#06030a; --bg2:#0c0712; --panel:rgba(18,10,29,.72);
+      --line:rgba(255,255,255,.09); --text:#f8f5ff; --muted:#aaa1b9;
+      --violet:#9a3cff; --magenta:#ff4fb8; --cyan:#35d9ff; --amber:#ffbd2e;
+      --green:#28d17c; --shadow:0 24px 80px rgba(0,0,0,.48);
+      --radius:24px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth;background:var(--bg)}
+    body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,sans-serif;color:var(--text);background:
+      radial-gradient(1100px 700px at 80% -10%,rgba(154,60,255,.17),transparent 60%),
+      radial-gradient(900px 600px at -10% 35%,rgba(255,79,184,.10),transparent 60%),
+      linear-gradient(180deg,#050208 0%,#09040f 45%,#050208 100%);
+      overflow-x:hidden}
+    body::before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.18;z-index:-1;background-image:
+      linear-gradient(rgba(255,255,255,.018) 1px,transparent 1px),
+      linear-gradient(90deg,rgba(255,255,255,.018) 1px,transparent 1px);
+      background-size:46px 46px;mask-image:linear-gradient(to bottom,black,transparent 88%)}
+    a{color:inherit;text-decoration:none}
+    button{font:inherit}
+    .noise{position:fixed;inset:0;pointer-events:none;z-index:100;opacity:.035;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.55'/%3E%3C/svg%3E")}
+    #particles{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:-1}
+    .wrap{width:min(1180px,calc(100% - 32px));margin:auto}
+    .topbar{position:sticky;top:0;z-index:50;backdrop-filter:blur(18px) saturate(1.25);background:rgba(6,3,10,.68);border-bottom:1px solid var(--line)}
+    .nav{height:76px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+    .brand{display:flex;align-items:center;gap:12px;min-width:0}
+    .brand-mark{width:44px;height:44px;border-radius:14px;object-fit:cover;border:1px solid rgba(255,255,255,.12);box-shadow:0 0 28px rgba(154,60,255,.3)}
+    .brand-copy{min-width:0}
+    .brand-title{font:800 14px/1 Orbitron,sans-serif;letter-spacing:.04em;white-space:nowrap}
+    .brand-sub{margin-top:5px;color:var(--muted);font-size:11px;letter-spacing:.14em;text-transform:uppercase}
+    .navlinks{display:flex;align-items:center;gap:4px}
+    .navlinks a{padding:10px 12px;border-radius:12px;color:#c9c2d2;font-size:13px;font-weight:700;transition:.2s}
+    .navlinks a:hover{color:#fff;background:rgba(255,255,255,.06)}
+    .nav-cta{padding:11px 16px!important;background:linear-gradient(135deg,var(--violet),var(--magenta));color:white!important;box-shadow:0 8px 28px rgba(154,60,255,.22)}
+    .menu{display:none;background:none;border:0;color:white;font-size:28px}
+    .hero{position:relative;min-height:calc(100svh - 76px);display:grid;align-items:center;padding:74px 0 46px}
+    .hero-grid{display:grid;grid-template-columns:1.14fr .86fr;gap:54px;align-items:center}
+    .eyebrow{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border:1px solid rgba(154,60,255,.36);background:rgba(154,60,255,.08);border-radius:999px;color:#d8c0ff;font-size:12px;font-weight:800;letter-spacing:.12em;text-transform:uppercase}
+    .pulse{width:7px;height:7px;background:var(--green);border-radius:50%;box-shadow:0 0 0 0 rgba(40,209,124,.55);animation:pulse 2s infinite}
+    @keyframes pulse{70%{box-shadow:0 0 0 9px rgba(40,209,124,0)}100%{box-shadow:0 0 0 0 rgba(40,209,124,0)}}
+    h1{font:800 clamp(44px,7.4vw,92px)/.92 Orbitron,sans-serif;letter-spacing:-.055em;margin:22px 0 22px;max-width:900px}
+    .gradient{background:linear-gradient(100deg,#fff 0%,#ddc5ff 28%,#ad5bff 55%,#ff61bf 78%,#ffcf61 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+    .lead{font-size:clamp(17px,2vw,21px);line-height:1.7;color:#c2bacd;max-width:700px}
+    .hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;min-height:50px;padding:0 18px;border-radius:15px;border:1px solid rgba(255,255,255,.10);font-weight:800;font-size:14px;transition:.23s;cursor:pointer}
+    .btn:hover{transform:translateY(-2px);filter:brightness(1.08)}
+    .btn-primary{background:linear-gradient(135deg,var(--violet),var(--magenta));border:0;box-shadow:0 16px 40px rgba(154,60,255,.24)}
+    .btn-ghost{background:rgba(255,255,255,.04)}
+    .hero-stats{display:flex;flex-wrap:wrap;gap:22px;margin-top:34px;color:#8e8698;font-size:12px;text-transform:uppercase;letter-spacing:.1em;font-weight:700}
+    .hero-stats strong{color:#fff;font-size:17px;margin-right:5px;letter-spacing:0}
+    .hero-art{position:relative;display:grid;place-items:center;min-height:560px}
+    .orb{position:absolute;width:min(500px,86vw);aspect-ratio:1;border-radius:50%;background:
+      radial-gradient(circle at 50% 48%,rgba(255,255,255,.09),rgba(154,60,255,.09) 36%,rgba(154,60,255,.02) 60%,transparent 72%);
+      box-shadow:0 0 0 1px rgba(255,255,255,.06),0 0 110px rgba(154,60,255,.14);animation:float 6s ease-in-out infinite}
+    @keyframes float{50%{transform:translateY(-10px) scale(1.015)}}
+    .orb::before,.orb::after{content:"";position:absolute;inset:8%;border-radius:50%;border:1px solid rgba(255,255,255,.08)}
+    .orb::after{inset:18%;border-style:dashed;animation:spin 24s linear infinite}
+    @keyframes spin{to{transform:rotate(360deg)}}
+    .logo-card{position:relative;z-index:2;width:min(410px,82vw);border-radius:34px;overflow:hidden;border:1px solid rgba(255,255,255,.12);box-shadow:var(--shadow),0 0 70px rgba(154,60,255,.19);transform:rotate(-1.5deg)}
+    .logo-card img{display:block;width:100%;aspect-ratio:1/1;object-fit:cover}
+    .scanline{position:absolute;inset:0;background:linear-gradient(to bottom,transparent,rgba(53,217,255,.12),transparent);height:16%;animation:scan 5.3s linear infinite;mix-blend-mode:screen}
+    @keyframes scan{from{transform:translateY(-120%)}to{transform:translateY(650%)}}
+    section{padding:96px 0;scroll-margin-top:76px}
+    .section-head{display:grid;grid-template-columns:.8fr 1.2fr;gap:32px;align-items:end;margin-bottom:34px}
+    .kicker{color:#c9a8ff;font-size:12px;text-transform:uppercase;font-weight:800;letter-spacing:.15em}
+    h2{font:800 clamp(31px,4.6vw,54px)/1.05 Orbitron,sans-serif;letter-spacing:-.04em;margin:8px 0 0}
+    .section-head p{color:var(--muted);line-height:1.7;max-width:630px;justify-self:end;margin:0}
+    .grid{display:grid;gap:16px}
+    .cards-3{grid-template-columns:repeat(3,1fr)}
+    .cards-2{grid-template-columns:repeat(2,1fr)}
+    .card{position:relative;overflow:hidden;background:linear-gradient(145deg,rgba(25,14,39,.78),rgba(11,7,17,.74));border:1px solid var(--line);border-radius:var(--radius);padding:25px;box-shadow:0 20px 60px rgba(0,0,0,.24);transition:.25s}
+    .card:hover{transform:translateY(-4px);border-color:rgba(154,60,255,.33)}
+    .card::after{content:"";position:absolute;inset:auto -20% -45% 10%;height:150px;background:radial-gradient(circle,rgba(154,60,255,.15),transparent 70%);pointer-events:none}
+    .icon{width:46px;height:46px;display:grid;place-items:center;border-radius:14px;background:rgba(154,60,255,.12);border:1px solid rgba(154,60,255,.22);font-size:22px}
+    .card h3{margin:18px 0 8px;font-size:20px}
+    .card p{margin:0;color:#aaa1b9;line-height:1.65;font-size:14px}
+    .meta{display:flex;gap:7px;flex-wrap:wrap;margin-top:18px}
+    .chip{padding:7px 9px;border-radius:999px;background:rgba(255,255,255,.05);border:1px solid var(--line);font-size:11px;color:#c8c0d1;font-weight:700}
+    .ecosystem{grid-template-columns:1.1fr .9fr}
+    .feature{min-height:360px;display:flex;flex-direction:column;justify-content:flex-end;background:
+      radial-gradient(700px 250px at 0 100%,rgba(154,60,255,.24),transparent 70%),
+      linear-gradient(145deg,rgba(24,14,37,.9),rgba(9,5,13,.9))}
+    .feature .big-num{font:800 clamp(54px,9vw,110px)/.85 Orbitron,sans-serif;color:rgba(255,255,255,.07);position:absolute;right:18px;top:14px}
+    .feature p{max-width:580px}
+    .mini-stack{display:grid;gap:16px}
+    .community-avatar{width:84px;height:84px;border-radius:24px;object-fit:cover;border:1px solid rgba(255,255,255,.13);box-shadow:0 10px 32px rgba(0,0,0,.35)}
+    .tournament{display:grid;grid-template-columns:1fr 1fr;gap:18px;align-items:stretch}
+    .arena{min-height:420px;background:
+      radial-gradient(circle at 75% 30%,rgba(53,217,255,.11),transparent 28%),
+      radial-gradient(circle at 20% 80%,rgba(255,79,184,.14),transparent 34%),
+      linear-gradient(135deg,#12091d,#08040d)}
+    .arena::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(120deg,transparent 0 18px,rgba(255,255,255,.018) 19px 20px);mask-image:linear-gradient(to bottom,black,transparent)}
+    .arena .vs{font:800 clamp(70px,12vw,142px)/1 Orbitron,sans-serif;color:rgba(255,255,255,.045);position:absolute;right:16px;bottom:0}
+    .arena .content{position:relative;z-index:2;max-width:620px}
+    .badge{display:inline-flex;padding:7px 10px;border-radius:999px;background:rgba(255,189,46,.1);border:1px solid rgba(255,189,46,.25);color:#ffd77d;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.1em}
+    .arena h3,.bot h3{font:800 clamp(28px,4vw,44px)/1.05 Orbitron;margin:18px 0 12px}
+    .arena p,.bot p{font-size:15px;line-height:1.7;color:#b6adbf;max-width:650px}
+    .side-actions{display:grid;gap:18px}
+    .action-card{display:flex;flex-direction:column;justify-content:space-between;min-height:201px}
+    .action-card .btn{margin-top:18px;align-self:flex-start}
+    .prizes{grid-template-columns:repeat(3,1fr)}
+    .prize{min-height:260px}
+    .prize:nth-child(2){transform:translateY(18px)}
+    .prize strong{font:800 46px/1 Orbitron;color:rgba(255,255,255,.08);position:absolute;right:18px;top:18px}
+    .bot{padding:38px;min-height:480px;background:
+      radial-gradient(650px 340px at 100% 0,rgba(53,217,255,.11),transparent 65%),
+      radial-gradient(700px 420px at 0 100%,rgba(154,60,255,.22),transparent 65%),
+      linear-gradient(145deg,#130a20,#07040c)}
+    .bot-grid{display:grid;grid-template-columns:1fr 1fr;gap:30px}
+    .benefits{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+    .benefit{padding:15px;border:1px solid var(--line);border-radius:16px;background:rgba(255,255,255,.035);font-size:13px;color:#c4bbce}
+    .benefit b{display:block;color:#fff;margin-bottom:4px}
+    .owners{grid-template-columns:repeat(2,1fr)}
+    .owner{display:flex;align-items:center;gap:18px}
+    .owner-avatar{width:72px;height:72px;border-radius:22px;display:grid;place-items:center;background:linear-gradient(135deg,var(--violet),var(--magenta));font:800 24px Orbitron}
+    .owner .who{flex:1}
+    .owner .who b{font-size:18px}
+    .owner .who span{display:block;color:var(--muted);font-size:13px;margin-top:4px}
+    .cta-band{padding:34px;border-radius:28px;border:1px solid rgba(154,60,255,.24);background:
+      linear-gradient(135deg,rgba(154,60,255,.17),rgba(255,79,184,.08) 45%,rgba(53,217,255,.06));
+      display:flex;align-items:center;justify-content:space-between;gap:24px}
+    .cta-band h3{font:800 clamp(24px,4vw,38px)/1.05 Orbitron;margin:0}
+    footer{padding:36px 0 48px;border-top:1px solid var(--line);color:#81798b;font-size:12px}
+    .footer-row{display:flex;justify-content:space-between;gap:20px;align-items:center;flex-wrap:wrap}
+    .domo{color:#bdb4c6} .domo b{color:white}
+    .reveal{opacity:0;transform:translateY(22px);transition:.7s cubic-bezier(.2,.7,.2,1)}
+    .reveal.on{opacity:1;transform:none}
+    .mobile-sheet{display:none}
+    @media(max-width:900px){
+      .navlinks{display:none} .menu{display:block}
+      .hero-grid,.section-head,.ecosystem,.tournament,.bot-grid{grid-template-columns:1fr}
+      .hero{padding-top:42px} .hero-art{min-height:460px;order:-1}
+      .cards-3,.prizes{grid-template-columns:1fr 1fr}
+      .cards-2,.owners{grid-template-columns:1fr}
+      .section-head p{justify-self:start}
+      .prize:nth-child(2){transform:none}
+      .mobile-sheet{position:fixed;inset:76px 12px auto;z-index:60;padding:12px;background:rgba(12,7,18,.96);border:1px solid var(--line);border-radius:20px;backdrop-filter:blur(18px);box-shadow:var(--shadow)}
+      .mobile-sheet.open{display:grid}
+      .mobile-sheet a{padding:14px;border-radius:12px;color:#d5cedd;font-weight:700}
+      .mobile-sheet a:hover{background:rgba(255,255,255,.06)}
+    }
+    @media(max-width:620px){
+      .wrap{width:min(100% - 22px,1180px)} .nav{height:68px} .brand-sub{display:none}
+      .hero{min-height:auto;padding:30px 0 58px} .hero-grid{gap:24px} .hero-art{min-height:360px}
+      .logo-card{width:min(315px,82vw);border-radius:26px} h1{font-size:clamp(40px,13vw,62px)} .lead{font-size:16px}
+      section{padding:70px 0} .cards-3,.prizes{grid-template-columns:1fr} .benefits{grid-template-columns:1fr}
+      .card{padding:20px;border-radius:20px} .bot{padding:24px} .cta-band{padding:24px;align-items:flex-start;flex-direction:column}
+      .hero-stats{gap:13px} .hero-stats span{font-size:10px}
+    }
+    @media(prefers-reduced-motion:reduce){
+      *{scroll-behavior:auto!important;animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}
+    }
+  </style>
+</head>
+<body>
+<canvas id="particles"></canvas><div class="noise"></div>
+<header class="topbar">
+  <div class="wrap nav">
+    <a class="brand" href="#inicio">
+      <img class="brand-mark" src="data:image/webp;base64,UklGRpwvAABXRUJQVlA4IJA...TRUNCATED..." alt="Oblivion's Guard">
+      <div class="brand-copy"><div class="brand-title">OBLIVION'S GUARD</div><div class="brand-sub">Mobile Legends Community</div></div>
+    </a>
+    <nav class="navlinks">
+      <a href="#comunidade">Comunidade</a><a href="#campeonatos">Campeonatos</a><a href="#sorteios">Sorteios</a><a href="#parcerias">Parcerias</a><a href="#raiden">Raiden</a>
+      <a class="nav-cta" href="https://chat.whatsapp.com/KaxgvtYtcZ3D5Vwx5nKm1V" target="_blank" rel="noopener">Entrar no chat ↗</a>
+    </nav>
+    <button class="menu" aria-label="Abrir menu" aria-expanded="false">☰</button>
+  </div>
+  <nav class="mobile-sheet wrap">
+    <a href="#comunidade">Comunidade</a><a href="#campeonatos">Campeonatos</a><a href="#sorteios">Sorteios</a><a href="#parcerias">Parcerias</a><a href="#raiden">Raiden Assistant</a>
+    <a href="https://chat.whatsapp.com/KaxgvtYtcZ3D5Vwx5nKm1V" target="_blank" rel="noopener">Entrar no chat ↗</a>
+  </nav>
+</header>
+
+<main>
+<section class="hero" id="inicio">
+  <div class="wrap hero-grid">
+    <div class="reveal on">
+      <span class="eyebrow"><i class="pulse"></i> Comunidade ativa • MLBB</span>
+      <h1>Entre no <span class="gradient">lado épico</span> da Land of Dawn.</h1>
+      <p class="lead">A Oblivion's Guard conecta jogadores, campeonatos, sorteios, parcerias e experiências para quem vive Mobile Legends além da partida.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="https://chat.whatsapp.com/KaxgvtYtcZ3D5Vwx5nKm1V" target="_blank" rel="noopener">⚔️ Entrar no bate-papo</a>
+        <a class="btn btn-ghost" href="#ecossistema">Explorar a comunidade ↓</a>
+      </div>
+      <div class="hero-stats">
+        <span><strong>12+</strong> grupos no ecossistema</span>
+        <span><strong>24/7</strong> comunidade em movimento</span>
+        <span><strong>1</strong> hub para tudo</span>
+      </div>
+    </div>
+    <div class="hero-art reveal on">
+      <div class="orb"></div>
+      <div class="logo-card"><img src="data:image/webp;base64,UklGRpwvAABXRUJQVlA4IJA...TRUNCATED..." alt="Logo Oblivion's Guard"><div class="scanline"></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="comunidade">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div><div class="kicker">01 • Comunidade</div><h2>Mais que um grupo.<br>Um ecossistema.</h2></div>
+      <p>Chat geral, recrutamento, rank, campeonatos, sorteios, parcerias e espaços temáticos. Tudo conectado por uma comunidade feita para jogar, competir e conhecer gente nova.</p>
+    </div>
+    <div class="grid ecosystem" id="ecossistema">
+      <article class="card feature reveal">
+        <span class="big-num">12</span>
+        <div class="icon">🛡️</div>
+        <h3>Oblivion's Guard ML</h3>
+        <p>Uma rede de grupos especializados para cada momento da experiência MLBB. Você entra pelo hub e encontra o espaço certo para jogar, conversar, competir ou divulgar.</p>
+        <div class="meta"><span class="chip">Chat Geral</span><span class="chip">Recrutamento</span><span class="chip">Rank MLBB</span><span class="chip">Comandos</span><span class="chip">Eventos</span></div>
+      </article>
+      <div class="mini-stack">
+        <article class="card reveal">
+          <img class="community-avatar" src="data:image/webp;base64,UklGRkQLAABXRUJQVlA4IDgLAADwXgCdASrDAKoAPm0skUckIqGhMAgAsBIJaQAAbTuS7VWvV70EONbpvWPeZt6q0oYcvOb7aTML2KQKuUZRnPkFYb/5YH7XgONFEAr3LtclNrLB1yvPxBUiX++yxWGrx7R16fY6/6PvJx2J0H58X1ydoQZPn/Nn7n9D/3X/DfbDwvEf+ef9xJQ1k4+5u5f+Et36yRHaQ80wdrxL4KHe1PeFE07go7mmf94dr4eqPrjeF0vhz23bD6+4z/yr+ar5zWeA67sS5dR9h8D5ud77r4avzrddjzQY9vn2Zx9g7hxp9ZZ+uzjE4yW3jE+lfJJ0hDXxpihB8h3U0cO+N6Z/V2uGp9fe+Dr4Hf9z/1/kOtaP/f4l5Y/GF0mE9w+fwU52Ef2w+2H0LvPD4mgCfYf42f6E/obT+axOdBIJGY1YlR3jWF3MLlW+sbimvN0JvCMw8iF+LKkx/MEY0EE5+aSxWbV/MeOBG+L7rH9jct2ps/4KOnBQBL27fKT0q1Y4V6AAUttgrmBNpqGe/zq31+8aL8Lg2P53X8mxw93vGoUSfObM8v6pYgL6/LiVw7csBlSHX+9P+C1fxM1v3y2ANjOWVmNW2f0I09cT1oPnz5SNh3ayiyGVn1VxY7mTQ0AH18+Zh3ve1bZqBdSMmxp+XbB7uBy+I4PNqiFl70PheHPuoOkalxiiGZu+Czc9HOO+9cS+9GfaKjgjsY8nqaI5lYh5wQzsX1CNCd+vS4Rb88yJscjuBq/g9pmhbLJ7PspSTpQ3pY99lhSNvyUm55jfC7tCq9YbmyObmnsL+34jBv01qK0QEdQCAaCTPXFGDvBv+RfK7BFnKegmDnsoG2Hw5rt5h+78SkNeEac8PcXcKWqfrZUp1uEtm3EpIBZoBUCEwqG/hv1gL8B4XEOJGOGpXCqn0mKqFGgHhU0fsoDSRx8tNllQX0w/0fOr9z7xf8x+Z8N/0uCFtt34vt2g3w+5e5p7LkXvxEauXVHvRJtOEtCvKmXVsOa5BMXCxh9ZEdHELiNc3zVvZxwTcPG25EDBi+T0+7O5qBIjl55xdRMnzThwbfHGPpcAz4Pfxws8ot9aw+RFNtmghg8mMFWnh0k3t4K3+SVfkBuUiOyOE00yjmHM95ywwyQbVhsrgQio23Y6XG2N5P0NdFFQiFXPFKXk0EEu0x7oGp7uEjxZeix7oj5MWLXcyiByb+Rq44EYElb32TiOKDbccfwCeXLX4+sNbibpkHi1/cxTXgzDVjKBQbPKyPjKGR2xuxiuSndmtH5zFz9b/3NhOu7na7HxZ07BwduEhKvSGaaAwjKLIu2gXAyGwGTbgIybhEfuquE0Jg1qfZcWVtYwT9q2vnTgqFiS0ZyHNlIvHq5+bU7SEbFw4NMrPeTpHl20HOgStP9PPO5wZRB7x5LUGxP2V86IifX6Hf+9F6e8fx8x+GMB+95flVAEOY5wIQATyw/tv+o/4ExsoceoyudXcdDIkwNOYJJVDLK+anJ21fNpXcwXxD/0iDN06vjIGyu02C1ejYbsHKcl5czsLhYmPMbJJjT49ZxZNQVi3tuNL/O1g7T2AzyZhtveYo0Fl9tKa/0deKyc9bEmANigbpQATnpHQ4bLmMEUop9M0AGp64F6wmqvU4iD3Sy+vB1KdlcAXa/x/7aUg2P6T3F+gQ==" alt="Bate-papo Oblivion's Guard">
+          <h3>💬 Chat Geral</h3><p>O ponto de encontro da comunidade. Conversa, duo, squad, call e aquela discussão completamente civilizada sobre quem trollou a lane.</p>
+          <a class="btn btn-ghost" style="margin-top:18px" href="https://chat.whatsapp.com/KaxgvtYtcZ3D5Vwx5nKm1V" target="_blank" rel="noopener">Abrir no WhatsApp ↗</a>
+        </article>
+        <article class="card reveal">
+          <div class="icon">🎮</div><h3>Grupos temáticos</h3><p>Recrutamento, campeonatos, parceria, links de eventos, RPG e outros canais organizados dentro da comunidade.</p>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="campeonatos">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div><div class="kicker">02 • Competição</div><h2>Campeonatos feitos<br>para sair do casual.</h2></div>
+      <p>Organização para times, jogadores e squads que querem competir. Inscrições, regras, chaveamento e comunicação passam pelo time da Oblivion's Guard.</p>
+    </div>
+    <div class="tournament">
+      <article class="card arena reveal">
+        <div class="content">
+          <span class="badge">🏆 Arena Oblivion</span>
+          <h3>Seu squad merece uma partida que valha história.</h3>
+          <p>Entre nas próximas edições, acompanhe avisos e fale diretamente com a organização para detalhes de inscrição e formato.</p>
+          <a class="btn btn-primary" href="https://wa.me/5527997482314?text=Oi%2C%20Felipe!%20Vim%20pelo%20site%20da%20Oblivion%27s%20Guard%20e%20quero%20saber%20mais%20sobre%20os%20campeonatos." target="_blank" rel="noopener">Saiba mais no WhatsApp ↗</a>
+        </div><div class="vs">VS</div>
+      </article>
+      <div class="side-actions">
+        <article class="card action-card reveal"><div><div class="icon">⚡</div><h3>Quero competir</h3><p>Fale com a organização e receba as informações da próxima disputa.</p></div><a class="btn btn-ghost" href="https://wa.me/5527997482314?text=Oi%2C%20Felipe!%20Quero%20participar%20de%20um%20campeonato%20da%20Oblivion%27s%20Guard." target="_blank" rel="noopener">Falar com Felipe</a></article>
+        <article class="card action-card reveal"><div><div class="icon">📣</div><h3>Quero apoiar um evento</h3><p>Marcas, comunidades e parceiros podem entrar em contato para ações em conjunto.</p></div><a class="btn btn-ghost" href="#parcerias">Ver parcerias</a></article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="sorteios">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div><div class="kicker">03 • Sorteios</div><h2>Recompensas para<br>quem cola com a gente.</h2></div>
+      <p>A comunidade também mantém um espaço dedicado a sorteios e ações especiais. As regras e disponibilidade de cada ação são divulgadas diretamente nos grupos oficiais.</p>
+    </div>
+    <div class="grid prizes">
+      <article class="card prize reveal"><strong>01</strong><div class="icon">🎰</div><h3>Sorteios</h3><p>Acompanhe oportunidades, datas e regras publicadas pela equipe.</p></article>
+      <article class="card prize reveal"><strong>02</strong><div class="icon">🎁</div><h3>Ações especiais</h3><p>Eventos, collabs e ativações da comunidade em momentos selecionados.</p></article>
+      <article class="card prize reveal"><strong>03</strong><div class="icon">🔔</div><h3>Não perder nada</h3><p>Entre no bate-papo para receber os avisos e acessar os canais do ecossistema.</p><a class="btn btn-ghost" style="margin-top:18px" href="https://chat.whatsapp.com/KaxgvtYtcZ3D5Vwx5nKm1V" target="_blank" rel="noopener">Entrar agora</a></article>
+    </div>
+  </div>
+</section>
+
+<section id="parcerias">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div><div class="kicker">04 • Parcerias</div><h2>Crescer junto é<br>bem mais inteligente.</h2></div>
+      <p>Comunidades, squads, criadores e projetos podem propor divulgação cruzada, eventos, colaborações e outras iniciativas. Sem formulário burocrático com 47 campos porque ninguém merece.</p>
+    </div>
+    <div class="grid cards-3">
+      <article class="card reveal"><div class="icon">🤝</div><h3>Comunidades</h3><p>Conexão entre hubs, divulgação e colaboração entre públicos compatíveis.</p></article>
+      <article class="card reveal"><div class="icon">🏹</div><h3>Squads & Clãs</h3><p>Recrutamento, desafios, eventos e aproximação entre equipes.</p></article>
+      <article class="card reveal"><div class="icon">✨</div><h3>Criadores & Projetos</h3><p>Ações conjuntas e oportunidades para movimentar a cena MLBB.</p></article>
+    </div>
+    <div class="cta-band reveal" style="margin-top:18px">
+      <div><div class="kicker">Contato direto</div><h3>Tem uma ideia de parceria?</h3></div>
+      <a class="btn btn-primary" href="https://wa.me/5599981462562?text=Oi%2C%20Hirinho!%20Vim%20pelo%20site%20da%20Oblivion%27s%20Guard%20e%20quero%20conversar%20sobre%20uma%20parceria." target="_blank" rel="noopener">Falar com Hirinho ↗</a>
+    </div>
+  </div>
+</section>
+
+<section id="raiden">
+  <div class="wrap">
+    <article class="card bot reveal">
+      <div class="bot-grid">
+        <div>
+          <span class="badge" style="color:#9defff;border-color:rgba(53,217,255,.25);background:rgba(53,217,255,.08)">⚙️ Raiden Assistant</span>
+          <h3>Seu grupo com mais estrutura, identidade e automação.</h3>
+          <p>A Raiden Assistant é a solução da Oblivion's Guard para comunidades e grupos que querem reduzir trabalho manual e oferecer uma experiência mais organizada aos membros.</p>
+          <p style="font-size:12px;color:#81798b">Recursos e configuração podem variar conforme o grupo e o pacote contratado.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="https://wa.me/5527997482314?text=Oi%2C%20Felipe!%20Vim%20pelo%20site%20da%20Oblivion%27s%20Guard%20e%20quero%20saber%20sobre%20a%20Raiden%20Assistant%20para%20meu%20grupo%2Fcomunidade." target="_blank" rel="noopener">Quero a Raiden no meu grupo ↗</a>
+          </div>
+        </div>
+        <div class="benefits">
+          <div class="benefit"><b>⚡ Menos trabalho manual</b>Automatize rotinas recorrentes e ganhe tempo para cuidar da comunidade.</div>
+          <div class="benefit"><b>🧭 Mais organização</b>Centralize funções e deixe a experiência do grupo mais clara.</div>
+          <div class="benefit"><b>🎭 Identidade própria</b>Recursos configuráveis para combinar com a personalidade da comunidade.</div>
+          <div class="benefit"><b>💬 Experiência dos membros</b>Interações mais rápidas e um grupo que parece realmente bem cuidado.</div>
+          <div class="benefit"><b>🛠️ Configuração assistida</b>Contato direto para entender o cenário e definir o melhor conjunto de recursos.</div>
+          <div class="benefit"><b>📈 Pronta para crescer</b>Uma base mais profissional para comunidades que estão aumentando de tamanho.</div>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section id="contato">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div><div class="kicker">05 • Staff</div><h2>Fale com<br>quem resolve.</h2></div>
+      <p>Dois contatos diretos da administração para campeonatos, parcerias, Raiden Assistant e outras demandas da comunidade.</p>
+    </div>
+    <div class="grid owners">
+      <article class="card owner reveal"><div class="owner-avatar">F</div><div class="who"><b>Felipe Silva Zanesi</b><span>Staff • campeonatos e Raiden Assistant</span></div><a class="btn btn-ghost" href="https://wa.me/5527997482314" target="_blank" rel="noopener">WhatsApp ↗</a></article>
+      <article class="card owner reveal"><div class="owner-avatar">H</div><div class="who"><b>Hirinho</b><span>Staff • parcerias e comunidade</span></div><a class="btn btn-ghost" href="https://wa.me/5599981462562" target="_blank" rel="noopener">WhatsApp ↗</a></article>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap footer-row">
+    <span>© <span id="year"></span> Oblivion's Guard MLBB • Comunidade independente de jogadores.</span>
+    <span class="domo">Experiência digital por <b>Domo</b></span>
+  </div>
+</footer>
+
+<script>
+  const q=(s,c=document)=>c.querySelector(s), qa=(s,c=document)=>[...c.querySelectorAll(s)];
+  q('#year').textContent=new Date().getFullYear();
+  const menu=q('.menu'), sheet=q('.mobile-sheet');
+  menu.addEventListener('click',()=>{const open=sheet.classList.toggle('open');menu.setAttribute('aria-expanded',open);menu.textContent=open?'×':'☰'});
+  qa('.mobile-sheet a').forEach(a=>a.addEventListener('click',()=>{sheet.classList.remove('open');menu.setAttribute('aria-expanded','false');menu.textContent='☰'}));
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target)}}),{threshold:.12});
+  qa('.reveal:not(.on)').forEach(el=>io.observe(el));
+
+  const canvas=q('#particles'), ctx=canvas.getContext('2d'); let W,H,dpr,pts=[],mouse={x:-9999,y:-9999};
+  function resize(){dpr=Math.min(devicePixelRatio||1,2);W=innerWidth;H=innerHeight;canvas.width=W*dpr;canvas.height=H*dpr;canvas.style.width=W+'px';canvas.style.height=H+'px';ctx.setTransform(dpr,0,0,dpr,0,0);pts=Array.from({length:Math.min(66,Math.floor(W/18))},()=>({x:Math.random()*W,y:Math.random()*H,r:Math.random()*1.5+.35,vx:(Math.random()-.5)*.18,vy:(Math.random()-.5)*.18,a:Math.random()*.38+.08}))}
+  addEventListener('resize',resize,{passive:true}); addEventListener('pointermove',e=>{mouse.x=e.clientX;mouse.y=e.clientY},{passive:true}); resize();
+  function draw(){ctx.clearRect(0,0,W,H);for(const p of pts){p.x+=p.vx;p.y+=p.vy;if(p.x<-10)p.x=W+10;if(p.x>W+10)p.x=-10;if(p.y<-10)p.y=H+10;if(p.y>H+10)p.y=-10;const dx=p.x-mouse.x,dy=p.y-mouse.y,d=Math.hypot(dx,dy);let boost=d<160?(1-d/160)*.45:0;ctx.beginPath();ctx.fillStyle=`rgba(${d<160?'180,104,255':'255,255,255'},${p.a+boost})`;ctx.arc(p.x,p.y,p.r+boost*1.8,0,Math.PI*2);ctx.fill()}requestAnimationFrame(draw)} draw();
+
+  if('serviceWorker' in navigator) addEventListener('load',()=>navigator.serviceWorker.register('./sw.js').catch(()=>{}));
+</script>
+</body>
+</html>
