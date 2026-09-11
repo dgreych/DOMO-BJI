@@ -1,0 +1,1 @@
+(()=>{const r=document.documentElement,s=window.BL7||{};for(const k of ['logo','hero','clinic','portrait','products']){if(s[k])r.style.setProperty(`--img-${k}`,`url("data:image/webp;base64,${s[k]}")`);}})();
