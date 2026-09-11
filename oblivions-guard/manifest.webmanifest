@@ -1,0 +1,10 @@
+{
+  "name": "Oblivion's Guard MLBB",
+  "short_name": "Oblivion's Guard",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#06030a",
+  "theme_color": "#09040f",
+  "description": "Comunidade Oblivion's Guard de Mobile Legends."
+}
