@@ -3,249 +3,35 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#09070e">
+<meta name="theme-color" content="#0a0710">
+<meta name="description" content="Oblivion's Guard — comunidade brasileira de Mobile Legends: Bang Bang. Campeonatos, sorteios, parcerias e Raiden Assistant.">
 <title>Oblivion's Guard | Mobile Legends: Bang Bang</title>
-<meta name="description" content="Oblivion's Guard — comunidade de Mobile Legends: Bang Bang no WhatsApp.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
 <style>
-:root{
-  --bg:#09070e;
-  --panel:#111019;
-  --panel2:#17141f;
-  --text:#f7f5fb;
-  --muted:#aaa3b3;
-  --line:rgba(255,255,255,.10);
-  --purple:#9c56ff;
-  --pink:#e251c4;
-  --gold:#f1c56b;
-  --green:#25d366;
-  --sidebar:248px;
-}
-*{box-sizing:border-box}
-html,body{margin:0;width:100%;min-height:100%;max-width:100%;overflow-x:hidden;background:var(--bg);color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
-body{background:linear-gradient(180deg,#0b0910,#08070c)}
-a{color:inherit;text-decoration:none}
-button{font:inherit;color:inherit}
-img{max-width:100%;display:block}
-.app{min-height:100svh;display:grid;grid-template-columns:var(--sidebar) minmax(0,1fr)}
-.sidebar{position:sticky;top:0;height:100svh;padding:26px 18px;border-right:1px solid var(--line);background:rgba(10,8,14,.96);display:flex;flex-direction:column;z-index:30}
-.brand{padding:8px 10px 24px}
-.brand small{display:block;color:#8e8798;font-size:10px;letter-spacing:.14em;text-transform:uppercase;font-weight:800;margin-bottom:7px}
-.brand strong{display:block;font-size:22px;line-height:1;letter-spacing:-.03em}
-.brand span{display:block;margin-top:6px;color:#b9b1c0;font-size:12px}
-.nav{display:grid;gap:6px}
-.nav button{appearance:none;border:0;background:transparent;text-align:left;padding:13px 14px;border-radius:14px;color:#9991a3;font-weight:750;font-size:14px;cursor:pointer;transition:.18s}
-.nav button:hover{background:rgba(255,255,255,.045);color:#fff}
-.nav button.active{background:#1a1521;color:#fff;box-shadow:inset 0 0 0 1px rgba(255,255,255,.07)}
-.nav button.active:before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--purple);margin-right:9px;box-shadow:0 0 14px rgba(156,86,255,.9)}
-.side-footer{margin-top:auto;padding:16px 10px 4px;color:#7f7888;font-size:11px;line-height:1.5}
-.side-footer b{color:#c6c0cb}
-.content{min-width:0;min-height:100svh}
-.top-mobile{display:none}
-.page{display:none;min-height:100svh;padding:34px}
-.page.active{display:block;animation:pagein .22s ease}
-@keyframes pagein{from{opacity:.35;transform:translateY(4px)}to{opacity:1;transform:none}}
-.home{padding:0;position:relative;overflow:hidden}
-.home::before{content:"";position:absolute;inset:0;background:url("https://my.mpl.mobilelegends.com/images/m7/kv/M7_KEY%20VISUAL_LANDSCAPE.webp") 67% center/cover no-repeat;filter:saturate(.82) brightness(.72)}
-.home::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(8,6,12,.97) 0%,rgba(8,6,12,.88) 39%,rgba(8,6,12,.30) 70%,rgba(8,6,12,.18) 100%),linear-gradient(0deg,rgba(8,6,12,.86) 0%,transparent 42%)}
-.home-inner{position:relative;z-index:2;min-height:100svh;display:flex;align-items:flex-end;padding:58px;max-width:760px}
-.game{font-size:11px;font-weight:900;letter-spacing:.15em;text-transform:uppercase;color:#e7ddf5;display:flex;align-items:center;gap:9px}
-.game:before{content:"";width:28px;height:1px;background:var(--gold)}
-h1{font-size:clamp(62px,8vw,112px);line-height:.82;letter-spacing:-.065em;margin:18px 0 20px}
-h1 span{display:block;color:#c6a1ff}
-.home p{font-size:18px;line-height:1.55;color:#d4ced8;max-width:540px;margin:0 0 26px}
-.actions{display:flex;gap:10px;flex-wrap:wrap}
-.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 17px;border-radius:13px;border:1px solid var(--line);background:#17131d;font-weight:800;font-size:14px;cursor:pointer}
-.btn.primary{background:#fff;color:#0a0710;border-color:#fff}
-.btn.whatsapp{background:var(--green);color:#06140b;border-color:var(--green)}
-.btn.ghost{background:rgba(10,8,14,.62);backdrop-filter:blur(12px)}
-.home-meta{display:flex;gap:18px;flex-wrap:wrap;margin-top:28px;color:#9e97a6;font-size:12px}
-.home-meta b{color:#fff}
-.section-head{display:flex;align-items:flex-end;justify-content:space-between;gap:30px;margin:4px 0 26px}
-.section-head small{display:block;color:#aa8ed6;text-transform:uppercase;letter-spacing:.13em;font-size:10px;font-weight:900;margin-bottom:8px}
-.section-head h2{font-size:clamp(40px,5vw,72px);line-height:.92;letter-spacing:-.05em;margin:0}
-.section-head p{max-width:450px;margin:0;color:var(--muted);line-height:1.55;font-size:14px}
-.feature{display:grid;grid-template-columns:minmax(0,1fr) minmax(300px,.72fr);gap:18px}
-.feature-copy,.feature-art,.raiden-copy,.raiden-side,.groups-wrap{border:1px solid var(--line);border-radius:26px;background:linear-gradient(145deg,#15111d,#0e0c13)}
-.feature-copy{padding:34px;display:flex;flex-direction:column;justify-content:space-between;min-height:510px}
-.feature-copy .eyebrow{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#a99cb8;font-weight:850}
-.feature-copy h3{font-size:clamp(42px,5vw,70px);line-height:.92;letter-spacing:-.05em;margin:16px 0 18px}
-.feature-copy p{color:#b4adba;line-height:1.62;font-size:15px;max-width:550px;margin:0}
-.feature-art{position:relative;overflow:hidden;min-height:510px;background:url("https://my.mpl.mobilelegends.com/images/m7/kv/M7_KEY%20VISUAL_LANDSCAPE.webp") 72% center/cover no-repeat}
-.feature-art:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,7,14,.06),rgba(10,7,14,.50))}
-.feature-art .art-label{position:absolute;z-index:2;left:22px;bottom:20px;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#eee9f4;font-weight:800;background:rgba(8,6,12,.65);border:1px solid rgba(255,255,255,.12);padding:9px 11px;border-radius:10px;backdrop-filter:blur(10px)}
-.detail-list{display:grid;gap:0;margin-top:28px;border-top:1px solid var(--line)}
-.detail{display:flex;justify-content:space-between;gap:20px;padding:15px 0;border-bottom:1px solid var(--line);font-size:13px}
-.detail span{color:#8f8797}.detail b{font-weight:750;text-align:right}
-.raiden-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(280px,.78fr);gap:18px}
-.raiden-copy{padding:36px;min-height:540px;display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden}
-.raiden-copy:before{content:"";position:absolute;width:380px;height:380px;border-radius:50%;right:-180px;top:-180px;background:radial-gradient(circle,rgba(53,217,255,.12),transparent 68%)}
-.raiden-badge{width:max-content;padding:7px 10px;border-radius:999px;border:1px solid rgba(76,210,255,.20);color:#c9f4ff;background:rgba(76,210,255,.06);font-size:11px;text-transform:uppercase;letter-spacing:.1em;font-weight:850}
-.raiden-copy h3{font-size:clamp(50px,6vw,82px);line-height:.88;letter-spacing:-.055em;margin:18px 0}
-.raiden-copy p{color:#bbb4c2;line-height:1.6;max-width:540px;margin:0}
-.raiden-side{padding:22px;display:grid;gap:10px;align-content:start}
-.benefit{padding:18px;border-radius:18px;background:#191520;border:1px solid var(--line)}
-.benefit b{display:block;font-size:14px;margin-bottom:5px}.benefit span{display:block;color:#97909f;font-size:13px;line-height:1.45}
-.groups-wrap{padding:20px}
-.groups{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
-.group{padding:18px;border-radius:18px;background:#191520;border:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;gap:18px}
-.group-main b{display:block;font-size:15px}.group-main span{display:block;margin-top:4px;color:#8e8795;font-size:12px}
-.group .tag{font-size:10px;text-transform:uppercase;letter-spacing:.08em;color:#b5abc1;padding:7px 9px;border:1px solid var(--line);border-radius:999px;white-space:nowrap}
-.group.link{background:linear-gradient(145deg,#182019,#111813);border-color:rgba(37,211,102,.22)}
-.group.link .tag{color:#b7f0ca;border-color:rgba(37,211,102,.24)}
-.contact-card{display:grid;grid-template-columns:1fr auto;align-items:center;gap:18px;padding:24px;border-radius:20px;background:#191520;border:1px solid var(--line);margin-top:14px}
-.contact-card small{display:block;color:#8e8796;text-transform:uppercase;letter-spacing:.11em;font-size:10px;font-weight:850;margin-bottom:6px}
-.contact-card h3{font-size:28px;letter-spacing:-.03em;margin:0}.contact-card p{color:#9e97a4;margin:4px 0 0;font-size:13px}
-.bottom-nav{display:none}
-@media(max-width:980px){
-  .app{grid-template-columns:1fr}.sidebar{display:none}.top-mobile{display:flex;position:sticky;top:0;z-index:50;height:62px;align-items:center;justify-content:space-between;padding:0 14px;border-bottom:1px solid var(--line);background:rgba(9,7,14,.94);backdrop-filter:blur(16px)}
-  .top-mobile strong{font-size:14px;letter-spacing:-.02em}.top-mobile a{font-size:12px;font-weight:850;padding:9px 11px;border-radius:10px;background:var(--green);color:#07140b}
-  .page{min-height:calc(100svh - 62px);padding:20px 14px 92px}.home{padding:0}.home-inner{min-height:calc(100svh - 62px);padding:28px 20px 112px;align-items:flex-end}
-  .home::before{background-position:66% center}.home::after{background:linear-gradient(0deg,rgba(8,6,12,.98) 0%,rgba(8,6,12,.89) 39%,rgba(8,6,12,.28) 72%,rgba(8,6,12,.10) 100%)}
-  h1{font-size:clamp(58px,16vw,86px)}.home p{font-size:16px;max-width:33ch}
-  .feature,.raiden-grid{grid-template-columns:1fr}.feature-copy,.feature-art,.raiden-copy{min-height:auto}.feature-copy{padding:24px}.feature-art{min-height:360px;order:-1}.raiden-copy{padding:26px}.raiden-side{padding:16px}
-  .section-head{display:block}.section-head p{margin-top:12px}.groups{grid-template-columns:1fr}.contact-card{grid-template-columns:1fr}.contact-card .btn{width:100%}
-  .bottom-nav{position:fixed;z-index:60;left:10px;right:10px;bottom:calc(10px + env(safe-area-inset-bottom));display:grid;grid-template-columns:repeat(5,1fr);padding:7px;border-radius:18px;background:rgba(17,14,22,.94);backdrop-filter:blur(18px);border:1px solid rgba(255,255,255,.11);box-shadow:0 18px 60px rgba(0,0,0,.45)}
-  .bottom-nav button{appearance:none;border:0;background:transparent;padding:9px 4px;border-radius:12px;color:#8d8595;font-size:9px;font-weight:800;white-space:nowrap}.bottom-nav button.active{background:#211927;color:#fff}
-}
-@media(max-width:520px){
-  .actions{display:grid;grid-template-columns:1fr}.actions .btn{width:100%}.home-meta{gap:10px}.feature-art{min-height:300px}.feature-copy h3{font-size:44px}.raiden-copy h3{font-size:50px}.section-head h2{font-size:44px}.group{padding:15px}.group .tag{font-size:9px}
-}
-@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+:root{--bg:#08060c;--panel:#100d15;--line:rgba(255,255,255,.09);--text:#fff;--muted:#aaa3b1;--violet:#a651ff;--pink:#ef59bd;--green:#25d366;--max:1180px}
+*{box-sizing:border-box;min-width:0}html{scroll-behavior:smooth;background:var(--bg);overflow-x:hidden}body{margin:0;max-width:100vw;overflow-x:hidden;background:var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,sans-serif}a{color:inherit;text-decoration:none}img{display:block;max-width:100%}button{font:inherit}.wrap{width:min(var(--max),calc(100% - 32px));margin:auto}
+.top{position:sticky;top:0;z-index:50;background:rgba(8,6,12,.84);backdrop-filter:blur(18px);border-bottom:1px solid var(--line)}.nav{height:72px;display:flex;align-items:center;justify-content:space-between;gap:22px}.brand{display:flex;align-items:center;gap:11px;font-family:"Space Grotesk",sans-serif;font-weight:700}.brandmark{width:38px;height:38px;border-radius:10px;object-fit:cover;border:1px solid rgba(255,255,255,.12)}.links{display:flex;align-items:center;gap:4px}.links a{padding:10px 11px;border-radius:10px;color:#c3bdc9;font-size:13px;font-weight:700}.links a:hover{background:rgba(255,255,255,.05);color:#fff}.join{display:inline-flex;align-items:center;justify-content:center;min-height:42px;padding:0 16px;border-radius:12px;background:#fff;color:#0a0710!important;font-weight:800!important}.menu{display:none;background:none;border:0;color:#fff;font-size:26px}.mobilemenu{display:none;position:fixed;left:12px;right:12px;top:78px;z-index:60;padding:10px;background:#0d0a11;border:1px solid var(--line);border-radius:16px;box-shadow:0 20px 60px #000}.mobilemenu.open{display:grid}.mobilemenu a{padding:14px;border-radius:10px;font-weight:700}
+.hero{position:relative;min-height:760px;display:flex;align-items:center;border-bottom:1px solid var(--line);overflow:hidden;background:linear-gradient(90deg,rgba(8,6,12,.98) 0%,rgba(8,6,12,.91) 42%,rgba(8,6,12,.42) 72%,rgba(8,6,12,.18) 100%),url("https://en.moonton.com/upload/image/20260518/b4881828df854d8d2acea25daabf82a1.png") 70% center/cover no-repeat}.hero::after{content:"";position:absolute;inset:auto 0 0;height:180px;background:linear-gradient(transparent,var(--bg));pointer-events:none}.hero-grid{position:relative;z-index:2;display:grid;grid-template-columns:minmax(0,590px) 1fr;gap:70px;align-items:center;padding:80px 0}.kicker{display:inline-flex;align-items:center;gap:8px;font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:#e1d7ea}.kicker::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--pink);box-shadow:0 0 14px var(--pink)}.hero h1{font-family:"Space Grotesk",sans-serif;font-size:clamp(58px,8vw,98px);line-height:.89;letter-spacing:-.055em;margin:16px 0 18px}.hero p{margin:0;max-width:560px;color:#d3cdd8;font-size:18px;line-height:1.6}.hero-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 17px;border-radius:12px;border:1px solid rgba(255,255,255,.14);background:rgba(10,7,14,.7);font-size:14px;font-weight:800;transition:.18s}.btn:hover{transform:translateY(-2px);border-color:rgba(255,255,255,.28)}.btn.primary{background:#fff;color:#0c0811;border-color:#fff}.btn.whatsapp{background:var(--green);color:#05170b;border-color:var(--green)}.logo-panel{justify-self:end;width:min(390px,100%);padding:14px;border-radius:28px;background:rgba(14,8,20,.55);border:1px solid rgba(255,255,255,.12);backdrop-filter:blur(12px);box-shadow:0 30px 90px rgba(0,0,0,.45)}.logo-panel img{width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:20px}
+.section{padding:92px 0}.section.alt{background:#0b0810;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}.head{display:grid;grid-template-columns:.8fr 1.2fr;gap:40px;align-items:end;margin-bottom:30px}.eyebrow{font-size:11px;font-weight:800;letter-spacing:.13em;text-transform:uppercase;color:#c79eff;margin-bottom:7px}.head h2{font-family:"Space Grotesk",sans-serif;font-size:clamp(34px,5vw,56px);line-height:1;letter-spacing:-.04em;margin:0}.head p{margin:0;color:var(--muted);line-height:1.65;max-width:560px;justify-self:end}.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.tile{position:relative;min-height:230px;border-radius:20px;border:1px solid var(--line);background:linear-gradient(160deg,#15101c,#0e0b12);padding:22px;display:flex;flex-direction:column;justify-content:space-between;overflow:hidden}.tile::before{content:"";position:absolute;inset:auto -50px -70px auto;width:180px;height:180px;border-radius:50%;background:radial-gradient(circle,rgba(166,81,255,.18),transparent 70%)}.tile .icon{font-size:24px}.tile h3{font-family:"Space Grotesk",sans-serif;font-size:24px;margin:20px 0 8px}.tile p{margin:0;color:#aaa3b1;line-height:1.55;font-size:13px}.tile a{margin-top:20px;font-weight:800;font-size:13px;position:relative;z-index:2}
+.showcase{display:grid;grid-template-columns:1.15fr .85fr;gap:16px}.visual{position:relative;min-height:470px;border-radius:26px;overflow:hidden;border:1px solid var(--line);background:#111}.visual img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}.visual::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(7,5,10,.88),rgba(7,5,10,.06) 64%)}.visual-copy{position:absolute;left:28px;right:28px;bottom:26px;z-index:2}.visual-copy h3{font-family:"Space Grotesk",sans-serif;font-size:34px;margin:0 0 8px}.visual-copy p{margin:0;color:#d0c9d4;max-width:46ch;line-height:1.55}.sidecards{display:grid;gap:16px}.sidecard{padding:26px;border-radius:22px;border:1px solid var(--line);background:#100d15;display:flex;flex-direction:column;justify-content:space-between;min-height:227px}.sidecard h3{font-family:"Space Grotesk",sans-serif;font-size:28px;margin:0 0 8px}.sidecard p{margin:0;color:var(--muted);line-height:1.55;font-size:14px}
+.raiden{display:grid;grid-template-columns:1fr 1fr;gap:18px}.bot{padding:34px;border-radius:26px;border:1px solid rgba(166,81,255,.23);background:radial-gradient(circle at 100% 0,rgba(166,81,255,.14),transparent 38%),linear-gradient(145deg,#15101c,#0d0a12)}.bot h2{font-family:"Space Grotesk",sans-serif;font-size:clamp(38px,5vw,60px);margin:10px 0 12px}.bot p{color:#bcb5c2;line-height:1.65;max-width:52ch}.benefits{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:22px}.benefit{padding:14px;border:1px solid var(--line);border-radius:14px;background:rgba(255,255,255,.025);font-size:13px;color:#bdb5c3}.benefit b{display:block;color:#fff;margin-bottom:4px}.contacts{display:grid;gap:14px}.contact{padding:24px;border:1px solid var(--line);border-radius:22px;background:#0f0c13}.contact small{font-size:11px;letter-spacing:.11em;text-transform:uppercase;color:#81798a;font-weight:800}.contact h3{font-family:"Space Grotesk",sans-serif;font-size:32px;margin:5px 0 6px}.contact p{margin:0 0 18px;color:#aaa3b1;font-size:14px}.final{padding:40px 0 90px}.finalbox{padding:34px;border-radius:26px;border:1px solid rgba(166,81,255,.24);background:linear-gradient(135deg,rgba(166,81,255,.16),rgba(239,89,189,.06));display:flex;align-items:center;justify-content:space-between;gap:24px}.finalbox h2{font-family:"Space Grotesk",sans-serif;font-size:clamp(32px,5vw,50px);margin:0}.finalbox p{margin:5px 0 0;color:#b5aebc}footer{border-top:1px solid var(--line);padding:28px 0 40px;color:#756e7a;font-size:11px}.foot{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}.reveal{opacity:0;transform:translateY(14px);transition:.55s ease}.reveal.on{opacity:1;transform:none}
+@media(max-width:900px){.links{display:none}.menu{display:block}.hero{min-height:720px;background-position:60% center}.hero-grid{grid-template-columns:1fr;padding:60px 0;gap:34px}.logo-panel{justify-self:start;width:230px}.grid4{grid-template-columns:1fr 1fr}.showcase,.raiden,.head{grid-template-columns:1fr}.head p{justify-self:start}}
+@media(max-width:620px){.wrap{width:calc(100% - 24px)}.nav{height:64px}.brandmark{width:34px;height:34px}.brand{font-size:14px}.hero{min-height:690px;background-position:63% top;background-size:auto 70%;background-repeat:no-repeat;background-color:#08060c}.hero::before{content:"";position:absolute;inset:0;background:linear-gradient(0deg,#08060c 0%,rgba(8,6,12,.94) 42%,rgba(8,6,12,.22) 100%)}.hero-grid{padding:250px 0 48px;gap:24px}.hero h1{font-size:clamp(48px,15vw,70px);margin:12px 0}.hero p{font-size:15px;max-width:34ch}.hero-actions{display:grid;grid-template-columns:1fr}.btn{width:100%}.logo-panel{display:none}.section{padding:68px 0}.grid4{grid-template-columns:1fr}.tile{min-height:175px}.visual{min-height:430px}.visual-copy{left:20px;right:20px;bottom:20px}.visual-copy h3{font-size:28px}.benefits{grid-template-columns:1fr}.finalbox{display:block;padding:25px}.finalbox .btn{margin-top:18px}}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
 </style>
 </head>
 <body>
-<div class="app">
-  <aside class="sidebar">
-    <div class="brand">
-      <small>Mobile Legends: Bang Bang</small>
-      <strong>Oblivion's Guard</strong>
-      <span>Comunidade no WhatsApp</span>
-    </div>
-    <nav class="nav" aria-label="Navegação principal">
-      <button class="active" data-page="inicio">Início</button>
-      <button data-page="campeonatos">Campeonatos</button>
-      <button data-page="sorteios">Sorteios</button>
-      <button data-page="parcerias">Parcerias</button>
-      <button data-page="raiden">Raiden Assistant</button>
-      <button data-page="grupos">Grupos</button>
-    </nav>
-    <div class="side-footer">Oblivion's Guard<br><b>Mobile Legends: Bang Bang</b><br><br>Site por Domo</div>
-  </aside>
-
-  <div class="content">
-    <header class="top-mobile"><strong>Oblivion's Guard</strong><a href="https://chat.whatsapp.com/KaxgvtYtcZ3D5Vwx5nKm1V" target="_blank" rel="noopener">Entrar</a></header>
-
-    <section class="page home active" data-panel="inicio">
-      <div class="home-inner">
-        <div>
-          <div class="game">Mobile Legends: Bang Bang</div>
-          <h1>Oblivion's<span>Guard</span></h1>
-          <p>Uma comunidade para jogar, competir, participar de sorteios e conhecer outros jogadores de MLBB.</p>
-          <div class="actions">
-            <a class="btn whatsapp" href="https://chat.whatsapp.com/KaxgvtYtcZ3D5Vwx5nKm1V" target="_blank" rel="noopener">Entrar no bate-papo</a>
-            <button class="btn ghost" data-go="campeonatos">Ver campeonatos</button>
-          </div>
-          <div class="home-meta"><span><b>MLBB</b> comunidade</span><span><b>WhatsApp</b> grupos ativos</span><span><b>Raiden</b> assistant</span></div>
-        </div>
-      </div>
-    </section>
-
-    <section class="page" data-panel="campeonatos">
-      <div class="section-head"><div><small>Competitivo</small><h2>Campeonatos</h2></div><p>Informações sobre próximas edições, inscrições e participação.</p></div>
-      <div class="feature">
-        <div class="feature-copy">
-          <div><div class="eyebrow">Oblivion's Guard</div><h3>Quer jogar o próximo?</h3><p>Fale com Felipe para saber como participar dos campeonatos organizados ou divulgados pela comunidade.</p></div>
-          <div><div class="detail-list"><div class="detail"><span>Jogo</span><b>Mobile Legends: Bang Bang</b></div><div class="detail"><span>Contato</span><b>Felipe</b></div></div><div class="actions" style="margin-top:22px"><a class="btn whatsapp" href="https://wa.me/5527997482314?text=Oi%20Felipe%2C%20vim%20pelo%20site%20da%20Oblivion%27s%20Guard%20e%20quero%20saber%20mais%20sobre%20os%20campeonatos." target="_blank" rel="noopener">Falar com Felipe</a></div></div>
-        </div>
-        <div class="feature-art"><span class="art-label">Mobile Legends: Bang Bang</span></div>
-      </div>
-    </section>
-
-    <section class="page" data-panel="sorteios">
-      <div class="section-head"><div><small>Comunidade</small><h2>Sorteios</h2></div><p>As chamadas e regras são divulgadas dentro dos grupos.</p></div>
-      <div class="feature">
-        <div class="feature-copy">
-          <div><div class="eyebrow">Sorteios da comunidade</div><h3>Entrou, acompanhou.</h3><p>Quando houver sorteio ativo, os avisos aparecem no WhatsApp da Oblivion's Guard. Sem formulário escondido, sem caça ao tesouro.</p></div>
-          <div class="actions"><a class="btn whatsapp" href="https://chat.whatsapp.com/KaxgvtYtcZ3D5Vwx5nKm1V" target="_blank" rel="noopener">Abrir o bate-papo</a></div>
-        </div>
-        <div class="feature-art" style="background-position:56% center"><span class="art-label">MLBB · comunidade</span></div>
-      </div>
-    </section>
-
-    <section class="page" data-panel="parcerias">
-      <div class="section-head"><div><small>Conexões</small><h2>Parcerias</h2></div><p>Comunidades, squads e projetos de Mobile Legends podem falar direto com a equipe.</p></div>
-      <div class="feature">
-        <div class="feature-copy">
-          <div><div class="eyebrow">Parcerias e divulgação</div><h3>Tem uma ideia boa?</h3><p>Apresente a proposta para Hiro. A conversa é direta e acontece pelo WhatsApp.</p></div>
-          <div class="actions"><a class="btn whatsapp" href="https://wa.me/5599981462562?text=Oi%20Hiro%2C%20vim%20pelo%20site%20da%20Oblivion%27s%20Guard%20e%20quero%20conversar%20sobre%20parceria." target="_blank" rel="noopener">Falar com Hiro</a></div>
-        </div>
-        <div class="feature-art" style="background-position:78% center"><span class="art-label">Oblivion's Guard · MLBB</span></div>
-      </div>
-    </section>
-
-    <section class="page" data-panel="raiden">
-      <div class="section-head"><div><small>Bot da comunidade</small><h2>Raiden Assistant</h2></div><p>Para comunidades e grupos que querem levar a assistente da Oblivion's Guard para o próprio WhatsApp.</p></div>
-      <div class="raiden-grid">
-        <div class="raiden-copy">
-          <div><span class="raiden-badge">Raiden Assistant</span><h3>Leve a Raiden para o seu grupo.</h3><p>Consulte com a equipe os recursos disponíveis, configuração, disponibilidade e condições de uso.</p></div>
-          <div class="actions"><a class="btn whatsapp" href="https://wa.me/5527997482314?text=Oi%20Felipe%2C%20vim%20pelo%20site%20da%20Oblivion%27s%20Guard%20e%20quero%20saber%20mais%20sobre%20a%20Raiden%20Assistant." target="_blank" rel="noopener">Conhecer a Raiden</a></div>
-        </div>
-        <div class="raiden-side">
-          <div class="benefit"><b>Feita para comunidades</b><span>Uso pensado para grupos no WhatsApp.</span></div>
-          <div class="benefit"><b>Configuração acompanhada</b><span>A equipe orienta a implantação no grupo.</span></div>
-          <div class="benefit"><b>Recursos apresentados pela equipe</b><span>Você entende o que está disponível antes de contratar.</span></div>
-          <div class="benefit"><b>Contato direto</b><span>Negociação com os responsáveis pela Oblivion's Guard.</span></div>
-        </div>
-      </div>
-    </section>
-
-    <section class="page" data-panel="grupos">
-      <div class="section-head"><div><small>WhatsApp</small><h2>Grupos</h2></div><p>A comunidade possui espaços diferentes para cada assunto.</p></div>
-      <div class="groups-wrap">
-        <div class="groups">
-          <a class="group link" href="https://chat.whatsapp.com/KaxgvtYtcZ3D5Vwx5nKm1V" target="_blank" rel="noopener"><div class="group-main"><b>Bate-papo principal</b><span>Chat geral da comunidade</span></div><span class="tag">Abrir</span></a>
-          <div class="group"><div class="group-main"><b>Sorteios</b><span>Avisos e ações da comunidade</span></div><span class="tag">WhatsApp</span></div>
-          <div class="group"><div class="group-main"><b>Campeonatos</b><span>Eventos e partidas</span></div><span class="tag">WhatsApp</span></div>
-          <div class="group"><div class="group-main"><b>Rank MLBB</b><span>Espaço da comunidade</span></div><span class="tag">WhatsApp</span></div>
-          <div class="group"><div class="group-main"><b>Parcerias</b><span>Projetos e comunidades</span></div><span class="tag">WhatsApp</span></div>
-          <div class="group"><div class="group-main"><b>Comandos</b><span>Raiden Assistant</span></div><span class="tag">WhatsApp</span></div>
-        </div>
-      </div>
-      <div class="contact-card"><div><small>Administração</small><h3>Felipe</h3><p>Campeonatos e Raiden Assistant</p></div><a class="btn whatsapp" href="https://wa.me/5527997482314" target="_blank" rel="noopener">WhatsApp</a></div>
-      <div class="contact-card"><div><small>Administração</small><h3>Hiro</h3><p>Parcerias e comunidade</p></div><a class="btn whatsapp" href="https://wa.me/5599981462562" target="_blank" rel="noopener">WhatsApp</a></div>
-    </section>
-  </div>
-</div>
-
-<nav class="bottom-nav" aria-label="Navegação mobile">
-  <button class="active" data-page="inicio">Início</button>
-  <button data-page="campeonatos">Campeonatos</button>
-  <button data-page="sorteios">Sorteios</button>
-  <button data-page="raiden">Raiden</button>
-  <button data-page="grupos">Grupos</button>
-</nav>
-
-<script>
-(async()=>{
-  if('serviceWorker' in navigator){
-    const regs=await navigator.serviceWorker.getRegistrations();
-    for(const r of regs) await r.unregister();
-  }
-  if('caches' in window){for(const k of await caches.keys()) await caches.delete(k)}
-})();
-
-const pages=[...document.querySelectorAll('[data-panel]')];
-const navButtons=[...document.querySelectorAll('[data-page]')];
-function showPage(name){
-  pages.forEach(p=>p.classList.toggle('active',p.dataset.panel===name));
-  navButtons.forEach(b=>b.classList.toggle('active',b.dataset.page===name));
-  history.replaceState(null,'','#'+name);
-  window.scrollTo({top:0,behavior:'instant'});
-}
-navButtons.forEach(b=>b.addEventListener('click',()=>showPage(b.dataset.page)));
-document.querySelectorAll('[data-go]').forEach(b=>b.addEventListener('click',()=>showPage(b.dataset.go)));
-const initial=location.hash.slice(1);
-if(initial && pages.some(p=>p.dataset.panel===initial)) showPage(initial);
-</script>
+<header class="top"><div class="wrap nav"><a class="brand" href="#inicio"><img class="brandmark" src="./logo.svg" alt="Oblivion's Guard"><span>Oblivion's Guard</span></a><nav class="links"><a href="#comunidade">Comunidade</a><a href="#campeonatos">Campeonatos</a><a href="#sorteios">Sorteios</a><a href="#raiden">Raiden</a><a href="#parcerias">Parcerias</a><a class="join" href="https://chat.whatsapp.com/KaxgvtYtcZ3D5Vwx5nKm1V" target="_blank" rel="noopener">Entrar</a></nav><button class="menu" aria-label="Abrir navegação">☰</button></div><nav class="mobilemenu"><a href="#comunidade">Comunidade</a><a href="#campeonatos">Campeonatos</a><a href="#sorteios">Sorteios</a><a href="#raiden">Raiden Assistant</a><a href="#parcerias">Parcerias</a><a href="https://chat.whatsapp.com/KaxgvtYtcZ3D5Vwx5nKm1V" target="_blank" rel="noopener">Entrar no WhatsApp</a></nav></header>
+<main>
+<section class="hero" id="inicio"><div class="wrap hero-grid"><div><div class="kicker">Mobile Legends: Bang Bang</div><h1>Oblivion's<br>Guard</h1><p>Comunidade brasileira de MLBB com grupos ativos, campeonatos, sorteios, parcerias e ferramentas próprias.</p><div class="hero-actions"><a class="btn primary" href="https://chat.whatsapp.com/KaxgvtYtcZ3D5Vwx5nKm1V" target="_blank" rel="noopener">Entrar no bate-papo</a><a class="btn" href="#comunidade">Conhecer a comunidade</a></div></div><div class="logo-panel"><img src="./logo.svg" alt="Logo Oblivion's Guard Gaming"></div></div></section>
+<section class="section" id="comunidade"><div class="wrap"><div class="head"><div><div class="eyebrow">Comunidade</div><h2>Tudo em um lugar.</h2></div><p>Grupos separados por assunto, com acesso direto ao que interessa.</p></div><div class="grid4"><article class="tile reveal"><div><div class="icon">💬</div><h3>Bate-papo</h3><p>Grupo principal para conversar, jogar e acompanhar a comunidade.</p></div><a href="https://chat.whatsapp.com/KaxgvtYtcZ3D5Vwx5nKm1V" target="_blank" rel="noopener">Entrar no grupo →</a></article><article class="tile reveal" id="campeonatos"><div><div class="icon">🏆</div><h3>Campeonatos</h3><p>Partidas organizadas e eventos competitivos.</p></div><a href="https://wa.me/5527997482314?text=Oi%20Felipe!%20Quero%20saber%20mais%20sobre%20os%20campeonatos%20da%20Oblivion%27s%20Guard." target="_blank" rel="noopener">Falar com Felipe →</a></article><article class="tile reveal" id="sorteios"><div><div class="icon">🎁</div><h3>Sorteios</h3><p>Premiações e ações divulgadas nos grupos.</p></div><a href="https://chat.whatsapp.com/KaxgvtYtcZ3D5Vwx5nKm1V" target="_blank" rel="noopener">Acompanhar →</a></article><article class="tile reveal" id="parcerias"><div><div class="icon">🤝</div><h3>Parcerias</h3><p>Para comunidades, equipes e projetos que querem colaborar.</p></div><a href="https://wa.me/5599981462562?text=Oi%20Hiro!%20Quero%20conversar%20sobre%20uma%20parceria%20com%20a%20Oblivion%27s%20Guard." target="_blank" rel="noopener">Falar com Hiro →</a></article></div></div></section>
+<section class="section alt"><div class="wrap"><div class="showcase"><div class="visual reveal"><img src="https://en.moonton.com/upload/image/20260904/37ce82b6e6bcf523b232de69de356286.JPEG" alt="Arte oficial Mobile Legends: Bang Bang" loading="lazy"><div class="visual-copy"><h3>Mobile Legends no centro.</h3><p>Time, conversa, competição e gente nova pra jogar junto.</p></div></div><div class="sidecards"><article class="sidecard reveal"><div><div class="eyebrow">Pra quem joga</div><h3>Monte squad. Ache duo.</h3><p>Entre no bate-papo e encontre gente pra jogar.</p></div><a class="btn" href="https://chat.whatsapp.com/KaxgvtYtcZ3D5Vwx5nKm1V" target="_blank" rel="noopener">Abrir WhatsApp</a></article><article class="sidecard reveal"><div><div class="eyebrow">Pra quem compete</div><h3>Campeonatos e eventos.</h3><p>Informações direto com a organização.</p></div><a class="btn" href="https://wa.me/5527997482314?text=Oi%20Felipe!%20Quero%20saber%20mais%20sobre%20os%20campeonatos%20da%20Oblivion%27s%20Guard." target="_blank" rel="noopener">Falar com Felipe</a></article></div></div></div></section>
+<section class="section" id="raiden"><div class="wrap raiden"><article class="bot reveal"><div class="eyebrow">Raiden Assistant</div><h2>O bot da Oblivion.</h2><p>Automação para grupos e comunidades que querem mais organização e recursos extras.</p><div class="benefits"><div class="benefit"><b>Moderação</b>Ajuda no controle do grupo.</div><div class="benefit"><b>Comandos</b>Recursos rápidos para membros.</div><div class="benefit"><b>Automação</b>Rotinas para a staff.</div><div class="benefit"><b>Personalização</b>Configuração para cada comunidade.</div></div><div class="hero-actions"><a class="btn whatsapp" href="https://wa.me/5527997482314?text=Oi%20Felipe!%20Quero%20saber%20mais%20sobre%20a%20Raiden%20Assistant." target="_blank" rel="noopener">Quero a Raiden no meu grupo</a></div></article><div class="contacts" id="contato"><article class="contact reveal"><small>Campeonatos · Raiden</small><h3>Felipe</h3><p>Informações sobre eventos e sobre a Raiden Assistant.</p><a class="btn" href="https://wa.me/5527997482314" target="_blank" rel="noopener">Chamar no WhatsApp</a></article><article class="contact reveal"><small>Comunidade · Parcerias</small><h3>Hiro</h3><p>Entrada, dúvidas e propostas de parceria.</p><a class="btn" href="https://wa.me/5599981462562" target="_blank" rel="noopener">Chamar no WhatsApp</a></article></div></div></section>
+<section class="final"><div class="wrap finalbox"><div><h2>Quer entrar?</h2><p>O bate-papo principal da Oblivion's Guard está aberto.</p></div><a class="btn whatsapp" href="https://chat.whatsapp.com/KaxgvtYtcZ3D5Vwx5nKm1V" target="_blank" rel="noopener">Entrar na comunidade</a></div></section>
+</main>
+<footer><div class="wrap foot"><span>Oblivion's Guard Gaming · Mobile Legends: Bang Bang</span><span>Site por Domo</span></div></footer>
+<script>const menu=document.querySelector('.menu'),mobile=document.querySelector('.mobilemenu');menu.addEventListener('click',()=>mobile.classList.toggle('open'));mobile.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>mobile.classList.remove('open')));const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target)}}),{threshold:.12});document.querySelectorAll('.reveal').forEach(el=>io.observe(el));if('serviceWorker' in navigator)navigator.serviceWorker.getRegistrations().then(rs=>rs.forEach(r=>r.unregister()));</script>
 </body>
 </html>
