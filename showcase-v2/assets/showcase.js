@@ -11,7 +11,7 @@
         entry.target.classList.add('is-visible');
         io.unobserve(entry.target);
       }
-    }, { threshold: 0.14, rootMargin: '0px 0px -8% 0px' });
+    }, { threshold: 0.04, rootMargin: '0px 0px -4% 0px' });
     revealNodes.forEach((node) => observer.observe(node));
   }
 
