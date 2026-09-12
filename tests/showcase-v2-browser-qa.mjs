@@ -19,6 +19,22 @@ const requiredRoutes = ['legado/', 'fitaroni/', 'demos/jair-neto/', 'demos/criat
 const results = [];
 const browser = await chromium.launch({ headless: true });
 
+async function sweepPage(page) {
+  await page.evaluate(async () => {
+    const pause = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+    const step = Math.max(280, Math.floor(window.innerHeight * 0.72));
+    const max = Math.max(0, document.documentElement.scrollHeight - window.innerHeight);
+    for (let y = 0; y <= max; y += step) {
+      window.scrollTo(0, Math.min(y, max));
+      await pause(70);
+    }
+    window.scrollTo(0, max);
+    await pause(180);
+    window.scrollTo(0, 0);
+    await pause(180);
+  });
+}
+
 try {
   for (const target of targets) {
     const context = await browser.newContext({ viewport: { width: target.width, height: target.height } });
@@ -32,6 +48,7 @@ try {
     const response = await page.goto(baseURL, { waitUntil: 'networkidle', timeout: 30000 });
     assert.equal(response?.status(), 200, `${target.name}: homepage não retornou 200`);
     await page.evaluate(() => document.fonts?.ready);
+    await sweepPage(page);
 
     const data = await page.evaluate((proofs) => {
       const root = document.documentElement;
@@ -47,6 +64,7 @@ try {
         ctas,
         proofs: Object.fromEntries(proofs.map((name) => [name, text.includes(name)])),
         images,
+        allRevealVisible: [...document.querySelectorAll('.reveal')].every((node) => node.classList.contains('is-visible')),
         mobileCtaVisible: getComputedStyle(document.querySelector('.mobile-cta')).display !== 'none'
       };
     }, requiredProofs);
@@ -58,8 +76,8 @@ try {
       assert.equal(imageResponse.status(), 200, `${target.name}: asset de imagem falhou ${image.src}`);
     }
 
-    const eagerImages = data.images.filter((img) => img.loading !== 'lazy');
-    assert.ok(eagerImages.every((img) => img.complete && img.width > 0), `${target.name}: imagem crítica não carregou`);
+    assert.ok(data.images.every((img) => img.complete && img.width > 0), `${target.name}: imagem não carregou após sweep`);
+    assert.equal(data.allRevealVisible, true, `${target.name}: seção reveal não ativou durante rolagem`);
     assert.ok(data.h1.includes('Experiências e ferramentas comerciais'), `${target.name}: proposta principal não está clara`);
     assert.ok(data.overflow <= 1, `${target.name}: overflow horizontal de ${data.overflow}px`);
     assert.ok(data.ctas.length >= 3, `${target.name}: poucos CTAs primários`);
