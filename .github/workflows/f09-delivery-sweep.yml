@@ -50,10 +50,10 @@ jobs:
           const assert = require('node:assert/strict');
           const { chromium } = require('/tmp/f09sweep/node_modules/playwright-core');
           const demos = [
-            {slug:'ferrini', title:/Ferrini/i, path:'/DOMO-BJI/demos/ferrini/'},
-            {slug:'criativo-design', title:/Criativo Design/i, path:'/DOMO-BJI/demos/criativo-design/'},
-            {slug:'jair-neto', title:/Jair Neto/i, path:'/DOMO-BJI/demos/jair-neto/'},
-            {slug:'sheila-de-jesus', title:/Sheila de Jesus/i, path:'/DOMO-BJI/demos/sheila-de-jesus/'}
+            {slug:'ferrini', title:/Ferrini/i, path:'/DOMO-BJI/demos/ferrini/', cta:'[data-primary-cta]'},
+            {slug:'criativo-design', title:/Criativo Design/i, path:'/DOMO-BJI/demos/criativo-design/', cta:'[data-primary-cta]'},
+            {slug:'jair-neto', title:/Jair Neto/i, path:'/DOMO-BJI/demos/jair-neto/', cta:'#briefing-cta'},
+            {slug:'sheila-de-jesus', title:/Sheila de Jesus/i, path:'/DOMO-BJI/demos/sheila-de-jesus/', cta:'[data-primary-cta]'}
           ];
           const viewports=[{width:360,height:800},{width:390,height:844},{width:430,height:932},{width:1440,height:900}];
           (async()=>{
@@ -87,13 +87,12 @@ jobs:
               const context=await browser.newContext({viewport:{width:390,height:844}});
               const page=await context.newPage();
               await page.goto(url,{waitUntil:'networkidle'});
-              const canonical=await page.locator('link[rel="canonical"]').getAttribute('href');
-              assert.equal(canonical,url,`${demo.slug} canonical`);
+              assert.equal(await page.locator('link[rel="canonical"]').getAttribute('href'),url,`${demo.slug} canonical`);
               const og=await page.locator('meta[property="og:image"]').getAttribute('content');
               assert(og&&og.startsWith('https://'),`${demo.slug} absolute og`);
               const ogResponse=await context.request.get(og);
               assert(ogResponse.ok(),`${demo.slug} OG HTTP ${ogResponse.status()}`);
-              const primary=page.locator('[data-primary-cta]');
+              const primary=page.locator(demo.cta);
               assert.equal(await primary.count(),1,`${demo.slug} primary CTA`);
               await primary.scrollIntoViewIfNeeded();
               assert(await primary.isVisible(),`${demo.slug} CTA visibility`);
