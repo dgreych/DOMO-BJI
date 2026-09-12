@@ -38,7 +38,7 @@ try {
       const body = document.body;
       const ctas = [...document.querySelectorAll('[data-cta="primary"]')].map((a) => a.href);
       const text = body.innerText;
-      const images = [...document.images].map((img) => ({ src: img.currentSrc || img.src, complete: img.complete, width: img.naturalWidth }));
+      const images = [...document.images].map((img) => ({ src: img.currentSrc || img.src, loading: img.loading, complete: img.complete, width: img.naturalWidth }));
       const h1 = document.querySelector('h1');
       return {
         viewport: { width: window.innerWidth, height: window.innerHeight },
@@ -51,12 +51,20 @@ try {
       };
     }, requiredProofs);
 
+    const imageStatuses = [];
+    for (const image of data.images) {
+      const imageResponse = await context.request.get(image.src);
+      imageStatuses.push({ src: image.src, status: imageResponse.status(), loading: image.loading });
+      assert.equal(imageResponse.status(), 200, `${target.name}: asset de imagem falhou ${image.src}`);
+    }
+
+    const eagerImages = data.images.filter((img) => img.loading !== 'lazy');
+    assert.ok(eagerImages.every((img) => img.complete && img.width > 0), `${target.name}: imagem crítica não carregou`);
     assert.ok(data.h1.includes('Experiências e ferramentas comerciais'), `${target.name}: proposta principal não está clara`);
     assert.ok(data.overflow <= 1, `${target.name}: overflow horizontal de ${data.overflow}px`);
     assert.ok(data.ctas.length >= 3, `${target.name}: poucos CTAs primários`);
     assert.ok(data.ctas.every((href) => href.includes('wa.me/5522999686677')), `${target.name}: CTA fora do WhatsApp oficial`);
     assert.ok(Object.values(data.proofs).every(Boolean), `${target.name}: portfólio incompleto`);
-    assert.ok(data.images.every((img) => img.complete && img.width > 0), `${target.name}: imagem quebrada`);
     assert.equal(consoleErrors.length, 0, `${target.name}: console errors: ${consoleErrors.join(' | ')}`);
     assert.equal(pageErrors.length, 0, `${target.name}: page errors: ${pageErrors.join(' | ')}`);
 
@@ -67,7 +75,7 @@ try {
       await page.screenshot({ path: `${outDir}/desktop-1366x768.jpg`, fullPage: true, type: 'jpeg', quality: 88 });
     }
 
-    results.push({ ...target, ...data, consoleErrors, pageErrors, pass: true });
+    results.push({ ...target, ...data, imageStatuses, consoleErrors, pageErrors, pass: true });
     await context.close();
   }
 
