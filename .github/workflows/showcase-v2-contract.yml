@@ -1,16 +1,18 @@
-name: Showcase V2 Contract
+name: Showcase V2 Final QA
 
 on:
   push:
     branches:
       - front/f13-vitrine-domo
+    paths-ignore:
+      - 'qa/showcase-v2/**'
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
-  contract:
+  qa:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -21,7 +23,33 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '22'
-      - name: Run Showcase V2 contract
-        run: node --test tests/showcase-v2-foundation.test.mjs
-      - name: Run existing repository tests
+      - name: Run static contracts
         run: node --test tests/*.test.mjs
+      - name: Install Chromium QA runtime
+        run: |
+          npm install --no-save --package-lock=false playwright@latest
+          npx playwright install --with-deps chromium
+      - name: Serve repository under project path
+        run: |
+          python3 -m http.server 4173 --directory .. >/tmp/showcase-v2-server.log 2>&1 &
+          echo $! >/tmp/showcase-v2-server.pid
+          sleep 2
+      - name: Browser QA and screenshots
+        env:
+          SHOWCASE_BASE_URL: http://127.0.0.1:4173/DOMO-BJI/
+        run: node tests/showcase-v2-browser-qa.mjs
+      - name: Upload QA evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: showcase-v2-qa
+          path: qa/showcase-v2/
+          if-no-files-found: error
+      - name: Persist screenshots on branch
+        run: |
+          git config user.name "F13 QA Bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add qa/showcase-v2/
+          if ! git diff --cached --quiet; then
+            git commit -m "chore(qa): registra evidencias Showcase V2 [skip ci]"
+            git push origin HEAD:front/f13-vitrine-domo
+          fi

@@ -1,47 +1,37 @@
-# Domo Showcase V2 — Foundation
+# Domo Showcase V2
 
-Status desta pasta: fundação brand-agnostic isolada. Não substituir a homepage pública antes do gate final.
+Showcase comercial da **Domo — tecnologia sob medida**, construída sobre a fundação brand-agnostic F13 e finalizada com a identidade F05 V2 `MINERAL_SIGNAL`.
 
-## Objetivo
+## Posicionamento
 
-Sustentar a oferta `PORTFOLIO_FIRST_FREE_DEMO_OFFER` provando capacidade por resultado, não por tecnologia ou quantidade de telas.
+A página apresenta capacidade por resultado, não por stack ou quantidade de telas. O objetivo é sustentar uma abordagem comercial baseada em prova: trabalhos navegáveis, problema concreto e CTA direto para uma demo gratuita quando fizer sentido.
 
-A arquitetura inclui:
+## Identidade aplicada
 
-- sistema de portfólio com taxonomia explícita de prova (`DEMONSTRAÇÃO`, `CONCEITO`, `EXPERIMENTO`);
-- browser frames e previews reutilizáveis;
-- slides de capacidade orientados a resultado;
-- motion progressivo com fallback e `prefers-reduced-motion`;
-- CTA primário rastreável por contexto;
-- estrutura mobile-first com CTA persistente apenas em telas pequenas;
-- hierarquia semântica, canonical, Open Graph, Twitter Card e JSON-LD;
-- camada `tokens.css` como única costura de identidade para o handoff F05 V2.
+Fonte operacional consumida de `dgreych/osiris@front/f05-identidade`:
 
-## Costura F05 V2
+- `assets/brand/v4/domo/`;
+- direção `MINERAL_SIGNAL`;
+- Ink `#171412`;
+- Bone `#F2EBDD`;
+- Ember `#F35B3F`;
+- Citrus `#D6E85A`;
+- Manrope + IBM Plex Mono.
 
-Quando `assets/brand/v4/domo/` estiver disponível e autoritativo:
+A camada `assets/mineral-signal.css` aplica a identidade sobre a arquitetura já existente. A fundação não foi reconstruída.
 
-1. mapear cores, tipografia, raio e motion para `assets/tokens.css`;
-2. substituir wordmark/fallback visual pelos assets oficiais;
-3. substituir a imagem OG temporária pelo asset OG V4;
-4. executar o contrato e a bateria visual completa;
-5. só então avaliar promoção para a homepage.
+## Provas exibidas
 
-Nenhum arquivo da fundação referencia antecipadamente um caminho V4 inexistente.
+- Jair Neto — `DEMONSTRAÇÃO`;
+- Criativo Design — `DEMONSTRAÇÃO`;
+- Ferrini CrossFit — `DEMONSTRAÇÃO`;
+- Fitaroni — `EXPERIMENTO`;
+- Legado — `EXPERIMENTO`.
 
-## Gates antes de publicar como homepage
+Nenhuma demonstração é apresentada como cliente ou case contratado.
 
-- mobile QA
-- desktop QA
-- portfolio QA
-- CTA QA
-- OG QA
-- SEO QA
-- performance QA
-- path preservation QA
+## QA
 
-O contrato automatizado está em `tests/showcase-v2-foundation.test.mjs` e também protege byte a byte a homepage V1 e as árvores `/legado/`, `/fitaroni/` e `/demos/` contra alterações acidentais nesta rodada.
+A branch executa contrato estático e browser QA em Chromium, cobrindo 360×800, 390×844, 768×1024, 1366×768 e 1920×1080, além de reduced-motion, console errors, overflow, imagens, CTAs e paths protegidos.
 
-## Publicação
-
-Enquanto o gate completo não estiver em PASS, esta pasta permanece staging de branch. A homepage V1 em `/` continua sendo a versão pública canônica.
+Evidências ficam em `qa/showcase-v2/` após execução do workflow.
