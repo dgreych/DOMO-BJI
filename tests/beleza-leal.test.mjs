@@ -58,6 +58,8 @@ test("entrega uma homepage semântica com a triagem completa", async () => {
   assert.match(html, /<form[^>]+id="triage-form"/);
   assert.match(html, /<textarea[^>]+maxlength="280"/);
   assert.match(html, /aria-live="polite"/);
+  assert.match(html, />Michelle Areas</);
+  assert.doesNotMatch(html, /Michelle Áreas/);
 });
 
 test("aplica a identidade clara e respeita redução de movimento", async () => {
