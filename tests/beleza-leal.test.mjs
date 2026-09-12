@@ -73,6 +73,11 @@ test("aplica a identidade clara e respeita redução de movimento", async () => 
   assert.match(css, /@media\s*\(prefers-reduced-motion:\s*reduce\)/);
   assert.match(css, /:focus-visible/);
   assert.match(css, /min-height:\s*44px/);
+  assert.match(
+    css,
+    /img\s*\{[^}]*max-width:\s*100%;[^}]*height:\s*auto;/s,
+    "imagens responsivas não podem manter a altura fixa do atributo HTML",
+  );
 });
 
 test("mantém copy pública fora dos claims bloqueados", async () => {
