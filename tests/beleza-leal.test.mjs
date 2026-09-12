@@ -103,6 +103,20 @@ test("mantém copy pública fora dos claims bloqueados", async () => {
   assert.doesNotMatch(html, /WebGL/i);
 });
 
+test("mantém a abertura corporal e remove metacomentário do rodapé", async () => {
+  const html = await readFile(
+    new URL("../beleza-leal/index.html", import.meta.url),
+    "utf8",
+  );
+
+  assert.match(html, /Um cuidado com corpo, nome e história\./);
+  assert.doesNotMatch(html, /Um cuidado com rosto, nome e história\./);
+  assert.doesNotMatch(
+    html,
+    /Uma presença digital construída a partir da identidade real da clínica\./,
+  );
+});
+
 test("publica a nova rota sem retirar a experiência legada", async () => {
   const sitemap = await readFile(
     new URL("../sitemap.xml", import.meta.url),
