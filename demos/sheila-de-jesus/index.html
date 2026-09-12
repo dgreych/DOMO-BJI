@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Sheila de Jesus — Unhas ou formação? | Conceito digital</title>
+    <meta name="description" content="Uma experiência conceitual para separar atendimento de unhas e interesse em formação antes do contato com Sheila.">
+    <meta name="theme-color" content="#3b1738">
+    <link rel="canonical" href="https://dgreych.github.io/DOMO-BJI/demos/sheila-de-jesus/">
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Sheila de Jesus — Unhas ou formação?">
+    <meta property="og:description" content="Dois caminhos, uma conversa mais clara: atendimento ou formação.">
+    <meta property="og:url" content="https://dgreych.github.io/DOMO-BJI/demos/sheila-de-jesus/">
+    <meta property="og:image" content="https://dgreych.github.io/DOMO-BJI/demos/sheila-de-jesus/og.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="stylesheet" href="assets/styles.css">
+    <script type="module" src="assets/app.js"></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#escolha">Ir para a escolha</a>
+    <header class="topbar">
+      <a class="wordmark" href="#top" aria-label="Sheila de Jesus — início">
+        <span>Sheila</span><small>de Jesus</small>
+      </a>
+      <p class="roles"><span>01 — Nail Designer</span><span>02 — Instrutora</span></p>
+      <a class="social-link" href="https://instagram.com/sheiladejesusnails" target="_blank" rel="noopener noreferrer">@sheiladejesusnails ↗</a>
+    </header>
+
+    <main id="top">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="eyebrow">Itaperuna · Experiência conceitual</p>
+          <h1 id="hero-title">Uma escolha.<br><em>Dois caminhos.</em></h1>
+          <p class="hero-intro">Quem quer fazer as unhas não procura a mesma conversa de quem quer aprender. Comece pela sua intenção.</p>
+          <a class="text-link" href="#escolha">Escolher meu caminho <span>↓</span></a>
+        </div>
+        <div class="hero-art" aria-hidden="true">
+          <svg viewBox="0 0 640 760" role="img">
+            <path class="gesture gesture-a" d="M169 626C75 474 122 218 304 137c90-40 224-3 222 115-2 104-116 116-170 58-69-73-57-213 34-283"/>
+            <path class="gesture gesture-b" d="M69 692c144-39 166-212 130-332-23-76-2-169 76-194 91-29 191 55 151 151-45 108-201 97-267 22"/>
+            <path class="gesture gesture-c" d="M249 738c-45-119 18-222 119-283 103-62 198-167 154-290"/>
+          </svg>
+          <span class="art-number">02</span>
+          <p>intenções<br>bem diferentes</p>
+        </div>
+      </section>
+
+      <section class="chooser" id="escolha" aria-labelledby="chooser-title">
+        <div class="chooser-heading">
+          <p class="eyebrow">Primeiro passo</p>
+          <h2 id="chooser-title">O que trouxe<br>você até aqui?</h2>
+        </div>
+        <div class="route-grid" role="group" aria-label="Escolha sua intenção">
+          <button class="route-card route-client" type="button" data-route="atendimento" aria-pressed="false">
+            <span class="route-index">01</span>
+            <span class="route-title">Quero fazer<br>minhas unhas</span>
+            <span class="route-note">Técnica · referência · período</span>
+            <span class="route-arrow" aria-hidden="true">↘</span>
+          </button>
+          <button class="route-card route-student" type="button" data-route="formacao" aria-pressed="false">
+            <span class="route-index">02</span>
+            <span class="route-title">Quero<br>aprender</span>
+            <span class="route-note">Interesse · momento atual</span>
+            <span class="route-arrow" aria-hidden="true">↘</span>
+          </button>
+        </div>
+      </section>
+
+      <section class="journey" id="jornada" aria-labelledby="journey-title">
+        <div class="journey-copy">
+          <p class="eyebrow">Sua intenção, organizada</p>
+          <h2 id="journey-title">Escolha um caminho acima.</h2>
+          <p id="journey-intro">A experiência prepara somente o necessário para a conversa começar com clareza.</p>
+          <div class="signature" aria-hidden="true">S<span>—</span>J</div>
+        </div>
+
+        <form class="journey-form" id="journey-form" novalidate>
+          <input id="route" name="route" type="hidden">
+
+          <fieldset class="route-fields" id="attendance-fields" hidden>
+            <legend>Para o atendimento</legend>
+            <div class="field">
+              <label for="technique">Técnica de interesse</label>
+              <select id="technique" name="technique">
+                <option value="">Selecione</option>
+                <option>Fibra de vidro</option>
+                <option>Gel na tips</option>
+                <option>Quero orientação</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="reference">Tem uma referência para mostrar?</label>
+              <select id="reference" name="reference">
+                <option value="">Selecione</option>
+                <option>Sim</option>
+                <option>Não</option>
+              </select>
+            </div>
+            <div class="field field-wide">
+              <label for="period">Qual período você prefere?</label>
+              <select id="period" name="period">
+                <option value="">Selecione</option>
+                <option>Manhã</option>
+                <option>Tarde</option>
+                <option>Noite</option>
+                <option>Quero combinar</option>
+              </select>
+              <small>Preferência não significa disponibilidade confirmada.</small>
+            </div>
+          </fieldset>
+
+          <fieldset class="route-fields" id="training-fields" hidden>
+            <legend>Para falar sobre formação</legend>
+            <div class="field">
+              <label for="interest">O que você quer aprender?</label>
+              <select id="interest" name="interest">
+                <option value="">Selecione</option>
+                <option>Manicure e pedicure</option>
+                <option>Alongamento</option>
+                <option>Os dois temas</option>
+                <option>Quero orientação</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="level">Qual é o seu momento atual?</label>
+              <select id="level" name="level">
+                <option value="">Selecione</option>
+                <option>Começando agora</option>
+                <option>Já pratico</option>
+                <option>Já atuo</option>
+                <option>Quero me aperfeiçoar</option>
+              </select>
+            </div>
+            <p class="formation-note field-wide">Este contato demonstra interesse. Turmas, datas e condições são conversadas diretamente com Sheila.</p>
+          </fieldset>
+
+          <div class="empty-state" id="empty-state">
+            <span>01 / 02</span>
+            <p>Selecione atendimento ou formação para abrir seu roteiro.</p>
+          </div>
+
+          <div class="contact-ready">
+            <p class="contact-label">Contato preparado</p>
+            <p class="contact-preview" id="contact-preview">Sua escolha aparecerá aqui.</p>
+            <a class="primary-cta is-disabled" id="primary-cta" href="#escolha" data-primary-cta aria-disabled="true" target="_blank" rel="noopener noreferrer">Continuar no WhatsApp <span>↗</span></a>
+            <p class="feedback" id="feedback" aria-live="polite">Escolha um caminho para começar.</p>
+          </div>
+        </form>
+      </section>
+
+      <section class="fact-strip" aria-label="Resumo da proposta">
+        <p><small>Atuação publicada</small>Nail Designer + Instrutora</p>
+        <p><small>Técnicas citadas</small>Fibra de vidro · Gel na tips</p>
+        <p><small>Contato</small>Direto com Sheila</p>
+      </section>
+
+      <section class="closing" aria-labelledby="closing-title">
+        <p class="eyebrow">Uma interface, duas conversas</p>
+        <h2 id="closing-title">Fazer.<br><em>Ou aprender.</em></h2>
+        <p>A ideia é simples: respeitar sua intenção desde o primeiro toque.</p>
+        <a href="#escolha">Voltar à escolha ↑</a>
+      </section>
+    </main>
+
+    <footer>
+      <p>Sheila de Jesus <span>·</span> Nail Designer <span>·</span> Instrutora <span>·</span> Itaperuna</p>
+      <p class="concept-note">Conceito digital demonstrativo. Informações comerciais devem ser confirmadas diretamente.</p>
+    </footer>
+  </body>
+</html>
