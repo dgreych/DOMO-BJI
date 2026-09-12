@@ -1,0 +1,82 @@
+name: F09 Ferrini capture
+
+on:
+  push:
+    branches:
+      - front/f16-demo-cell-beta
+
+permissions:
+  contents: write
+
+jobs:
+  capture:
+    if: ${{ !contains(github.event.head_commit.message, '[skip qa-capture]') }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: front/f16-demo-cell-beta
+          fetch-depth: 0
+
+      - name: Fresh tests
+        run: node --test tests/ferrini-briefing.test.mjs tests/ferrini-page.test.mjs
+
+      - name: Serve candidate
+        run: |
+          python3 -m http.server 4173 --bind 127.0.0.1 > /tmp/f09-http.log 2>&1 &
+          echo $! > /tmp/f09-http.pid
+          for i in {1..20}; do
+            if curl -fsS http://127.0.0.1:4173/demos/ferrini/ >/dev/null; then exit 0; fi
+            sleep 0.25
+          done
+          cat /tmp/f09-http.log
+          exit 1
+
+      - name: HTTP and metadata gate
+        run: |
+          set -euo pipefail
+          url=http://127.0.0.1:4173/demos/ferrini/
+          curl -fsS "$url" > /tmp/ferrini.html
+          grep -F '<title>Ferrini | Comece pelo seu treino</title>' /tmp/ferrini.html
+          grep -F 'https://dgreych.github.io/DOMO-BJI/demos/ferrini/og.png' /tmp/ferrini.html
+          grep -F 'https://dgreych.github.io/DOMO-BJI/demos/ferrini/' /tmp/ferrini.html
+          grep -F 'data-primary-cta' /tmp/ferrini.html
+          grep -F '@ferrinicross' /tmp/ferrini.html
+
+      - name: Capture canonical PNGs
+        run: |
+          set -euo pipefail
+          chrome="$(command -v google-chrome || command -v google-chrome-stable || command -v chromium || command -v chromium-browser)"
+          test -n "$chrome"
+          "$chrome" --headless=new --no-sandbox --disable-gpu --hide-scrollbars --window-size=390,844 --screenshot=demos/ferrini/preview-mobile.png http://127.0.0.1:4173/demos/ferrini/
+          "$chrome" --headless=new --no-sandbox --disable-gpu --hide-scrollbars --window-size=1440,900 --screenshot=demos/ferrini/preview-desktop.png http://127.0.0.1:4173/demos/ferrini/
+          "$chrome" --headless=new --no-sandbox --disable-gpu --hide-scrollbars --window-size=1200,630 --screenshot=demos/ferrini/og.png http://127.0.0.1:4173/demos/ferrini/og.html
+
+      - name: Validate PNG dimensions
+        run: |
+          python3 - <<'PY'
+          import struct
+          expected={
+            'demos/ferrini/preview-mobile.png':(390,844),
+            'demos/ferrini/preview-desktop.png':(1440,900),
+            'demos/ferrini/og.png':(1200,630),
+          }
+          for p,want in expected.items():
+              b=open(p,'rb').read(24)
+              assert b[:8] == b'\x89PNG\r\n\x1a\n', p
+              got=struct.unpack('>II', b[16:24])
+              print(p, got)
+              assert got == want, (p,got,want)
+          PY
+
+      - name: Commit captures
+        run: |
+          git config user.name 'F09 QA'
+          git config user.email 'actions@users.noreply.github.com'
+          git add demos/ferrini/preview-mobile.png demos/ferrini/preview-desktop.png demos/ferrini/og.png
+          if git diff --cached --quiet; then
+            echo 'Captures already current.'
+            exit 0
+          fi
+          git commit -m 'chore(f09): attach Ferrini QA captures [skip qa-capture]'
+          git push origin HEAD:front/f16-demo-cell-beta
