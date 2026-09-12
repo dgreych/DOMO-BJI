@@ -95,3 +95,19 @@ test("mantém copy pública fora dos claims bloqueados", async () => {
   assert.doesNotMatch(html, /<canvas/i);
   assert.doesNotMatch(html, /WebGL/i);
 });
+
+test("publica a nova rota sem retirar a experiência legada", async () => {
+  const sitemap = await readFile(
+    new URL("../sitemap.xml", import.meta.url),
+    "utf8",
+  );
+
+  assert.match(
+    sitemap,
+    /https:\/\/dgreych\.github\.io\/DOMO-BJI\/beleza-leal\//,
+  );
+  assert.match(
+    sitemap,
+    /https:\/\/dgreych\.github\.io\/DOMO-BJI\/belezaleal\//,
+  );
+});
