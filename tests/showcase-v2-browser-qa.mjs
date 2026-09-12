@@ -20,22 +20,23 @@ const results = [];
 const browser = await chromium.launch({ headless: true });
 
 async function materializePage(page) {
+  const reveals = page.locator('.reveal');
+  const revealCount = await reveals.count();
+  for (let i = 0; i < revealCount; i += 1) {
+    await reveals.nth(i).scrollIntoViewIfNeeded();
+    await page.waitForTimeout(140);
+  }
+
   const images = page.locator('img');
-  const count = await images.count();
-  for (let i = 0; i < count; i += 1) {
+  const imageCount = await images.count();
+  for (let i = 0; i < imageCount; i += 1) {
     await images.nth(i).scrollIntoViewIfNeeded();
     await page.waitForTimeout(120);
   }
 
   await page.evaluate(async () => {
     const pause = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
-    const step = Math.max(280, Math.floor(window.innerHeight * 0.68));
-    const max = Math.max(0, document.documentElement.scrollHeight - window.innerHeight);
-    for (let y = 0; y <= max; y += step) {
-      window.scrollTo(0, Math.min(y, max));
-      await pause(80);
-    }
-    window.scrollTo(0, max);
+    window.scrollTo(0, document.documentElement.scrollHeight);
     await pause(220);
     window.scrollTo(0, 0);
     await pause(220);
@@ -68,8 +69,7 @@ try {
       const hiddenReveal = [...document.querySelectorAll('.reveal:not(.is-visible)')].map((node) => ({
         tag: node.tagName.toLowerCase(),
         className: node.className,
-        text: (node.textContent || '').replace(/\s+/g, ' ').trim().slice(0, 90),
-        rect: (() => { const r = node.getBoundingClientRect(); return { top: Math.round(r.top), height: Math.round(r.height) }; })()
+        text: (node.textContent || '').replace(/\s+/g, ' ').trim().slice(0, 90)
       }));
       return {
         viewport: { width: window.innerWidth, height: window.innerHeight },
