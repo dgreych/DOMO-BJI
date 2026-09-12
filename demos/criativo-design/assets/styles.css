@@ -67,11 +67,12 @@ h1 span { display: block; color: var(--orange); }
 .service-card:hover, .service-card[aria-pressed="true"] { color: var(--white); background: var(--black); }
 .service-card[aria-pressed="true"]::after { position: absolute; top: 1rem; right: 1rem; width: .8rem; height: .8rem; content: ""; background: var(--orange); border-radius: 50%; }
 .service-card small { font-family: var(--display); font-size: 1.4rem; color: var(--orange); }
-.service-card strong { position: absolute; right: 1.2rem; bottom: 1rem; left: 1.2rem; font-family: var(--display); font-size: clamp(2rem, 3.2vw, 3.25rem); font-weight: 400; line-height: .92; text-transform: uppercase; }
+.service-card strong { position: absolute; right: 1.2rem; bottom: 1rem; left: 1.2rem; font-family: var(--display); font-size: clamp(1.7rem, 2.35vw, 2.65rem); font-weight: 400; line-height: .92; text-transform: uppercase; }
 
 .applications { color: var(--white); background: var(--black); }
 .applications .section-shell { display: grid; grid-template-columns: minmax(0,.62fr) minmax(0,1.38fr); gap: 4rem; }
 .applications .display-title { color: var(--orange); }
+.applications .display-title { font-size: clamp(3.5rem, 4.4vw, 4.8rem); }
 .solution-list { display: grid; grid-template-columns: 1fr 1fr; align-content: center; border-top: 1px solid #444; }
 .solution { min-height: 10rem; padding: 1.4rem 1rem 1.4rem 0; border-bottom: 1px solid #444; }
 .solution:nth-child(odd) { border-right: 1px solid #444; }
@@ -83,7 +84,7 @@ h1 span { display: block; color: var(--orange); }
 .quote-section { padding: clamp(4rem, 8vw, 8rem) 1rem; background: var(--orange); }
 .quote-shell { display: grid; grid-template-columns: 1.12fr .88fr; width: min(100%, 1220px); margin: 0 auto; border: 2px solid var(--black); background: var(--white); }
 .quote-copy { padding: clamp(1.5rem, 4vw, 4rem); border-right: 2px solid var(--black); }
-.quote-copy .display-title { max-width: 8ch; font-size: clamp(4rem, 7vw, 7rem); }
+.quote-copy .display-title { max-width: 8ch; font-size: clamp(3.5rem, 5.5vw, 5.4rem); }
 .quote-form { display: grid; grid-template-columns: 1fr 1fr; margin-top: 2.5rem; border-top: 2px solid var(--black); border-left: 2px solid var(--black); }
 .field { display: grid; min-width: 0; padding: .85rem; gap: .4rem; border-right: 2px solid var(--black); border-bottom: 2px solid var(--black); }
 .field-full { grid-column: 1 / -1; }
@@ -137,6 +138,8 @@ h1 span { display: block; color: var(--orange); }
   .ticker span:nth-child(n+3) { display: none; }
   .section-shell { width: min(100% - 1.25rem, 1280px); }
   .display-title { font-size: clamp(3.7rem, 18vw, 5.4rem); }
+  .applications .display-title { font-size: clamp(3.2rem, 14vw, 3.8rem); }
+  .quote-copy .display-title { font-size: clamp(2.85rem, 13vw, 3.3rem); }
   .service-grid { grid-template-columns: 1fr; }
   .service-card { min-height: 10rem; }
   .solution-list { grid-template-columns: 1fr; }
