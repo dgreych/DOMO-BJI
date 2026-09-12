@@ -19,20 +19,28 @@ const requiredRoutes = ['legado/', 'fitaroni/', 'demos/jair-neto/', 'demos/criat
 const results = [];
 const browser = await chromium.launch({ headless: true });
 
-async function sweepPage(page) {
+async function materializePage(page) {
+  const images = page.locator('img');
+  const count = await images.count();
+  for (let i = 0; i < count; i += 1) {
+    await images.nth(i).scrollIntoViewIfNeeded();
+    await page.waitForTimeout(120);
+  }
+
   await page.evaluate(async () => {
     const pause = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
-    const step = Math.max(280, Math.floor(window.innerHeight * 0.72));
+    const step = Math.max(280, Math.floor(window.innerHeight * 0.68));
     const max = Math.max(0, document.documentElement.scrollHeight - window.innerHeight);
     for (let y = 0; y <= max; y += step) {
       window.scrollTo(0, Math.min(y, max));
-      await pause(70);
+      await pause(80);
     }
     window.scrollTo(0, max);
-    await pause(180);
+    await pause(220);
     window.scrollTo(0, 0);
-    await pause(180);
+    await pause(220);
   });
+  await page.waitForLoadState('networkidle');
 }
 
 try {
@@ -48,7 +56,7 @@ try {
     const response = await page.goto(baseURL, { waitUntil: 'networkidle', timeout: 30000 });
     assert.equal(response?.status(), 200, `${target.name}: homepage não retornou 200`);
     await page.evaluate(() => document.fonts?.ready);
-    await sweepPage(page);
+    await materializePage(page);
 
     const data = await page.evaluate((proofs) => {
       const root = document.documentElement;
@@ -76,7 +84,7 @@ try {
       assert.equal(imageResponse.status(), 200, `${target.name}: asset de imagem falhou ${image.src}`);
     }
 
-    assert.ok(data.images.every((img) => img.complete && img.width > 0), `${target.name}: imagem não carregou após sweep`);
+    assert.ok(data.images.every((img) => img.complete && img.width > 0), `${target.name}: imagem não carregou após materialização`);
     assert.equal(data.allRevealVisible, true, `${target.name}: seção reveal não ativou durante rolagem`);
     assert.ok(data.h1.includes('Experiências e ferramentas comerciais'), `${target.name}: proposta principal não está clara`);
     assert.ok(data.overflow <= 1, `${target.name}: overflow horizontal de ${data.overflow}px`);
