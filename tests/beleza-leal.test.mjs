@@ -59,3 +59,39 @@ test("entrega uma homepage semântica com a triagem completa", async () => {
   assert.match(html, /<textarea[^>]+maxlength="280"/);
   assert.match(html, /aria-live="polite"/);
 });
+
+test("aplica a identidade clara e respeita redução de movimento", async () => {
+  const css = await readFile(
+    new URL("../beleza-leal/assets/styles.css", import.meta.url),
+    "utf8",
+  );
+
+  for (const color of ["#faf8f2", "#f2ebdd", "#a8843f", "#292622"]) {
+    assert.match(css.toLowerCase(), new RegExp(color));
+  }
+
+  assert.match(css, /@media\s*\(prefers-reduced-motion:\s*reduce\)/);
+  assert.match(css, /:focus-visible/);
+  assert.match(css, /min-height:\s*44px/);
+});
+
+test("mantém copy pública fora dos claims bloqueados", async () => {
+  const html = await readFile(
+    new URL("../beleza-leal/index.html", import.meta.url),
+    "utf8",
+  );
+
+  for (const blocked of [
+    "mounjaro",
+    "tirzepatida",
+    "resultado garantido",
+    "sem sofrimento",
+    "-15kg",
+    "-45kg",
+  ]) {
+    assert.doesNotMatch(html.toLowerCase(), new RegExp(blocked));
+  }
+
+  assert.doesNotMatch(html, /<canvas/i);
+  assert.doesNotMatch(html, /WebGL/i);
+});
