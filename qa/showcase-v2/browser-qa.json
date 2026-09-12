@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-12T19:19:58.002Z",
+  "generatedAt": "2026-09-12T19:31:47.117Z",
   "baseURL": "http://127.0.0.1:4173/DOMO-BJI/",
   "viewports": [
     {
@@ -35,20 +35,20 @@
         {
           "src": "http://127.0.0.1:4173/DOMO-BJI/demos/jair-neto/preview-desktop.png",
           "loading": "lazy",
-          "complete": false,
-          "width": 0
+          "complete": true,
+          "width": 1440
         },
         {
           "src": "http://127.0.0.1:4173/DOMO-BJI/demos/criativo-design/preview-desktop.png",
           "loading": "lazy",
-          "complete": false,
-          "width": 0
+          "complete": true,
+          "width": 2880
         },
         {
           "src": "http://127.0.0.1:4173/DOMO-BJI/demos/ferrini/preview-desktop.png",
           "loading": "lazy",
-          "complete": false,
-          "width": 0
+          "complete": true,
+          "width": 1440
         },
         {
           "src": "http://127.0.0.1:4173/DOMO-BJI/showcase-v2/assets/brand/domo-logo-horizontal-inverse.svg",
@@ -57,6 +57,7 @@
           "width": 1200
         }
       ],
+      "hiddenReveal": [],
       "mobileCtaVisible": true,
       "imageStatuses": [
         {
@@ -122,20 +123,20 @@
         {
           "src": "http://127.0.0.1:4173/DOMO-BJI/demos/jair-neto/preview-desktop.png",
           "loading": "lazy",
-          "complete": false,
-          "width": 0
+          "complete": true,
+          "width": 1440
         },
         {
           "src": "http://127.0.0.1:4173/DOMO-BJI/demos/criativo-design/preview-desktop.png",
           "loading": "lazy",
-          "complete": false,
-          "width": 0
+          "complete": true,
+          "width": 2880
         },
         {
           "src": "http://127.0.0.1:4173/DOMO-BJI/demos/ferrini/preview-desktop.png",
           "loading": "lazy",
-          "complete": false,
-          "width": 0
+          "complete": true,
+          "width": 1440
         },
         {
           "src": "http://127.0.0.1:4173/DOMO-BJI/showcase-v2/assets/brand/domo-logo-horizontal-inverse.svg",
@@ -144,6 +145,7 @@
           "width": 1200
         }
       ],
+      "hiddenReveal": [],
       "mobileCtaVisible": true,
       "imageStatuses": [
         {
@@ -215,14 +217,14 @@
         {
           "src": "http://127.0.0.1:4173/DOMO-BJI/demos/criativo-design/preview-desktop.png",
           "loading": "lazy",
-          "complete": false,
-          "width": 0
+          "complete": true,
+          "width": 2880
         },
         {
           "src": "http://127.0.0.1:4173/DOMO-BJI/demos/ferrini/preview-desktop.png",
           "loading": "lazy",
-          "complete": false,
-          "width": 0
+          "complete": true,
+          "width": 1440
         },
         {
           "src": "http://127.0.0.1:4173/DOMO-BJI/showcase-v2/assets/brand/domo-logo-horizontal-inverse.svg",
@@ -231,6 +233,7 @@
           "width": 1200
         }
       ],
+      "hiddenReveal": [],
       "mobileCtaVisible": false,
       "imageStatuses": [
         {
@@ -302,14 +305,14 @@
         {
           "src": "http://127.0.0.1:4173/DOMO-BJI/demos/criativo-design/preview-desktop.png",
           "loading": "lazy",
-          "complete": false,
-          "width": 0
+          "complete": true,
+          "width": 2880
         },
         {
           "src": "http://127.0.0.1:4173/DOMO-BJI/demos/ferrini/preview-desktop.png",
           "loading": "lazy",
-          "complete": false,
-          "width": 0
+          "complete": true,
+          "width": 1440
         },
         {
           "src": "http://127.0.0.1:4173/DOMO-BJI/showcase-v2/assets/brand/domo-logo-horizontal-inverse.svg",
@@ -318,6 +321,7 @@
           "width": 1200
         }
       ],
+      "hiddenReveal": [],
       "mobileCtaVisible": false,
       "imageStatuses": [
         {
@@ -405,6 +409,7 @@
           "width": 1200
         }
       ],
+      "hiddenReveal": [],
       "mobileCtaVisible": false,
       "imageStatuses": [
         {
