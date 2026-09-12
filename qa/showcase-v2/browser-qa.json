@@ -1,0 +1,458 @@
+{
+  "generatedAt": "2026-09-12T19:19:58.002Z",
+  "baseURL": "http://127.0.0.1:4173/DOMO-BJI/",
+  "viewports": [
+    {
+      "name": "mobile-360",
+      "width": 360,
+      "height": 800,
+      "viewport": {
+        "width": 360,
+        "height": 800
+      },
+      "overflow": 0,
+      "h1": "Experiências e ferramentas comerciais sob medida.",
+      "ctas": [
+        "https://wa.me/5522999686677?text=Ol%C3%A1!%20Vi%20a%20Showcase%20da%20Domo%20e%20quero%20entender%20como%20uma%20demo%20gratuita%20funcionaria%20para%20o%20meu%20neg%C3%B3cio.",
+        "https://wa.me/5522999686677?text=Ol%C3%A1!%20Vi%20a%20Showcase%20da%20Domo.%20Quero%20uma%20demo%20gratuita%20focada%20em%20um%20problema%20real%20do%20meu%20neg%C3%B3cio.",
+        "https://wa.me/5522999686677?text=Ol%C3%A1!%20Quero%20mostrar%20um%20processo%20do%20meu%20neg%C3%B3cio%20para%20voc%C3%AAs%20avaliarem%20e%2C%20se%20fizer%20sentido%2C%20criarem%20uma%20demo%20gratuita.",
+        "https://wa.me/5522999686677?text=Ol%C3%A1!%20Vi%20a%20Showcase%20V2%20da%20Domo%20e%20quero%20conversar%20sobre%20uma%20demo%20gratuita."
+      ],
+      "proofs": {
+        "Jair Neto": true,
+        "Criativo Design": true,
+        "Ferrini CrossFit": true,
+        "Fitaroni": true,
+        "Legado": true
+      },
+      "images": [
+        {
+          "src": "http://127.0.0.1:4173/DOMO-BJI/showcase-v2/assets/brand/domo-logo-horizontal-inverse.svg",
+          "loading": "auto",
+          "complete": true,
+          "width": 1200
+        },
+        {
+          "src": "http://127.0.0.1:4173/DOMO-BJI/demos/jair-neto/preview-desktop.png",
+          "loading": "lazy",
+          "complete": false,
+          "width": 0
+        },
+        {
+          "src": "http://127.0.0.1:4173/DOMO-BJI/demos/criativo-design/preview-desktop.png",
+          "loading": "lazy",
+          "complete": false,
+          "width": 0
+        },
+        {
+          "src": "http://127.0.0.1:4173/DOMO-BJI/demos/ferrini/preview-desktop.png",
+          "loading": "lazy",
+          "complete": false,
+          "width": 0
+        },
+        {
+          "src": "http://127.0.0.1:4173/DOMO-BJI/showcase-v2/assets/brand/domo-logo-horizontal-inverse.svg",
+          "loading": "auto",
+          "complete": true,
+          "width": 1200
+        }
+      ],
+      "mobileCtaVisible": true,
+      "imageStatuses": [
+        {
+          "src": "http://127.0.0.1:4173/DOMO-BJI/showcase-v2/assets/brand/domo-logo-horizontal-inverse.svg",
+          "status": 200,
+          "loading": "auto"
+        },
+        {
+          "src": "http://127.0.0.1:4173/DOMO-BJI/demos/jair-neto/preview-desktop.png",
+          "status": 200,
+          "loading": "lazy"
+        },
+        {
+          "src": "http://127.0.0.1:4173/DOMO-BJI/demos/criativo-design/preview-desktop.png",
+          "status": 200,
+          "loading": "lazy"
+        },
+        {
+          "src": "http://127.0.0.1:4173/DOMO-BJI/demos/ferrini/preview-desktop.png",
+          "status": 200,
+          "loading": "lazy"
+        },
+        {
+          "src": "http://127.0.0.1:4173/DOMO-BJI/showcase-v2/assets/brand/domo-logo-horizontal-inverse.svg",
+          "status": 200,
+          "loading": "auto"
+        }
+      ],
+      "consoleErrors": [],
+      "pageErrors": [],
+      "pass": true
+    },
+    {
+      "name": "mobile-390",
+      "width": 390,
+      "height": 844,
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "overflow": 0,
+      "h1": "Experiências e ferramentas comerciais sob medida.",
+      "ctas": [
+        "https://wa.me/5522999686677?text=Ol%C3%A1!%20Vi%20a%20Showcase%20da%20Domo%20e%20quero%20entender%20como%20uma%20demo%20gratuita%20funcionaria%20para%20o%20meu%20neg%C3%B3cio.",
+        "https://wa.me/5522999686677?text=Ol%C3%A1!%20Vi%20a%20Showcase%20da%20Domo.%20Quero%20uma%20demo%20gratuita%20focada%20em%20um%20problema%20real%20do%20meu%20neg%C3%B3cio.",
+        "https://wa.me/5522999686677?text=Ol%C3%A1!%20Quero%20mostrar%20um%20processo%20do%20meu%20neg%C3%B3cio%20para%20voc%C3%AAs%20avaliarem%20e%2C%20se%20fizer%20sentido%2C%20criarem%20uma%20demo%20gratuita.",
+        "https://wa.me/5522999686677?text=Ol%C3%A1!%20Vi%20a%20Showcase%20V2%20da%20Domo%20e%20quero%20conversar%20sobre%20uma%20demo%20gratuita."
+      ],
+      "proofs": {
+        "Jair Neto": true,
+        "Criativo Design": true,
+        "Ferrini CrossFit": true,
+        "Fitaroni": true,
+        "Legado": true
+      },
+      "images": [
+        {
+          "src": "http://127.0.0.1:4173/DOMO-BJI/showcase-v2/assets/brand/domo-logo-horizontal-inverse.svg",
+          "loading": "auto",
+          "complete": true,
+          "width": 1200
+        },
+        {
+          "src": "http://127.0.0.1:4173/DOMO-BJI/demos/jair-neto/preview-desktop.png",
+          "loading": "lazy",
+          "complete": false,
+          "width": 0
+        },
+        {
+          "src": "http://127.0.0.1:4173/DOMO-BJI/demos/criativo-design/preview-desktop.png",
+          "loading": "lazy",
+          "complete": false,
+          "width": 0
+        },
+        {
+          "src": "http://127.0.0.1:4173/DOMO-BJI/demos/ferrini/preview-desktop.png",
+          "loading": "lazy",
+          "complete": false,
+          "width": 0
+        },
+        {
+          "src": "http://127.0.0.1:4173/DOMO-BJI/showcase-v2/assets/brand/domo-logo-horizontal-inverse.svg",
+          "loading": "auto",
+          "complete": true,
+          "width": 1200
+        }
+      ],
+      "mobileCtaVisible": true,
+      "imageStatuses": [
+        {
+          "src": "http://127.0.0.1:4173/DOMO-BJI/showcase-v2/assets/brand/domo-logo-horizontal-inverse.svg",
+          "status": 200,
+          "loading": "auto"
+        },
+        {
+          "src": "http://127.0.0.1:4173/DOMO-BJI/demos/jair-neto/preview-desktop.png",
+          "status": 200,
+          "loading": "lazy"
+        },
+        {
+          "src": "http://127.0.0.1:4173/DOMO-BJI/demos/criativo-design/preview-desktop.png",
+          "status": 200,
+          "loading": "lazy"
+        },
+        {
+          "src": "http://127.0.0.1:4173/DOMO-BJI/demos/ferrini/preview-desktop.png",
+          "status": 200,
+          "loading": "lazy"
+        },
+        {
+          "src": "http://127.0.0.1:4173/DOMO-BJI/showcase-v2/assets/brand/domo-logo-horizontal-inverse.svg",
+          "status": 200,
+          "loading": "auto"
+        }
+      ],
+      "consoleErrors": [],
+      "pageErrors": [],
+      "pass": true
+    },
+    {
+      "name": "tablet-768",
+      "width": 768,
+      "height": 1024,
+      "viewport": {
+        "width": 768,
+        "height": 1024
+      },
+      "overflow": 0,
+      "h1": "Experiências e ferramentas comerciais sob medida.",
+      "ctas": [
+        "https://wa.me/5522999686677?text=Ol%C3%A1!%20Vi%20a%20Showcase%20da%20Domo%20e%20quero%20entender%20como%20uma%20demo%20gratuita%20funcionaria%20para%20o%20meu%20neg%C3%B3cio.",
+        "https://wa.me/5522999686677?text=Ol%C3%A1!%20Vi%20a%20Showcase%20da%20Domo.%20Quero%20uma%20demo%20gratuita%20focada%20em%20um%20problema%20real%20do%20meu%20neg%C3%B3cio.",
+        "https://wa.me/5522999686677?text=Ol%C3%A1!%20Quero%20mostrar%20um%20processo%20do%20meu%20neg%C3%B3cio%20para%20voc%C3%AAs%20avaliarem%20e%2C%20se%20fizer%20sentido%2C%20criarem%20uma%20demo%20gratuita.",
+        "https://wa.me/5522999686677?text=Ol%C3%A1!%20Vi%20a%20Showcase%20V2%20da%20Domo%20e%20quero%20conversar%20sobre%20uma%20demo%20gratuita."
+      ],
+      "proofs": {
+        "Jair Neto": true,
+        "Criativo Design": true,
+        "Ferrini CrossFit": true,
+        "Fitaroni": true,
+        "Legado": true
+      },
+      "images": [
+        {
+          "src": "http://127.0.0.1:4173/DOMO-BJI/showcase-v2/assets/brand/domo-logo-horizontal-inverse.svg",
+          "loading": "auto",
+          "complete": true,
+          "width": 1200
+        },
+        {
+          "src": "http://127.0.0.1:4173/DOMO-BJI/demos/jair-neto/preview-desktop.png",
+          "loading": "lazy",
+          "complete": true,
+          "width": 1440
+        },
+        {
+          "src": "http://127.0.0.1:4173/DOMO-BJI/demos/criativo-design/preview-desktop.png",
+          "loading": "lazy",
+          "complete": false,
+          "width": 0
+        },
+        {
+          "src": "http://127.0.0.1:4173/DOMO-BJI/demos/ferrini/preview-desktop.png",
+          "loading": "lazy",
+          "complete": false,
+          "width": 0
+        },
+        {
+          "src": "http://127.0.0.1:4173/DOMO-BJI/showcase-v2/assets/brand/domo-logo-horizontal-inverse.svg",
+          "loading": "auto",
+          "complete": true,
+          "width": 1200
+        }
+      ],
+      "mobileCtaVisible": false,
+      "imageStatuses": [
+        {
+          "src": "http://127.0.0.1:4173/DOMO-BJI/showcase-v2/assets/brand/domo-logo-horizontal-inverse.svg",
+          "status": 200,
+          "loading": "auto"
+        },
+        {
+          "src": "http://127.0.0.1:4173/DOMO-BJI/demos/jair-neto/preview-desktop.png",
+          "status": 200,
+          "loading": "lazy"
+        },
+        {
+          "src": "http://127.0.0.1:4173/DOMO-BJI/demos/criativo-design/preview-desktop.png",
+          "status": 200,
+          "loading": "lazy"
+        },
+        {
+          "src": "http://127.0.0.1:4173/DOMO-BJI/demos/ferrini/preview-desktop.png",
+          "status": 200,
+          "loading": "lazy"
+        },
+        {
+          "src": "http://127.0.0.1:4173/DOMO-BJI/showcase-v2/assets/brand/domo-logo-horizontal-inverse.svg",
+          "status": 200,
+          "loading": "auto"
+        }
+      ],
+      "consoleErrors": [],
+      "pageErrors": [],
+      "pass": true
+    },
+    {
+      "name": "desktop-1366",
+      "width": 1366,
+      "height": 768,
+      "viewport": {
+        "width": 1366,
+        "height": 768
+      },
+      "overflow": 0,
+      "h1": "Experiências e ferramentas comerciais sob medida.",
+      "ctas": [
+        "https://wa.me/5522999686677?text=Ol%C3%A1!%20Vi%20a%20Showcase%20da%20Domo%20e%20quero%20entender%20como%20uma%20demo%20gratuita%20funcionaria%20para%20o%20meu%20neg%C3%B3cio.",
+        "https://wa.me/5522999686677?text=Ol%C3%A1!%20Vi%20a%20Showcase%20da%20Domo.%20Quero%20uma%20demo%20gratuita%20focada%20em%20um%20problema%20real%20do%20meu%20neg%C3%B3cio.",
+        "https://wa.me/5522999686677?text=Ol%C3%A1!%20Quero%20mostrar%20um%20processo%20do%20meu%20neg%C3%B3cio%20para%20voc%C3%AAs%20avaliarem%20e%2C%20se%20fizer%20sentido%2C%20criarem%20uma%20demo%20gratuita.",
+        "https://wa.me/5522999686677?text=Ol%C3%A1!%20Vi%20a%20Showcase%20V2%20da%20Domo%20e%20quero%20conversar%20sobre%20uma%20demo%20gratuita."
+      ],
+      "proofs": {
+        "Jair Neto": true,
+        "Criativo Design": true,
+        "Ferrini CrossFit": true,
+        "Fitaroni": true,
+        "Legado": true
+      },
+      "images": [
+        {
+          "src": "http://127.0.0.1:4173/DOMO-BJI/showcase-v2/assets/brand/domo-logo-horizontal-inverse.svg",
+          "loading": "auto",
+          "complete": true,
+          "width": 1200
+        },
+        {
+          "src": "http://127.0.0.1:4173/DOMO-BJI/demos/jair-neto/preview-desktop.png",
+          "loading": "lazy",
+          "complete": true,
+          "width": 1440
+        },
+        {
+          "src": "http://127.0.0.1:4173/DOMO-BJI/demos/criativo-design/preview-desktop.png",
+          "loading": "lazy",
+          "complete": false,
+          "width": 0
+        },
+        {
+          "src": "http://127.0.0.1:4173/DOMO-BJI/demos/ferrini/preview-desktop.png",
+          "loading": "lazy",
+          "complete": false,
+          "width": 0
+        },
+        {
+          "src": "http://127.0.0.1:4173/DOMO-BJI/showcase-v2/assets/brand/domo-logo-horizontal-inverse.svg",
+          "loading": "auto",
+          "complete": true,
+          "width": 1200
+        }
+      ],
+      "mobileCtaVisible": false,
+      "imageStatuses": [
+        {
+          "src": "http://127.0.0.1:4173/DOMO-BJI/showcase-v2/assets/brand/domo-logo-horizontal-inverse.svg",
+          "status": 200,
+          "loading": "auto"
+        },
+        {
+          "src": "http://127.0.0.1:4173/DOMO-BJI/demos/jair-neto/preview-desktop.png",
+          "status": 200,
+          "loading": "lazy"
+        },
+        {
+          "src": "http://127.0.0.1:4173/DOMO-BJI/demos/criativo-design/preview-desktop.png",
+          "status": 200,
+          "loading": "lazy"
+        },
+        {
+          "src": "http://127.0.0.1:4173/DOMO-BJI/demos/ferrini/preview-desktop.png",
+          "status": 200,
+          "loading": "lazy"
+        },
+        {
+          "src": "http://127.0.0.1:4173/DOMO-BJI/showcase-v2/assets/brand/domo-logo-horizontal-inverse.svg",
+          "status": 200,
+          "loading": "auto"
+        }
+      ],
+      "consoleErrors": [],
+      "pageErrors": [],
+      "pass": true
+    },
+    {
+      "name": "desktop-1920",
+      "width": 1920,
+      "height": 1080,
+      "viewport": {
+        "width": 1920,
+        "height": 1080
+      },
+      "overflow": 0,
+      "h1": "Experiências e ferramentas comerciais sob medida.",
+      "ctas": [
+        "https://wa.me/5522999686677?text=Ol%C3%A1!%20Vi%20a%20Showcase%20da%20Domo%20e%20quero%20entender%20como%20uma%20demo%20gratuita%20funcionaria%20para%20o%20meu%20neg%C3%B3cio.",
+        "https://wa.me/5522999686677?text=Ol%C3%A1!%20Vi%20a%20Showcase%20da%20Domo.%20Quero%20uma%20demo%20gratuita%20focada%20em%20um%20problema%20real%20do%20meu%20neg%C3%B3cio.",
+        "https://wa.me/5522999686677?text=Ol%C3%A1!%20Quero%20mostrar%20um%20processo%20do%20meu%20neg%C3%B3cio%20para%20voc%C3%AAs%20avaliarem%20e%2C%20se%20fizer%20sentido%2C%20criarem%20uma%20demo%20gratuita.",
+        "https://wa.me/5522999686677?text=Ol%C3%A1!%20Vi%20a%20Showcase%20V2%20da%20Domo%20e%20quero%20conversar%20sobre%20uma%20demo%20gratuita."
+      ],
+      "proofs": {
+        "Jair Neto": true,
+        "Criativo Design": true,
+        "Ferrini CrossFit": true,
+        "Fitaroni": true,
+        "Legado": true
+      },
+      "images": [
+        {
+          "src": "http://127.0.0.1:4173/DOMO-BJI/showcase-v2/assets/brand/domo-logo-horizontal-inverse.svg",
+          "loading": "auto",
+          "complete": true,
+          "width": 1200
+        },
+        {
+          "src": "http://127.0.0.1:4173/DOMO-BJI/demos/jair-neto/preview-desktop.png",
+          "loading": "lazy",
+          "complete": true,
+          "width": 1440
+        },
+        {
+          "src": "http://127.0.0.1:4173/DOMO-BJI/demos/criativo-design/preview-desktop.png",
+          "loading": "lazy",
+          "complete": true,
+          "width": 2880
+        },
+        {
+          "src": "http://127.0.0.1:4173/DOMO-BJI/demos/ferrini/preview-desktop.png",
+          "loading": "lazy",
+          "complete": true,
+          "width": 1440
+        },
+        {
+          "src": "http://127.0.0.1:4173/DOMO-BJI/showcase-v2/assets/brand/domo-logo-horizontal-inverse.svg",
+          "loading": "auto",
+          "complete": true,
+          "width": 1200
+        }
+      ],
+      "mobileCtaVisible": false,
+      "imageStatuses": [
+        {
+          "src": "http://127.0.0.1:4173/DOMO-BJI/showcase-v2/assets/brand/domo-logo-horizontal-inverse.svg",
+          "status": 200,
+          "loading": "auto"
+        },
+        {
+          "src": "http://127.0.0.1:4173/DOMO-BJI/demos/jair-neto/preview-desktop.png",
+          "status": 200,
+          "loading": "lazy"
+        },
+        {
+          "src": "http://127.0.0.1:4173/DOMO-BJI/demos/criativo-design/preview-desktop.png",
+          "status": 200,
+          "loading": "lazy"
+        },
+        {
+          "src": "http://127.0.0.1:4173/DOMO-BJI/demos/ferrini/preview-desktop.png",
+          "status": 200,
+          "loading": "lazy"
+        },
+        {
+          "src": "http://127.0.0.1:4173/DOMO-BJI/showcase-v2/assets/brand/domo-logo-horizontal-inverse.svg",
+          "status": 200,
+          "loading": "auto"
+        }
+      ],
+      "consoleErrors": [],
+      "pageErrors": [],
+      "pass": true
+    }
+  ],
+  "reducedMotion": {
+    "media": true,
+    "allRevealVisible": true,
+    "heroTransform": "none"
+  },
+  "protectedRoutes": {
+    "legado/": 200,
+    "fitaroni/": 200,
+    "demos/jair-neto/": 200,
+    "demos/criativo-design/": 200,
+    "demos/ferrini/": 200
+  },
+  "screenshots": [
+    "qa/showcase-v2/mobile-390x844.jpg",
+    "qa/showcase-v2/desktop-1366x768.jpg"
+  ],
+  "status": "PASS"
+}
