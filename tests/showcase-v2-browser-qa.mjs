@@ -65,6 +65,12 @@ try {
       const text = body.innerText;
       const images = [...document.images].map((img) => ({ src: img.currentSrc || img.src, loading: img.loading, complete: img.complete, width: img.naturalWidth }));
       const h1 = document.querySelector('h1');
+      const hiddenReveal = [...document.querySelectorAll('.reveal:not(.is-visible)')].map((node) => ({
+        tag: node.tagName.toLowerCase(),
+        className: node.className,
+        text: (node.textContent || '').replace(/\s+/g, ' ').trim().slice(0, 90),
+        rect: (() => { const r = node.getBoundingClientRect(); return { top: Math.round(r.top), height: Math.round(r.height) }; })()
+      }));
       return {
         viewport: { width: window.innerWidth, height: window.innerHeight },
         overflow: Math.max(root.scrollWidth, body.scrollWidth) - root.clientWidth,
@@ -72,7 +78,7 @@ try {
         ctas,
         proofs: Object.fromEntries(proofs.map((name) => [name, text.includes(name)])),
         images,
-        allRevealVisible: [...document.querySelectorAll('.reveal')].every((node) => node.classList.contains('is-visible')),
+        hiddenReveal,
         mobileCtaVisible: getComputedStyle(document.querySelector('.mobile-cta')).display !== 'none'
       };
     }, requiredProofs);
@@ -85,7 +91,7 @@ try {
     }
 
     assert.ok(data.images.every((img) => img.complete && img.width > 0), `${target.name}: imagem não carregou após materialização`);
-    assert.equal(data.allRevealVisible, true, `${target.name}: seção reveal não ativou durante rolagem`);
+    assert.equal(data.hiddenReveal.length, 0, `${target.name}: reveal invisível: ${JSON.stringify(data.hiddenReveal)}`);
     assert.ok(data.h1.includes('Experiências e ferramentas comerciais'), `${target.name}: proposta principal não está clara`);
     assert.ok(data.overflow <= 1, `${target.name}: overflow horizontal de ${data.overflow}px`);
     assert.ok(data.ctas.length >= 3, `${target.name}: poucos CTAs primários`);
