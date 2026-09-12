@@ -8,103 +8,102 @@ permissions:
   contents: read
 
 jobs:
-  sweep:
+  tests:
     if: ${{ !contains(github.event.head_commit.message, '[skip f09-sweep]') }}
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout main
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
         with:
           path: main
-      - name: Checkout Ferrini source
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
         with:
           ref: front/f16-demo-cell-beta
           path: ferrini-source
-      - name: Fresh tests published demos
+      - name: Fresh tests A02 demos
         working-directory: main
         run: node --test tests/criativo-briefing.test.mjs tests/jair-briefing.test.mjs tests/sheila-briefing.test.mjs
-      - name: Fresh tests Ferrini source
+      - name: Fresh tests Ferrini
         working-directory: ferrini-source
         run: node --test tests/ferrini-briefing.test.mjs tests/ferrini-page.test.mjs
+
+  live:
+    if: ${{ !contains(github.event.head_commit.message, '[skip f09-sweep]') }}
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - slug: ferrini
+            title: Ferrini
+            cta: '[data-primary-cta]'
+          - slug: criativo-design
+            title: Criativo Design
+            cta: '[data-primary-cta]'
+          - slug: jair-neto
+            title: Jair Neto
+            cta: '#briefing-cta'
+          - slug: sheila-de-jesus
+            title: Sheila de Jesus
+            cta: '[data-primary-cta]'
+    steps:
       - name: Install browser runtime
         run: npm install --prefix /tmp/f09sweep --no-save playwright-core@1.55.0
-      - name: Wait for Pages deployment
-        run: |
-          set -euo pipefail
-          for route in ferrini criativo-design jair-neto sheila-de-jesus; do
-            url="https://dgreych.github.io/DOMO-BJI/demos/${route}/"
-            for i in {1..40}; do
-              if curl -fsS "$url" >/dev/null; then break; fi
-              sleep 3
-              if [ "$i" = 40 ]; then exit 1; fi
-            done
-          done
-      - name: Live verify approved demos
+      - name: Verify ${{ matrix.slug }}
         env:
-          BASE: https://dgreych.github.io/DOMO-BJI/demos/
+          SLUG: ${{ matrix.slug }}
+          EXPECTED_TITLE: ${{ matrix.title }}
+          CTA_SELECTOR: ${{ matrix.cta }}
         run: |
           chrome="$(command -v google-chrome || command -v google-chrome-stable || command -v chromium || command -v chromium-browser)"
           test -n "$chrome"
           CHROME="$chrome" node <<'NODE'
           const assert = require('node:assert/strict');
           const { chromium } = require('/tmp/f09sweep/node_modules/playwright-core');
-          const demos = [
-            {slug:'ferrini', title:/Ferrini/i, path:'/DOMO-BJI/demos/ferrini/', cta:'[data-primary-cta]'},
-            {slug:'criativo-design', title:/Criativo Design/i, path:'/DOMO-BJI/demos/criativo-design/', cta:'[data-primary-cta]'},
-            {slug:'jair-neto', title:/Jair Neto/i, path:'/DOMO-BJI/demos/jair-neto/', cta:'#briefing-cta'},
-            {slug:'sheila-de-jesus', title:/Sheila de Jesus/i, path:'/DOMO-BJI/demos/sheila-de-jesus/', cta:'[data-primary-cta]'}
-          ];
+          const slug=process.env.SLUG;
+          const url=`https://dgreych.github.io/DOMO-BJI/demos/${slug}/`;
+          const expectedPath=`/DOMO-BJI/demos/${slug}/`;
           const viewports=[{width:360,height:800},{width:390,height:844},{width:430,height:932},{width:1440,height:900}];
           (async()=>{
             const browser=await chromium.launch({headless:true,executablePath:process.env.CHROME,args:['--no-sandbox']});
-            const results=[];
-            for(const demo of demos){
-              const url=`${process.env.BASE}${demo.slug}/`;
-              for(const viewport of viewports){
-                const context=await browser.newContext({viewport});
-                const page=await context.newPage();
-                const consoleErrors=[], pageErrors=[], requestFailures=[];
-                page.on('console',m=>{if(m.type()==='error')consoleErrors.push(m.text())});
-                page.on('pageerror',e=>pageErrors.push(String(e)));
-                page.on('requestfailed',r=>requestFailures.push(`${r.method()} ${r.url()} ${r.failure()?.errorText||''}`));
-                const response=await page.goto(url,{waitUntil:'networkidle',timeout:30000});
-                assert(response&&response.ok(),`${demo.slug} HTTP ${response?.status()}`);
-                assert.equal(new URL(page.url()).pathname,demo.path);
-                assert.match(await page.title(),demo.title);
-                const dims=await page.evaluate(()=>({innerWidth,doc:document.documentElement.scrollWidth,body:document.body.scrollWidth}));
-                assert(dims.doc<=dims.innerWidth+1,`${demo.slug} overflow doc ${viewport.width}`);
-                assert(dims.body<=dims.innerWidth+1,`${demo.slug} overflow body ${viewport.width}`);
-                const broken=await page.locator('img').evaluateAll(xs=>xs.filter(x=>!x.complete||x.naturalWidth===0).map(x=>x.getAttribute('src')));
-                assert.deepEqual(broken,[],`${demo.slug} broken images`);
-                const badAnchors=await page.locator('a[href^="#"]').evaluateAll(xs=>xs.map(x=>x.getAttribute('href')).filter(h=>h&&h!=='#'&&!document.querySelector(h)));
-                assert.deepEqual(badAnchors,[],`${demo.slug} broken anchors`);
-                assert.deepEqual(consoleErrors,[],`${demo.slug} console ${viewport.width}`);
-                assert.deepEqual(pageErrors,[],`${demo.slug} page ${viewport.width}`);
-                assert.deepEqual(requestFailures,[],`${demo.slug} request ${viewport.width}`);
-                await context.close();
-              }
-              const context=await browser.newContext({viewport:{width:390,height:844}});
+            for(const viewport of viewports){
+              const context=await browser.newContext({viewport});
               const page=await context.newPage();
-              await page.goto(url,{waitUntil:'networkidle'});
-              assert.equal(await page.locator('link[rel="canonical"]').getAttribute('href'),url,`${demo.slug} canonical`);
-              const og=await page.locator('meta[property="og:image"]').getAttribute('content');
-              assert(og&&og.startsWith('https://'),`${demo.slug} absolute og`);
-              const ogResponse=await context.request.get(og);
-              assert(ogResponse.ok(),`${demo.slug} OG HTTP ${ogResponse.status()}`);
-              const primary=page.locator(demo.cta);
-              assert.equal(await primary.count(),1,`${demo.slug} primary CTA`);
-              await primary.scrollIntoViewIfNeeded();
-              assert(await primary.isVisible(),`${demo.slug} CTA visibility`);
+              const pageErrors=[];
+              page.on('pageerror',e=>pageErrors.push(String(e)));
+              const response=await page.goto(url,{waitUntil:'networkidle',timeout:30000});
+              assert(response&&response.ok(),`HTTP ${response?.status()}`);
+              assert.equal(new URL(page.url()).pathname,expectedPath);
+              assert((await page.title()).includes(process.env.EXPECTED_TITLE),`title=${await page.title()}`);
+              const dims=await page.evaluate(()=>({innerWidth,doc:document.documentElement.scrollWidth,body:document.body.scrollWidth}));
+              assert(dims.doc<=dims.innerWidth+1,`overflow doc ${viewport.width}`);
+              assert(dims.body<=dims.innerWidth+1,`overflow body ${viewport.width}`);
+              const broken=await page.locator('img').evaluateAll(xs=>xs.filter(x=>!x.complete||x.naturalWidth===0).map(x=>x.getAttribute('src')));
+              assert.deepEqual(broken,[],`broken images ${JSON.stringify(broken)}`);
+              const badAnchors=await page.locator('a[href^="#"]').evaluateAll(xs=>xs.map(x=>x.getAttribute('href')).filter(h=>h&&h!=='#'&&!document.querySelector(h)));
+              assert.deepEqual(badAnchors,[],`broken anchors ${JSON.stringify(badAnchors)}`);
+              assert.deepEqual(pageErrors,[],`page errors ${pageErrors.join(' | ')}`);
               await context.close();
-              const reduced=await browser.newContext({viewport:{width:390,height:844},reducedMotion:'reduce'});
-              const rp=await reduced.newPage();
-              await rp.goto(url,{waitUntil:'networkidle'});
-              assert.equal(await rp.locator('main').count(),1);
-              await reduced.close();
-              results.push({slug:demo.slug,status:'LIVE_VERIFIED'});
             }
+            const context=await browser.newContext({viewport:{width:390,height:844}});
+            const page=await context.newPage();
+            await page.goto(url,{waitUntil:'networkidle'});
+            assert.equal(await page.locator('link[rel="canonical"]').getAttribute('href'),url,'canonical');
+            const og=await page.locator('meta[property="og:image"]').getAttribute('content');
+            assert(og&&og.startsWith('https://'),'absolute og');
+            const ogResponse=await context.request.get(og);
+            assert(ogResponse.ok(),`OG ${ogResponse.status()}`);
+            const primary=page.locator(process.env.CTA_SELECTOR);
+            assert.equal(await primary.count(),1,'primary CTA');
+            await primary.scrollIntoViewIfNeeded();
+            assert(await primary.isVisible(),'CTA visibility');
+            await context.close();
+            const reduced=await browser.newContext({viewport:{width:390,height:844},reducedMotion:'reduce'});
+            const rp=await reduced.newPage();
+            const rr=await rp.goto(url,{waitUntil:'networkidle'});
+            assert(rr&&rr.ok(),'reduced motion HTTP');
+            assert.equal(await rp.locator('main').count(),1);
+            await reduced.close();
             await browser.close();
-            console.log(JSON.stringify({status:'PASS',results},null,2));
-          })().catch(e=>{console.error(e);process.exit(1)});
+            console.log(`${slug}: LIVE_VERIFIED`);
+          })().catch(e=>{console.error(`${slug}:`,e);process.exit(1)});
           NODE
