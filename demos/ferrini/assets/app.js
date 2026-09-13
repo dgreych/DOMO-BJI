@@ -1,3 +1,4 @@
+import "/DOMO-BJI/assets/domo-legal.js";
 import { buildFerriniWhatsappUrl } from './briefing.mjs';
 
 const form = document.querySelector('#journey-form');
@@ -17,12 +18,10 @@ function readJourney() {
 function updateJourney() {
   const journey = readJourney();
   const selected = [journey.goal, journey.experience, journey.period].filter(Boolean).length;
-
   form.querySelectorAll('[data-step]').forEach((step) => {
     const name = step.dataset.step;
     step.classList.toggle('is-complete', Boolean(journey[name]));
   });
-
   if (selected < 3) {
     cta.removeAttribute('href');
     cta.setAttribute('aria-disabled', 'true');
@@ -30,7 +29,6 @@ function updateJourney() {
     summary.textContent = `${selected}/3 escolhas feitas. Complete objetivo, experiência e período.`;
     return;
   }
-
   const url = buildFerriniWhatsappUrl(journey);
   cta.href = url.toString();
   cta.removeAttribute('aria-disabled');
@@ -39,7 +37,6 @@ function updateJourney() {
 }
 
 form.addEventListener('change', updateJourney);
-
 document.querySelectorAll('a[href^="#"]').forEach((link) => {
   link.addEventListener('click', (event) => {
     const selector = link.getAttribute('href');
@@ -50,5 +47,4 @@ document.querySelectorAll('a[href^="#"]').forEach((link) => {
     target.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'start' });
   });
 });
-
 updateJourney();
