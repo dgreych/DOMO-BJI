@@ -2,22 +2,27 @@ import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
 import test from "node:test";
 
-const demoPaths = [
-  "demos/jair-neto/index.html",
-  "demos/ferrini/index.html",
-  "demos/sheila-de-jesus/index.html",
-  "demos/criativo-design/index.html",
+const demoAppPaths = [
+  "demos/jair-neto/assets/app.js",
+  "demos/ferrini/assets/app.js",
+  "demos/sheila-de-jesus/assets/app.js",
+  "demos/criativo-design/assets/app.js",
 ];
 
-for (const path of demoPaths) {
-  test(`${path} identifica a demo, oferece opt-out e aponta para o jurídico`, async () => {
-    const html = await readFile(path, "utf8");
-    assert.match(html, /Demonstração conceitual não oficial criada pela Domo/i);
-    assert.match(html, /retirar esta demo do ar/i);
-    assert.match(html, /não receber novas mensagens da Domo/i);
-    assert.match(html, /\/DOMO-BJI\/juridico\//);
+for (const path of demoAppPaths) {
+  test(`${path} carrega o aviso jurídico compartilhado`, async () => {
+    const source = await readFile(path, "utf8");
+    assert.match(source, /\/DOMO-BJI\/assets\/domo-legal\.js/);
   });
 }
+
+test("aviso compartilhado identifica a demo, oferece opt-out e aponta para o jurídico", async () => {
+  const source = await readFile("assets/domo-legal.js", "utf8");
+  assert.match(source, /Demonstração conceitual não oficial criada pela Domo/i);
+  assert.match(source, /retirar esta demo do ar/i);
+  assert.match(source, /não receber novas mensagens da Domo/i);
+  assert.match(source, /\/DOMO-BJI\/juridico\//);
+});
 
 test("página jurídica identifica a Domo e explica prospecção e LGPD", async () => {
   const html = await readFile("juridico/index.html", "utf8");
