@@ -1,0 +1,24 @@
+name: portfolio legal qa
+
+on:
+  push:
+    branches:
+      - ops/portfolio-legal-coverage-20260913
+  pull_request:
+    paths:
+      - 'index.html'
+      - 'legado/**'
+      - 'fitaroni/**'
+      - 'beleza-leal/**'
+      - 'assets/domo-legal.*'
+      - 'tests/portfolio-legal-coverage.test.mjs'
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: node --test tests/portfolio-legal-coverage.test.mjs
