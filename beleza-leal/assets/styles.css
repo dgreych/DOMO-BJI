@@ -598,6 +598,167 @@ h2 {
   font-size: 0.88rem;
 }
 
+.method {
+  display: grid;
+  gap: 42px;
+  border-top: 1px solid var(--linha);
+}
+
+.method__copy {
+  align-self: center;
+}
+
+.method__lead {
+  max-width: 620px;
+  margin: 26px 0 0;
+  color: var(--taupe);
+  font-size: clamp(1.04rem, 2.4vw, 1.18rem);
+}
+
+.method__note {
+  margin: 16px 0 0;
+  color: var(--grafite);
+  font-family: var(--serif);
+  font-size: 1.15rem;
+  font-style: italic;
+  line-height: 1.35;
+}
+
+.method__pillars {
+  display: grid;
+  gap: 0;
+  margin: 36px 0 30px;
+  border-top: 1px solid var(--linha);
+}
+
+.method__pillars article {
+  display: grid;
+  grid-template-columns: 34px 1fr;
+  column-gap: 12px;
+  padding: 18px 0;
+  border-bottom: 1px solid var(--linha);
+}
+
+.method__pillars span {
+  grid-row: span 2;
+  color: var(--ouro);
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+}
+
+.method__pillars strong {
+  font-size: 0.95rem;
+  line-height: 1.28;
+}
+
+.method__pillars p {
+  margin: 4px 0 0;
+  color: var(--taupe);
+  font-size: 0.8rem;
+  line-height: 1.45;
+}
+
+.method__visual {
+  position: relative;
+  margin: 0;
+}
+
+.method__visual::before {
+  position: absolute;
+  z-index: -1;
+  inset: 18px -14px -18px 18px;
+  border: 1px solid var(--linha);
+  border-radius: 24px;
+  content: "";
+}
+
+.method__visual img {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  border-radius: 22px;
+  box-shadow: var(--sombra);
+  object-fit: cover;
+}
+
+.method__visual figcaption {
+  position: absolute;
+  right: 12px;
+  bottom: 12px;
+  display: grid;
+  max-width: 210px;
+  padding: 13px 15px;
+  border: 1px solid rgba(255, 255, 255, 0.68);
+  border-radius: 13px;
+  background: rgba(255, 254, 250, 0.9);
+  box-shadow: 0 14px 36px rgba(41, 38, 34, 0.13);
+  backdrop-filter: blur(12px);
+}
+
+.method__visual figcaption span,
+.medical__copy .eyebrow {
+  color: var(--ouro);
+}
+
+.method__visual figcaption span {
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.method__visual figcaption strong {
+  margin-top: 3px;
+  font-family: var(--serif);
+  font-size: 0.94rem;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.medical {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 22px;
+  align-items: start;
+  width: min(100% - 24px, calc(var(--max) + 80px));
+  padding: 42px 24px;
+  border: 1px solid var(--linha);
+  border-radius: 28px;
+  background:
+    linear-gradient(120deg, rgba(242, 235, 221, 0.82), rgba(255, 254, 250, 0.96)),
+    var(--branco);
+}
+
+.medical__marker {
+  display: grid;
+  place-items: center;
+  width: 58px;
+  height: 58px;
+  border: 1px solid var(--linha);
+  border-radius: 50%;
+  background: var(--branco);
+}
+
+.medical__marker img {
+  width: 32px;
+  opacity: 0.72;
+}
+
+.medical__copy h2 {
+  max-width: 14ch;
+}
+
+.medical__copy > p:not(.eyebrow) {
+  max-width: 690px;
+  margin: 22px 0 0;
+  color: var(--taupe);
+  font-size: 1rem;
+}
+
+.medical__copy .text-link {
+  margin-top: 18px;
+}
+
 .section-heading--split {
   max-width: none;
 }
@@ -670,6 +831,79 @@ h2 {
   margin: 0;
   color: var(--taupe);
   font-size: 0.76rem;
+}
+
+.result-pairs {
+  border-top: 1px solid var(--linha);
+}
+
+.result-pairs__grid {
+  display: grid;
+  gap: 22px;
+  margin-top: 42px;
+}
+
+.result-pair {
+  padding: 22px;
+  border: 1px solid var(--linha);
+  border-radius: 22px;
+  background: rgba(255, 254, 250, 0.66);
+}
+
+.result-pair header {
+  margin-bottom: 18px;
+}
+
+.result-pair header > span {
+  color: var(--ouro);
+  font-size: 0.66rem;
+  font-weight: 800;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.result-pair h3 {
+  margin: 5px 0 0;
+  font-family: var(--serif);
+  font-size: 1.55rem;
+  font-weight: 500;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+}
+
+.result-pair__media {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.result-pair__media figure {
+  min-width: 0;
+  margin: 0;
+}
+
+.result-pair__photo {
+  display: grid;
+  place-items: center;
+  aspect-ratio: 9 / 16;
+  overflow: hidden;
+  border-radius: 14px;
+  background: var(--marfim);
+}
+
+.result-pair__photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.result-pair__media figcaption {
+  padding: 9px 2px 0;
+  color: var(--ouro);
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
 }
 
 .team {
@@ -972,6 +1206,28 @@ h2 {
     padding: 86px clamp(40px, 7vw, 92px);
   }
 
+  .method {
+    grid-template-columns: minmax(0, 1.12fr) minmax(280px, 0.88fr);
+    gap: clamp(42px, 7vw, 96px);
+    align-items: center;
+  }
+
+  .method__visual {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  .medical {
+    grid-template-columns: 82px minmax(0, 1fr);
+    gap: 26px;
+    padding: 50px clamp(40px, 7vw, 92px);
+  }
+
+  .medical__marker {
+    width: 68px;
+    height: 68px;
+  }
+
   .section-heading--split {
     display: grid;
     grid-template-columns: 1.2fr 0.8fr;
@@ -993,6 +1249,12 @@ h2 {
 
   .result-card--offset {
     margin-top: 54px;
+  }
+
+  .result-pairs__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+    margin-top: 56px;
   }
 
   .team__grid {
@@ -1068,6 +1330,27 @@ h2 {
 
   .pathways__grid {
     grid-template-columns: 1.2fr 0.8fr 0.8fr;
+  }
+
+  .method__pillars {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .method__pillars article {
+    display: block;
+    min-height: 150px;
+    padding: 16px 14px;
+    border-right: 1px solid var(--linha);
+    border-bottom: 0;
+  }
+
+  .method__pillars article:last-child {
+    border-right: 0;
+  }
+
+  .method__pillars span {
+    display: block;
+    margin-bottom: 22px;
   }
 
   .path-card--featured {

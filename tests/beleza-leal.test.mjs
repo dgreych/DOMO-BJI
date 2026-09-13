@@ -49,6 +49,9 @@ test("entrega uma homepage semântica com a triagem completa", async () => {
     "caminhos",
     "como-funciona",
     "resultados",
+    "metodo-bl",
+    "acompanhamento-medico",
+    "resultados-reais",
     "equipe",
     "triagem",
   ]) {
@@ -90,7 +93,6 @@ test("mantém copy pública fora dos claims bloqueados", async () => {
 
   for (const blocked of [
     "mounjaro",
-    "tirzepatida",
     "resultado garantido",
     "sem sofrimento",
     "-15kg",
@@ -101,6 +103,37 @@ test("mantém copy pública fora dos claims bloqueados", async () => {
 
   assert.doesNotMatch(html, /<canvas/i);
   assert.doesNotMatch(html, /WebGL/i);
+});
+
+test("apresenta Método BL, pares reais e acompanhamento médico de forma delimitada", async () => {
+  const html = await readFile(
+    new URL("../beleza-leal/index.html", import.meta.url),
+    "utf8",
+  );
+
+  for (const asset of [
+    "assets/resultado-casal-antes.jpg",
+    "assets/resultado-casal-depois.jpg",
+    "assets/resultado-solo-antes.jpg",
+    "assets/resultado-solo-depois.jpg",
+    "assets/method-bl-line.jpg",
+  ]) {
+    assert.match(html, new RegExp(asset.replaceAll(".", "\\.")));
+  }
+
+  assert.match(html, /Método BL/);
+  assert.match(html, /acompanhamento nutricional/i);
+  assert.match(html, /sessões comportamentais/i);
+  assert.match(html, /Linha BL/);
+  assert.match(html, />Antes</);
+  assert.match(html, />Depois</);
+  assert.match(html, /Dr\. Marcos Pitaluga/);
+  assert.match(
+    html,
+    /planos que incluam tirzepatida[\s\S]*consulta médica[\s\S]*orientação[\s\S]*acompanhamento médico[\s\S]*Dr\. Marcos Pitaluga/i,
+  );
+  assert.doesNotMatch(html, /clandestinamente/i);
+  assert.doesNotMatch(html, /sem acompanhamento médico/i);
 });
 
 test("mantém a abertura corporal e remove metacomentário do rodapé", async () => {
