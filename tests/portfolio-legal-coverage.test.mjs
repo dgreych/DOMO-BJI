@@ -2,7 +2,7 @@ import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
 import test from "node:test";
 
-for (const path of ["legado/app.js", "fitaroni/app.js"]) {
+for (const path of ["legado/index.html", "fitaroni/index.html"]) {
   test(`${path} carrega o disclaimer jurídico compartilhado`, async () => {
     const source = await readFile(path, "utf8");
     assert.match(source, /domo-legal\.js/);
