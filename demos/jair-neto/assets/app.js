@@ -1,3 +1,4 @@
+import "/DOMO-BJI/assets/domo-legal.js";
 import { buildJairWhatsappUrl } from "./briefing.mjs";
 
 const form = document.querySelector("#briefing-form");
