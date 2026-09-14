@@ -6,6 +6,7 @@ import test from 'node:test';
 const root = new URL('../', import.meta.url);
 const pageUrl = new URL('shogun/index.html', root);
 const cssUrl = new URL('shogun/styles.css', root);
+const themeUrl = new URL('shogun/theme-shogun.css', root);
 const jsUrl = new URL('shogun/app.js', root);
 const sitemapUrl = new URL('sitemap.xml', root);
 
@@ -62,4 +63,19 @@ test('inclui acessibilidade, motion-safe e indexação', async () => {
   assert.match(css, /prefers-reduced-motion:\s*reduce/);
   assert.match(css, /focus-visible/);
   assert.match(sitemap, /https:\/\/dgreych\.github\.io\/DOMO-BJI\/shogun\//);
+});
+
+test('usa a paleta oficial preta, vermelha e amarela do Shogun sem vinho ou roxo', async () => {
+  const html = await readFile(pageUrl, 'utf8');
+  assert.equal(existsSync(themeUrl), true, 'theme-shogun.css precisa existir');
+  assert.match(html, /theme-shogun\.css/);
+
+  const theme = (await readFile(themeUrl, 'utf8')).toLowerCase();
+  assert.match(theme, /--shogun-red:\s*#ff2b2b/);
+  assert.match(theme, /--shogun-yellow:\s*#ffd400/);
+  assert.match(theme, /--shogun-black:\s*#050505/);
+
+  for (const forbidden of ['#471616', '#5c1418', '#541115', '#7040c8', '#8a50d8', '#7d4bc1']) {
+    assert.equal(theme.includes(forbidden), false, `tema não pode usar ${forbidden}`);
+  }
 });
