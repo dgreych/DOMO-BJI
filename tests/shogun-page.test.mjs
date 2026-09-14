@@ -44,6 +44,20 @@ test('oferece tutoriais separados para Termux, Linux e Windows', async () => {
   assert.match(js, /navigator\.clipboard|writeText/);
 });
 
+test('onboarding ensina o que é um bot antes de pedir instalação', async () => {
+  const html = await readFile(pageUrl, 'utf8');
+  assert.match(html, /O que é um bot de WhatsApp\?/i);
+  assert.match(html, /programa que fica conectado ao WhatsApp/i);
+  assert.match(html, /Quero instalar o SHOGUN/i);
+  assert.doesNotMatch(html, /Colocar meu Shogun no ar/i);
+  assert.match(html, /1[\s\S]{0,160}Baixar/i);
+  assert.match(html, /2[\s\S]{0,160}Instalar/i);
+  assert.match(html, /3[\s\S]{0,160}Iniciar/i);
+  assert.match(html, /4[\s\S]{0,160}Conectar/i);
+  assert.match(html, /Nunca usei terminal/i);
+  assert.match(html, /Você não precisa entender os comandos/i);
+});
+
 test('mantém CTAs de BunnyFy e hospedagem com mensagens diferentes no WhatsApp Domo', async () => {
   const html = await readFile(pageUrl, 'utf8');
   const js = await readFile(jsUrl, 'utf8');
