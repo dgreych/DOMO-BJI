@@ -92,6 +92,16 @@ test('inclui acessibilidade, motion-safe e indexação', async () => {
   assert.match(sitemap, /https:\/\/dgreych\.github\.io\/DOMO-BJI\/shogun\//);
 });
 
+test('mantém URL canônica sem parâmetros de versão e limpa links antigos', async () => {
+  const html = await readFile(pageUrl, 'utf8');
+  const js = await readFile(jsUrl, 'utf8');
+  assert.match(html, /<link rel=["']canonical["'] href=["']https:\/\/dgreych\.github\.io\/DOMO-BJI\/shogun\/["']>/);
+  assert.match(html, /<meta property=["']og:url["'] content=["']https:\/\/dgreych\.github\.io\/DOMO-BJI\/shogun\/["']>/);
+  assert.doesNotMatch(html, /(?:canonical|og:url)[^>]*[?&]v=/i);
+  assert.match(js, /searchParams\.delete\(['"]v['"]\)/);
+  assert.match(js, /history\.replaceState/);
+});
+
 test('usa a paleta oficial preta, vermelha e amarela do Shogun sem vinho ou roxo', async () => {
   const html = await readFile(pageUrl, 'utf8');
   assert.equal(existsSync(themeUrl), true, 'theme-shogun.css precisa existir');
