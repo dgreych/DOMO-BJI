@@ -44,6 +44,15 @@ test('oferece tutoriais separados para Termux, Linux e Windows', async () => {
   assert.match(js, /navigator\.clipboard|writeText/);
 });
 
+test('mantém tutorial legível em telas estreitas sem cortar comandos', async () => {
+  const css = (await readFile(cssUrl, 'utf8')).replace(/\s+/g, ' ');
+  assert.match(css, /\.platform-panel\s*\{[^}]*min-width:\s*0/i);
+  assert.match(css, /\.step\s*>\s*div\s*\{[^}]*min-width:\s*0/i);
+  assert.match(css, /\.code-box\s*\{[^}]*max-width:\s*100%/i);
+  assert.match(css, /\.code-box\s+pre\s*\{[^}]*overflow-x:\s*auto/i);
+  assert.match(css, /@media\s*\(max-width:\s*460px\)[\s\S]*?\.platform-panel\s*\{[^}]*padding:/i);
+});
+
 test('onboarding ensina o que é um bot antes de pedir instalação', async () => {
   const html = await readFile(pageUrl, 'utf8');
   assert.match(html, /O que é um bot de WhatsApp\?/i);
