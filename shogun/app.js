@@ -1,3 +1,11 @@
+const canonicalUrl = new URL(window.location.href);
+if (canonicalUrl.searchParams.has('v')) {
+  canonicalUrl.searchParams.delete('v');
+  const search = canonicalUrl.searchParams.toString();
+  const cleanUrl = `${canonicalUrl.pathname}${search ? `?${search}` : ''}${canonicalUrl.hash}`;
+  window.history.replaceState(null, '', cleanUrl);
+}
+
 const runtimeScript = document.currentScript;
 const mobileStylesheet = document.createElement('link');
 mobileStylesheet.rel = 'stylesheet';
