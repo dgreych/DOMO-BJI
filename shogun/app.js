@@ -1,3 +1,9 @@
+const runtimeScript = document.currentScript;
+const mobileStylesheet = document.createElement('link');
+mobileStylesheet.rel = 'stylesheet';
+mobileStylesheet.href = new URL('./mobile.css', runtimeScript?.src || document.baseURI).href;
+document.head.append(mobileStylesheet);
+
 const tabs = [...document.querySelectorAll('.platform-tab')];
 const panels = [...document.querySelectorAll('.platform-panel')];
 const toast = document.querySelector('[data-toast]');
