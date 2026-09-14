@@ -6,13 +6,13 @@ on:
       - main
     paths:
       - 'shogun/**'
-      - 'tests/shogun-page.test.mjs'
+      - 'tests/shogun-*.test.mjs'
       - 'sitemap.xml'
       - '.github/workflows/shogun-page-qa.yml'
   pull_request:
     paths:
       - 'shogun/**'
-      - 'tests/shogun-page.test.mjs'
+      - 'tests/shogun-*.test.mjs'
       - 'sitemap.xml'
       - '.github/workflows/shogun-page-qa.yml'
 
@@ -24,4 +24,4 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
-      - run: node --test tests/shogun-page.test.mjs
+      - run: node --test tests/shogun-*.test.mjs
