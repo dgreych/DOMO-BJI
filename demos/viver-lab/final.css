@@ -1,4 +1,4 @@
-/* Viver Lab final QA overrides: mobile-safe, no overlapping hero artwork */
+/* Viver Lab final QA overrides: remove empty brand mass + mobile-safe layout */
 html,body{max-width:100%;overflow-x:hidden!important}
 body{padding-bottom:0!important}
 .hero-art{min-height:360px!important;display:grid!important;place-items:center!important;padding:32px!important}
@@ -6,4 +6,30 @@ body{padding-bottom:0!important}
 .hero-card{position:relative!important;inset:auto!important;left:auto!important;right:auto!important;top:auto!important;bottom:auto!important;transform:none!important;width:min(100%,420px)!important;margin:0 auto!important}
 .mobile-whatsapp{display:none!important}
 .cta-action strong{display:none!important}
-@media(max-width:680px){html,body{width:100%!important;max-width:100%!important;overflow-x:hidden!important}body{padding-bottom:0!important}.hero{min-height:auto!important;padding:32px 16px 48px!important;gap:22px!important}.hero-copy{width:100%!important;max-width:none!important;overflow:hidden!important}.hero h1{max-width:9ch!important}.hero-lead{max-width:none!important}.hero-actions{display:grid!important;grid-template-columns:1fr!important;gap:10px!important}.hero-actions .button{width:100%!important}.hero-locations{display:flex!important;gap:8px!important;flex-wrap:wrap!important}.hero-locations span{white-space:normal!important;text-align:center!important}.hero-art{display:none!important}.care-visual{display:none!important}.mobile-whatsapp{display:none!important}.section,.care,.locations,.cta{max-width:100%!important;overflow:hidden!important}.question-list a{grid-template-columns:24px minmax(0,1fr) 24px!important}.question-list div{min-width:0!important}.question-list strong,.question-list small{overflow-wrap:anywhere!important}}
+
+/* A antiga coluna verde virou um bloco vazio depois da remoção da arte. Some de vez. */
+.care{display:block!important}
+.care-visual{display:none!important}
+.care-copy{width:min(100%,980px)!important;max-width:980px!important;margin:0 auto!important}
+
+@media(max-width:680px){
+  html,body{width:100%!important;max-width:100%!important;overflow-x:hidden!important}
+  body{padding-bottom:0!important}
+  .hero{min-height:auto!important;padding:32px 16px 48px!important;gap:22px!important}
+  .hero-copy{width:100%!important;max-width:none!important;overflow:hidden!important}
+  .hero h1{max-width:9ch!important}
+  .hero-lead{max-width:none!important}
+  .hero-actions{display:grid!important;grid-template-columns:1fr!important;gap:10px!important}
+  .hero-actions .button{width:100%!important}
+  .hero-locations{display:flex!important;gap:8px!important;flex-wrap:wrap!important}
+  .hero-locations span{white-space:normal!important;text-align:center!important}
+  .hero-art{display:none!important}
+  .care{display:block!important;padding-left:16px!important;padding-right:16px!important}
+  .care-visual{display:none!important}
+  .care-copy{width:100%!important;max-width:none!important;margin:0!important}
+  .mobile-whatsapp{display:none!important}
+  .section,.care,.locations,.cta{max-width:100%!important;overflow:hidden!important}
+  .question-list a{grid-template-columns:24px minmax(0,1fr) 24px!important}
+  .question-list div{min-width:0!important}
+  .question-list strong,.question-list small{overflow-wrap:anywhere!important}
+}
