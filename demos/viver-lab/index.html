@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#07130f">
+  <meta name="description" content="Demonstração conceitual Viver Lab — uma experiência digital pensada para transformar pedido médico em próximo passo claro.">
+  <title>Viver Lab — demonstração conceitual</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&family=Newsreader:opsz,wght@6..72,500;6..72,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script type="module" src="app.js"></script>
+</head>
+<body>
+  <a class="skip" href="#conteudo">Pular para o conteúdo</a>
+  <div class="grain" aria-hidden="true"></div>
+  <header class="topbar" data-header>
+    <a class="brand" href="#inicio" aria-label="Viver Lab, início"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span><span class="brand-type"><strong>VIVER</strong><b>LAB</b></span></a>
+    <nav aria-label="Navegação principal"><a href="#como-funciona">Como funciona</a><a href="#unidades">Unidades</a><a href="#estrutura">Estrutura</a></nav>
+    <a class="top-cta" href="#pedido">Consultar exame <span>↗</span></a>
+  </header>
+  <main id="conteudo">
+    <section class="hero" id="inicio">
+      <div class="hero-copy reveal">
+        <p class="eyebrow"><span class="signal"></span> Uma forma mais simples de começar</p>
+        <h1>Seu pedido de exame pode começar <em>antes da coleta.</em></h1>
+        <p class="hero-lead">Diga o que você precisa, escolha a cidade e chegue ao WhatsApp da Viver Lab com a conversa já encaminhada.</p>
+        <div class="hero-actions"><a class="button button-primary" href="#pedido">Consultar meu exame</a><button class="button button-ghost" type="button" data-intent="pedido">Tenho um pedido médico</button></div>
+        <div class="hero-proof" aria-label="Presença regional"><span>São José do Calçado</span><i></i><span>Bom Jesus do Norte</span><i></i><span>Itaperuna</span></div>
+      </div>
+      <div class="hero-interface reveal" aria-label="Fluxo demonstrativo de atendimento">
+        <div class="interface-top"><span>VIVER LAB / ATENDIMENTO</span><b><i></i> ONLINE</b></div>
+        <div class="request-sheet">
+          <div class="sheet-index">01</div><div class="sheet-copy"><small>COMECE PELO QUE VOCÊ JÁ TEM</small><h2>Um pedido.<br>Uma próxima ação clara.</h2></div>
+          <div class="sheet-orbit" aria-hidden="true"><span class="orbit orbit-a"></span><span class="orbit orbit-b"></span><span class="core"></span></div>
+          <div class="sheet-meta"><span>EXAME</span><b>CONSULTA</b><span>CIDADE</span><b>3 UNIDADES</b><span>CANAL</span><b>WHATSAPP</b></div>
+        </div>
+        <div class="interface-steps"><span class="active"><b>01</b> pedido</span><span><b>02</b> unidade</span><span><b>03</b> conversa</span></div>
+      </div>
+    </section>
+    <section class="intent-bar" aria-label="Atalhos de atendimento">
+      <button type="button" data-intent="pedido"><span>01</span><b>Tenho um pedido médico</b><i>↗</i></button>
+      <button type="button" data-intent="exame"><span>02</span><b>Quero consultar um exame</b><i>↗</i></button>
+      <button type="button" data-intent="preparo"><span>03</span><b>Preciso saber o preparo</b><i>↗</i></button>
+      <button type="button" data-intent="resultado"><span>04</span><b>Quero falar sobre resultado</b><i>↗</i></button>
+    </section>
+    <section class="request-section" id="pedido">
+      <div class="section-intro reveal"><p class="eyebrow"><span class="signal"></span> Consulta rápida</p><h2>Não precisa descobrir tudo sozinho.</h2><p>Informe o exame ou assunto e a cidade. A demonstração prepara uma mensagem objetiva para o atendimento da Viver Lab.</p></div>
+      <div class="request-app reveal" id="como-funciona">
+        <form id="exam-form">
+          <div class="form-head"><span class="form-step">01</span><div><small>O QUE VOCÊ PRECISA?</small><strong data-intent-title>Consultar um exame</strong></div></div>
+          <label class="field" for="exam-input"><span>Exame, preparo ou assunto</span><div class="field-line"><input id="exam-input" name="exam" type="text" autocomplete="off" placeholder="Ex.: TSH, glicose, hemograma..." maxlength="90"><button type="button" class="clear-field" aria-label="Limpar campo" hidden>×</button></div></label>
+          <fieldset class="city-fieldset"><legend>Qual cidade fica melhor para você?</legend><div class="city-options">
+            <label><input type="radio" name="city" value="São José do Calçado" checked><span><b>São José</b><small>do Calçado</small></span></label>
+            <label><input type="radio" name="city" value="Bom Jesus do Norte"><span><b>Bom Jesus</b><small>do Norte</small></span></label>
+            <label><input type="radio" name="city" value="Itaperuna"><span><b>Itaperuna</b><small>Rio de Janeiro</small></span></label>
+          </div></fieldset>
+          <div class="form-preview"><div class="preview-label"><span>PRÉVIA DA CONVERSA</span><b>WHATSAPP</b></div><p data-preview>Olá! Gostaria de consultar um exame na Viver Lab. Minha cidade de preferência é São José do Calçado.</p></div>
+          <button class="button button-dark submit" type="submit">Continuar no WhatsApp <span>↗</span></button>
+          <p class="form-note">Você revisa a mensagem antes de enviar. Nenhum dado é armazenado nesta demonstração.</p>
+        </form>
+        <aside class="request-side"><p class="side-label">UM FLUXO, NÃO UM FORMULÁRIO</p><div class="side-path">
+          <article class="is-current"><span>1</span><div><b>Diga o que precisa</b><p>Pedido, exame, preparo ou resultado.</p></div></article>
+          <article><span>2</span><div><b>Escolha sua cidade</b><p>A conversa já chega com contexto.</p></div></article>
+          <article><span>3</span><div><b>Fale com a equipe</b><p>Sem repetir tudo do zero no WhatsApp.</p></div></article>
+        </div><div class="side-code" aria-hidden="true"><span>VL/2609</span><b>22.99992.6600</b><i></i></div></aside>
+      </div>
+    </section>
+    <section class="units" id="unidades">
+      <div class="units-heading reveal"><p class="eyebrow"><span class="signal"></span> Presença real</p><h2>Três cidades.<br><em>Um ponto de partida.</em></h2></div>
+      <div class="unit-grid reveal">
+        <article class="unit-card unit-featured" data-city="São José do Calçado"><div class="unit-number">01</div><div class="unit-copy"><small>ESPÍRITO SANTO</small><h3>São José<br>do Calçado</h3><p>Matriz da operação Viver Lab.</p></div><button type="button" data-city-action="São José do Calçado">Quero atendimento aqui <span>↗</span></button></article>
+        <article class="unit-card" data-city="Bom Jesus do Norte"><div class="unit-number">02</div><div class="unit-copy"><small>ESPÍRITO SANTO</small><h3>Bom Jesus<br>do Norte</h3><p>Unidade com WhatsApp comercial confirmado.</p></div><button type="button" data-city-action="Bom Jesus do Norte">Quero atendimento aqui <span>↗</span></button></article>
+        <article class="unit-card" data-city="Itaperuna"><div class="unit-number">03</div><div class="unit-copy"><small>RIO DE JANEIRO</small><h3>Itaperuna</h3><p>Presença ativa no centro da cidade.</p></div><button type="button" data-city-action="Itaperuna">Quero atendimento aqui <span>↗</span></button></article>
+      </div>
+    </section>
+    <section class="structure" id="estrutura">
+      <div class="structure-visual reveal" aria-hidden="true"><div class="micro-grid"></div><span class="micro-label label-a">AMOSTRA / 01</span><span class="micro-label label-b">ANÁLISE / 02</span><span class="micro-label label-c">RESULTADO / 03</span><div class="micro-center"><b>V</b><span>LAB</span></div></div>
+      <div class="structure-copy reveal"><p class="eyebrow"><span class="signal"></span> Estrutura por trás do atendimento</p><h2>O Viver Lab vai além da coleta.</h2><p class="structure-lead">A operação está registrada em análises clínicas e também em anatomia patológica e citológica. Em 2023, teve projeto técnico aprovado para QualiCito, programa nacional ligado à citopatologia.</p><div class="proof-list">
+        <article><span>01</span><div><b>Análises clínicas</b><p>Atividade principal registrada nas unidades.</p></div></article><article><span>02</span><div><b>Patologia e citologia</b><p>Atuação complementar registrada publicamente.</p></div></article><article><span>03</span><div><b>QualiCito</b><p>Projeto técnico aprovado em 2023 para a unidade de São José do Calçado.</p></div></article>
+      </div></div>
+    </section>
+    <section class="closing reveal"><div class="closing-copy"><p class="eyebrow light"><span class="signal"></span> Atendimento Viver Lab</p><h2>Tem um pedido em mãos?<br><em>Manda agora.</em></h2><p>Comece a conversa pelo que você já tem. O resto pode ser resolvido com a equipe.</p></div><a class="button button-light" href="https://wa.me/5522999926600?text=Ol%C3%A1%21%20Gostaria%20de%20tirar%20uma%20d%C3%BAvida%20sobre%20um%20exame%20na%20Viver%20Lab." target="_blank" rel="noopener noreferrer">Abrir WhatsApp <span>↗</span></a><div class="closing-meta"><span>VIVER LAB</span><b>(22) 99992-6600</b></div></section>
+  </main>
+  <footer><div class="footer-brand"><strong>VIVER</strong><b>LAB</b></div><p>Demonstração conceitual criada pela Domo a partir de informações públicas. Não representa site oficial, parceria ou contratação da Viver Lab.</p><a href="../../">DOMO / PORTFÓLIO ↗</a></footer>
+  <div class="mobile-bar"><a href="#pedido"><span>Consultar exame</span><b>↗</b></a></div>
+</body>
+</html>
