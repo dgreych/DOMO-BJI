@@ -49,7 +49,7 @@ document.querySelectorAll('[data-role]').forEach(button => {
   button.addEventListener('click', () => {
     document.querySelectorAll('[data-role]').forEach(item => item.setAttribute('aria-pressed', String(item === button)));
     const entries = previews[button.dataset.role];
-    document.getElementById('menu-preview').textContent = ['╭━━━─〔 🐈‍⬛ SHOGUN 〕─━━━', '┃  ' + { member: 'MENU PRINCIPAL', admin: 'ADMINISTRAÇÃO', owner: 'DONO' }[button.dataset.role], '┃', ...entries.flatMap(([command, label]) => ['┃  ▸ !' + command, '┃    ' + label]), '┃', '╰━━━─〔 SHOGUN 〕─━━━━'].join('\n');
+    document.getElementById('menu-preview').textContent = ['╭━╼ 🐈‍⬛ SHOGUN', '┃  ' + { member: 'MENU PRINCIPAL', admin: 'ADMINISTRAÇÃO', owner: 'DONO' }[button.dataset.role], '┃  Você ┆ prefixo !', '┃', '┣━╼ 01 ╸ COMANDOS', ...entries.flatMap(([command, label]) => ['┃    ↳ !' + command, '┃      ' + label]), '┃', '╰━╼ SHOGUN ━━━━━━━━━'].join('\n');
   });
 });
 const platformNotes = {
