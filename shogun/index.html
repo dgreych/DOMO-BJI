@@ -2,315 +2,94 @@
 <html lang="pt-BR">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="theme-color" content="#050505">
-  <meta name="description" content="SHOGUN é um bot gratuito para WhatsApp com moderação, mídia, figurinhas, jogos, RPG e muito mais. Instale no Android, Linux ou Windows.">
-  <meta name="robots" content="index,follow">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#080808">
+  <meta name="description" content="Shogun é um bot para WhatsApp com moderação de grupos, downloads, figurinhas e jogos. Instale gratuitamente ou consulte hospedagem e acesso à API BunnyFy.">
   <link rel="canonical" href="https://dgreych.github.io/DOMO-BJI/shogun/">
+  <meta property="og:title" content="Shogun | Bot para WhatsApp">
+  <meta property="og:description" content="Moderação, mídia, figurinhas e jogos para seu grupo. Instalação gratuita, tutoriais e serviços opcionais.">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="SHOGUN — seu bot de WhatsApp, do seu jeito">
-  <meta property="og:description" content="Gratuito, aberto e pronto para rodar no seu aparelho. Android, Linux e Windows.">
   <meta property="og:url" content="https://dgreych.github.io/DOMO-BJI/shogun/">
-  <meta property="og:image" content="https://raw.githubusercontent.com/dgreych/shogun/main/assets/brand/shogun-banner.png">
-  <title>SHOGUN — Bot gratuito para WhatsApp</title>
+  <meta property="og:image" content="https://dgreych.github.io/DOMO-BJI/shogun/assets/shogun-cat-hero.jpg">
+  <link rel="icon" href="./assets/shogun-cat-master.jpg" type="image/jpeg">
   <link rel="stylesheet" href="./styles.css">
-  <link rel="stylesheet" href="./theme-shogun.css">
+  <link rel="stylesheet" href="./layout.css">
+  <script src="./app.js" defer></script>
+  <title>Shogun | Bot para WhatsApp</title>
 </head>
 <body>
-  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
-  <div class="noise" aria-hidden="true"></div>
-  <div class="glow glow-one" aria-hidden="true"></div>
-  <div class="glow glow-two" aria-hidden="true"></div>
-
-  <header class="site-header" data-header>
-    <a class="brand" href="#inicio" aria-label="SHOGUN, início">
-      <span class="brand-mark" aria-hidden="true">将</span>
-      <span class="brand-copy"><strong>SHOGUN</strong><small>WhatsApp Bot</small></span>
-    </a>
-    <nav class="nav" aria-label="Navegação principal">
-      <a href="#como-funciona">Começar</a>
-      <a href="#recursos">Recursos</a>
-      <a href="#instalar">Tutorial</a>
-      <a href="#bunnyfy">BunnyFy</a>
-      <a href="#hospedagem">24/7</a>
-    </nav>
-    <a class="button button-small button-ghost" href="https://github.com/dgreych/shogun" target="_blank" rel="noreferrer">GitHub <span aria-hidden="true">↗</span></a>
+  <a class="skip" href="#conteudo">Pular para o conteúdo</a>
+  <header class="header">
+    <a class="brand" href="#inicio" aria-label="Shogun, início"><img src="./assets/shogun-cat-master.jpg" alt="" width="44" height="44"><span>SHOGUN<small>WHATSAPP BOT</small></span></a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="main-nav">Menu <span aria-hidden="true">☰</span></button>
+    <nav id="main-nav" aria-label="Principal"><a href="#recursos">Recursos</a><a href="#instalar">Instalação</a><a href="#bunnyfy">Serviços</a><a href="#contato">Suporte</a></nav>
+    <a class="header-link" href="https://github.com/dgreych/shogun" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a>
   </header>
-
   <main id="conteudo">
-    <section class="hero section" id="inicio">
-      <div class="hero-copy reveal">
-        <div class="eyebrow"><span class="pulse-dot"></span> Open source · gratuito · seu</div>
-        <h1>Seu grupo.<br><span>Suas regras.</span><br>Seu Shogun.</h1>
-        <p class="hero-lead">O SHOGUN é um programa que conecta uma conta ao WhatsApp e responde comandos automaticamente. Ele pode moderar grupos, baixar mídia, criar figurinhas, rodar jogos, RPG e muito mais. Funciona no <strong>seu PC ou Android</strong> e o bot é <strong>gratuito</strong>.</p>
-        <div class="hero-actions">
-          <a class="button button-primary" href="#instalar">Quero instalar o SHOGUN <span aria-hidden="true">↓</span></a>
-          <a class="button button-secondary" href="#como-funciona">Nunca usei um bot</a>
-        </div>
-        <div class="proof-row" aria-label="Características principais">
-          <span>✓ Android, Linux e Windows</span>
-          <span>✓ Tutorial passo a passo</span>
-          <span>✓ Sem mensalidade obrigatória</span>
-        </div>
+    <section class="hero" id="inicio">
+      <picture class="hero-art"><img src="./assets/shogun-cat-hero.jpg" alt="O gato preto do Shogun, com olhos vermelhos, sobre um círculo de tinta vermelha" width="1672" height="941" fetchpriority="high"></picture>
+      <div class="hero-content">
+        <p class="eyebrow">BOT PARA WHATSAPP</p>
+        <h1>SHOGUN<span>Moderação, mídia<br>e jogos para seu grupo.</span></h1>
+        <p class="hero-description">Administre sua comunidade, crie figurinhas, baixe conteúdo e use os jogos do bot direto na conversa. Com comandos organizados e permissões para cada função.</p>
+        <div class="actions"><a class="button primary" href="#instalar">Instalar gratuitamente <span aria-hidden="true">↗</span></a><a class="text-link" href="#hospedagem">Consultar hospedagem <span aria-hidden="true">↗</span></a></div>
+        <p class="free-note">Código aberto. Sua própria instância é gratuita.</p>
       </div>
+      <div class="hero-bottom"><span>Windows · Linux · macOS · Android com Termux</span><a href="https://github.com/dgreych/shogun" target="_blank" rel="noopener noreferrer">Ver o repositório ↗</a></div>
+    </section>
 
-      <div class="hero-visual reveal" aria-label="SHOGUN funcionando em um terminal">
-        <div class="terminal-shell">
-          <div class="terminal-bar">
-            <div class="terminal-dots" aria-hidden="true"><i></i><i></i><i></i></div>
-            <span>shogun — conectado</span>
-            <span class="terminal-live"><b></b> online</span>
-          </div>
-          <img src="https://raw.githubusercontent.com/dgreych/shogun/main/docs/instalacao/img/painel.png" alt="Painel real do SHOGUN conectado no terminal" loading="eager">
-          <div class="terminal-overlay" aria-hidden="true">
-            <span>WHATSAPP</span><strong>READY</strong>
-          </div>
-        </div>
-        <div class="float-card float-card-top"><span>⚔</span><div><small>STATUS</small><strong>Sentinela ativo</strong></div></div>
-        <div class="float-card float-card-bottom"><span>⌁</span><div><small>COMANDOS</small><strong>Moderação + diversão</strong></div></div>
+    <section class="intro section" id="recursos">
+      <div class="section-label"><span>RECURSOS</span></div>
+      <div class="intro-heading"><h2>O que o Shogun faz.</h2><p>As funções ficam separadas em menus. Você pode configurar o prefixo da sua instância e consultar os comandos disponíveis pelo WhatsApp.</p></div>
+      <div class="feature-list">
+        <article><span class="number">01</span><div><h3>Administração de grupos</h3><p>Configure regras, boas-vindas, proteções contra links e rotinas de moderação. As ações de administração respeitam os cargos do grupo e as permissões do bot.</p></div><span class="tag">!menuadm</span></article>
+        <article><span class="number">02</span><div><h3>Downloads e figurinhas</h3><p>Consulte as opções de download, crie figurinhas e use ferramentas de áudio e imagem. Algumas funções precisam de uma integração configurada na instância.</p></div><span class="tag">!menudown · !menufig</span></article>
+        <article><span class="number">03</span><div><h3>Jogos e interação</h3><p>Brincadeiras, rankings, RPG, NEXO e Tavern disponíveis em menus próprios. O grupo escolhe quais atividades quer usar.</p></div><span class="tag">!menubn · !menurpg</span></article>
       </div>
     </section>
 
-    <section class="section feature-section" id="como-funciona">
-      <div class="section-heading reveal">
-        <p class="kicker">COMEÇANDO DO ZERO</p>
-        <h2>O que é um bot de WhatsApp?</h2>
-        <p>É um <strong>programa que fica conectado ao WhatsApp</strong> e executa tarefas quando recebe comandos. Pense nele como um ajudante automático dentro dos grupos. Você não precisa saber programar para usar o SHOGUN.</p>
-      </div>
-
-      <div class="zip-note reveal"><strong>Nunca usei terminal.</strong> Sem problema. Você não precisa entender os comandos: escolha seu aparelho no tutorial, copie exatamente o que está na caixa, cole onde a página mandar e siga para o próximo passo.</div>
-
-      <div class="feature-grid" style="margin-top:1rem">
-        <article class="feature-card reveal">
-          <div class="feature-icon">↓</div><span class="feature-no">1</span>
-          <h3>Baixar</h3>
-          <p>Você baixa a pasta do SHOGUN para o celular ou computador. O tutorial mostra exatamente onde pegar e qual comando copiar.</p>
-        </article>
-        <article class="feature-card reveal">
-          <div class="feature-icon">⚙</div><span class="feature-no">2</span>
-          <h3>Instalar</h3>
-          <p>Um instalador prepara o que o bot precisa para funcionar. Você não precisa escolher pacotes ou editar arquivos misteriosos.</p>
-        </article>
-        <article class="feature-card reveal">
-          <div class="feature-icon">✎</div><span class="feature-no">3</span>
-          <h3>Configurar e iniciar</h3>
-          <p>Você informa quem é o dono, o número do dono, o nome do bot e o símbolo usado nos comandos. Depois inicia o SHOGUN.</p>
-        </article>
-        <article class="feature-card feature-card-wide reveal">
-          <div class="feature-icon">▣</div><span class="feature-no">4</span>
-          <h3>Conectar e testar</h3>
-          <p>O SHOGUN mostra um QR Code. Você abre o WhatsApp, conecta como aparelho vinculado e envia <code>!menu</code>. Se ele responder, terminou.</p>
-        </article>
-      </div>
+    <section class="identity section" aria-labelledby="identity-title">
+      <div class="section-label"><span>MENUS</span></div>
+      <div class="identity-heading"><h2 id="identity-title">Cada categoria,<br>seu próprio menu.</h2><p>Os novos menus trazem uma arte para cada categoria e organizam o texto para facilitar a consulta dos comandos no celular.</p></div>
+      <div class="art-grid"><figure><img src="./assets/figurinhas.jpg" alt="Arte do menu de figurinhas do Shogun" width="1672" height="941" loading="lazy"><figcaption>Figurinhas <span>!menufig</span></figcaption></figure><figure><img src="./assets/downloads.jpg" alt="Arte do menu de downloads do Shogun" width="1672" height="941" loading="lazy"><figcaption>Downloads <span>!menudown</span></figcaption></figure></div>
     </section>
 
-    <div class="feature-ticker" aria-hidden="true">
-      <div class="ticker-track">MODERAÇÃO <i>◆</i> DOWNLOADS <i>◆</i> FIGURINHAS <i>◆</i> RPG <i>◆</i> JOGOS <i>◆</i> IA <i>◆</i> AUTOMAÇÃO <i>◆</i> MODERAÇÃO <i>◆</i> DOWNLOADS <i>◆</i> FIGURINHAS <i>◆</i> RPG <i>◆</i> JOGOS <i>◆</i> IA <i>◆</i> AUTOMAÇÃO</div>
-    </div>
-
-    <section class="section feature-section" id="recursos">
-      <div class="section-heading reveal">
-        <p class="kicker">UM BOT. MUITA COISA.</p>
-        <h2>Não é só um menu de comandos.<br><span>É um pequeno ecossistema no grupo.</span></h2>
-        <p>O SHOGUN foi feito para ser útil antes de ser exibido. E, por algum acidente feliz, ele também ficou bonito.</p>
-      </div>
-      <div class="feature-grid">
-        <article class="feature-card feature-card-wide reveal">
-          <div class="feature-icon">盾</div><span class="feature-no">01</span>
-          <h3>Moderação que trabalha</h3>
-          <p>Boas-vindas, anti-link, anti-flood, advertências, banimento automático, silêncio, abertura e fechamento do grupo.</p>
-          <div class="mini-ui"><span>anti-link</span><strong>ATIVO</strong><span>advertências</span><strong>3 → ban</strong></div>
-        </article>
-        <article class="feature-card reveal">
-          <div class="feature-icon">↓</div><span class="feature-no">02</span>
-          <h3>Mídia sem peregrinação</h3>
-          <p>Downloads e ferramentas de mídia direto na conversa, sem transformar o grupo numa coleção de links suspeitos.</p>
-        </article>
-        <article class="feature-card reveal">
-          <div class="feature-icon">◇</div><span class="feature-no">03</span>
-          <h3>Figurinhas</h3>
-          <p>Imagem vira figurinha, vídeo curto vira animada e figurinha volta a ser imagem quando você precisar.</p>
-        </article>
-        <article class="feature-card reveal">
-          <div class="feature-icon">⚒</div><span class="feature-no">04</span>
-          <h3>RPG completo</h3>
-          <p>Trabalho, mineração, pesca, caça, forja, plantio, propriedades, mercado, habilidades e economia por grupo.</p>
-        </article>
-        <article class="feature-card reveal">
-          <div class="feature-icon">♜</div><span class="feature-no">05</span>
-          <h3>Jogos & taverna</h3>
-          <p>Quiz, velha, forca, roleta, caça-palavras e duelos por turnos. Porque grupo também merece um pouco de caos organizado.</p>
-        </article>
-        <article class="feature-card feature-card-wide feature-card-accent reveal">
-          <div class="feature-icon">✦</div><span class="feature-no">06</span>
-          <h3>IA quando você quiser</h3>
-          <p>Assistente, imagem e outros recursos podem ser configurados conforme a sua instância. O núcleo do bot continua útil sem obrigar você a contratar um serviço.</p>
-          <div class="signal"><i></i><i></i><i></i><i></i><i></i><span>capacidade modular</span></div>
-        </article>
-      </div>
+    <section class="preview section" aria-labelledby="preview-title">
+      <div class="preview-copy"><div class="section-label"><span>PERMISSÕES</span></div><h2 id="preview-title">Comandos por função.</h2><p>Membros, administradores, subdonos e donos têm níveis de acesso diferentes. O bot usa essas permissões para exibir os menus e autorizar cada comando.</p><div class="roles" role="group" aria-label="Escolher prévia de acesso"><button type="button" data-role="member" aria-pressed="true">Membro</button><button type="button" data-role="admin" aria-pressed="false">Admin</button><button type="button" data-role="owner" aria-pressed="false">Dono</button></div><p class="preview-note">Prévia ilustrativa. Use <strong>!menu</strong> no WhatsApp para consultar a sua instância.</p></div>
+      <div class="chat-preview"><div class="chat-head"><img src="./assets/shogun-cat-master.jpg" alt="" width="40" height="40"><div><strong>SHOGUN</strong><span>PRÉVIA DO MENU</span></div><i aria-hidden="true"></i></div><pre id="menu-preview" aria-live="polite">╭━━━─〔 🐈‍⬛ SHOGUN 〕─━━━
+┃  MENU PRINCIPAL
+┃
+┃  ▸ !menudown
+┃    Downloads e mídia
+┃  ▸ !menufig
+┃    Figurinhas
+┃  ▸ !menubn
+┃    Brincadeiras
+┃  ▸ !menurpg
+┃    RPG e progressão
+┃
+╰━━━─〔 SHOGUN 〕─━━━━</pre><span class="chat-time">O prefixo pode ser alterado na configuração.</span></div>
     </section>
 
-    <section class="section real-section" id="por-dentro">
-      <div class="section-heading reveal">
-        <p class="kicker">SEM MOCKUP DE FAZ DE CONTA</p>
-        <h2>Isso aqui é o <span>SHOGUN real.</span></h2>
-        <p>As telas abaixo vêm do próprio repositório público. Nada de dashboard inventado só para a landing page parecer ocupada.</p>
-      </div>
-      <div class="screen-grid">
-        <figure class="screen-card reveal">
-          <div class="screen-label"><span>01</span> Painel de conexão</div>
-          <img src="https://raw.githubusercontent.com/dgreych/shogun/main/docs/instalacao/img/painel.png" alt="Painel real de conexão do SHOGUN" loading="lazy">
-          <figcaption>QR, estado da conexão e identidade da instância.</figcaption>
-        </figure>
-        <figure class="screen-card reveal">
-          <div class="screen-label"><span>02</span> Feed ao vivo</div>
-          <img src="https://raw.githubusercontent.com/dgreych/shogun/main/docs/instalacao/img/feed.png" alt="Feed real de mensagens e comandos do SHOGUN" loading="lazy">
-          <figcaption>Mensagens e comandos chegando em tempo real no terminal.</figcaption>
-        </figure>
-      </div>
-      <div class="banner-frame reveal">
-        <img src="https://raw.githubusercontent.com/dgreych/shogun/main/assets/brand/shogun-banner.png" alt="Banner oficial do projeto SHOGUN" loading="lazy">
-      </div>
+    <section class="install section" id="instalar">
+      <div class="section-label"><span>INSTALAÇÃO GRATUITA</span></div>
+      <div class="install-heading"><h2>Instale a sua instância.</h2><p>Escolha a plataforma para abrir o tutorial. Você precisa de um dispositivo ou servidor ligado e de uma conta do WhatsApp para conectar o bot.</p></div>
+      <div class="install-layout"><div class="install-steps"><article><span>1</span><div><h3>Prepare o ambiente.</h3><p>Git, Node.js e FFmpeg. O tutorial da sua plataforma mostra os requisitos e como instalar cada um.</p></div></article><article><span>2</span><div><h3>Configure sua instância.</h3><p>Baixe e extraia o projeto. Execute npm start: as dependências são instaladas e a configuração pede nome do bot, número do dono, número do bot e chave BunnyFy opcional.</p></div></article><article><span>3</span><div><h3>Conecte no WhatsApp.</h3><p>Inicie o bot e siga a conexão exibida no terminal. Com o processo ligado, teste o menu no WhatsApp.</p></div></article><div class="ownership-note"><strong>A instância é sua.</strong><p>O Shogun não tem mensalidade obrigatória. Servidor, hospedagem assistida e serviços de API são escolhas à parte.</p></div></div>
+      <div class="install-code"><div class="platforms" role="group" aria-label="Plataforma"><button type="button" data-platform="windows" aria-pressed="true">Windows</button><button type="button" data-platform="linux" aria-pressed="false">Linux</button><button type="button" data-platform="macos" aria-pressed="false">macOS</button><button type="button" data-platform="termux" aria-pressed="false">Termux</button></div><p id="platform-note">No PowerShell, com os requisitos do guia instalados:</p><pre><code id="install-command">git clone https://github.com/dgreych/shogun.git
+cd shogun
+npm start</code></pre><div class="code-actions"><button type="button" id="copy-command">Copiar comandos <span aria-hidden="true">⧉</span></button><a id="platform-guide" href="https://github.com/dgreych/shogun/blob/main/docs/instalacao/windows.md" target="_blank" rel="noopener noreferrer">Abrir guia completo ↗</a></div><p id="copy-status" role="status"></p><p class="code-note">O primeiro início pede configuração e conexão. O tutorial explica cada etapa, sem pular os requisitos.</p></div></div>
     </section>
 
-    <section class="section install-section" id="instalar">
-      <div class="section-heading reveal">
-        <p class="kicker">DO ZERO AO QR CODE</p>
-        <h2>Escolha seu aparelho.<br><span>Copie, cole e siga na ordem.</span></h2>
-        <p>O guia foi escrito para quem nunca instalou um bot. Quando aparecer uma palavra técnica, a página explica o que você precisa fazer em vez de fingir que todo mundo nasceu sabendo usar terminal.</p>
-      </div>
-
-      <article class="feature-card feature-card-wide reveal" id="configuracao-inicial" style="margin-bottom:1.25rem">
-        <div class="feature-icon">⚙</div><span class="feature-no">CONFIGURAÇÃO</span>
-        <h3>Como preencher a configuração inicial</h3>
-        <p>O instalador abre sozinho o <strong>Quartel de configuração do SHOGUN</strong>. Você só responde quatro perguntas. Não precisa abrir nem editar JSON na mão.</p>
-        <div class="steps" style="margin-top:1.4rem">
-          <article class="step"><span class="step-number">1</span><div><h3>“Como o SHOGUN deve chamar você?”</h3><p>Digite seu nome ou apelido. Exemplo: <code>Maurício</code> ou <code>Comandante</code>. Esse é o nome do dono do bot.</p></div></article>
-          <article class="step"><span class="step-number">2</span><div><h3>“Seu número com país e DDD, somente dígitos”</h3><p>Digite sem <code>+</code>, sem espaços e sem traços. Para o Brasil: <strong>55 + DDD + número</strong>. Exemplo fictício: <code>5522999999999</code>. O <code>55</code> é Brasil, <code>22</code> seria o DDD e o restante é o telefone.</p></div></article>
-          <article class="step"><span class="step-number">3</span><div><h3>“Nome do bot”</h3><p>Digite como ele deve aparecer nas mensagens. Pode deixar <code>SHOGUN</code> ou escolher outro nome.</p></div></article>
-          <article class="step"><span class="step-number">4</span><div><h3>“Prefixo de comando”</h3><p>É o símbolo colocado antes dos comandos. O padrão é <code>!</code>, então <code>!menu</code> abre o menu. Use apenas um caractere.</p></div></article>
-        </div>
-        <div class="zip-note"><strong>Quer alterar depois?</strong> Rode <code>npm run setup</code> outra vez. Se já existir uma configuração, pressione Enter para manter cada valor atual. O SHOGUN salva tudo localmente em <code>dados/src/config.json</code>, arquivo ignorado pelo Git.</div>
-      </article>
-
-      <div class="install-wrap reveal">
-        <div class="platform-tabs" role="tablist" aria-label="Escolha seu sistema">
-          <button class="platform-tab is-active" type="button" role="tab" aria-selected="true" aria-controls="panel-termux" id="tab-termux" data-platform="termux"><span>📱</span><strong>Android</strong><small>Termux</small></button>
-          <button class="platform-tab" type="button" role="tab" aria-selected="false" aria-controls="panel-linux" id="tab-linux" data-platform="linux" tabindex="-1"><span>🐧</span><strong>Linux</strong><small>Desktop / servidor</small></button>
-          <button class="platform-tab" type="button" role="tab" aria-selected="false" aria-controls="panel-windows" id="tab-windows" data-platform="windows" tabindex="-1"><span>⊞</span><strong>Windows</strong><small>10 / 11</small></button>
-        </div>
-
-        <div class="platform-panel is-active" id="panel-termux" role="tabpanel" aria-labelledby="tab-termux" data-platform="termux">
-          <div class="steps">
-            <article class="step"><span class="step-number">1</span><div><h3>Instale o Termux certo</h3><p>O Termux é o aplicativo que abre um terminal no Android. Use a versão atual do F-Droid; a antiga da Play Store não serve para esta instalação.</p><a class="text-link" href="https://f-droid.org/packages/com.termux/" target="_blank" rel="noreferrer">Abrir Termux no F-Droid ↗</a></div></article>
-            <article class="step"><span class="step-number">2</span><div><h3>Baixe o SHOGUN</h3><p>Abra o Termux, copie a caixa inteira, cole e toque Enter. Isso baixa a pasta do bot.</p><div class="code-box"><pre><code id="code-termux-clone">pkg update -y &amp;&amp; pkg install -y git
-git clone https://github.com/dgreych/shogun.git
-cd shogun</code></pre><button class="copy-button" type="button" data-copy-target="code-termux-clone">Copiar</button></div></div></article>
-            <article class="step"><span class="step-number">3</span><div><h3>Instale e responda às quatro perguntas</h3><p>Este comando instala as dependências e abre automaticamente a configuração mostrada acima. Responda nome do dono, número, nome do bot e prefixo.</p><div class="code-box"><pre><code id="code-termux-install">bash scripts/install-termux.sh</code></pre><button class="copy-button" type="button" data-copy-target="code-termux-install">Copiar</button></div></div></article>
-            <article class="step"><span class="step-number">4</span><div><h3>Inicie, conecte o WhatsApp e teste</h3><p>Copie o bloco abaixo. Quando o QR aparecer, abra no WhatsApp: <strong>Configurações → Aparelhos conectados → Conectar aparelho</strong>. Leia o QR e depois envie <code>!menu</code> em um grupo de teste.</p><div class="code-box"><pre><code id="code-termux-start">termux-wake-lock
-npm start</code></pre><button class="copy-button" type="button" data-copy-target="code-termux-start">Copiar</button></div></div></article>
-          </div>
-          <div class="zip-note"><strong>Baixou ZIP?</strong> Extraia a pasta, entre nela pelo Termux com <code>cd caminho/da/pasta</code> e comece no passo 3.</div>
-        </div>
-
-        <div class="platform-panel" id="panel-linux" role="tabpanel" aria-labelledby="tab-linux" data-platform="linux" hidden>
-          <div class="steps">
-            <article class="step"><span class="step-number">1</span><div><h3>Confira os pré-requisitos</h3><p>Você precisa de Git, FFmpeg, Node.js 20.19+ e npm 9+. Em Ubuntu/Debian, Git e FFmpeg entram assim:</p><div class="code-box"><pre><code id="code-linux-deps">sudo apt update
-sudo apt install -y git ffmpeg</code></pre><button class="copy-button" type="button" data-copy-target="code-linux-deps">Copiar</button></div><p class="tiny-note">Node.js é o programa que executa o SHOGUN. Se ainda não tiver Node 20.19 ou superior, instale a versão LTS recomendada para sua distribuição antes de continuar.</p></div></article>
-            <article class="step"><span class="step-number">2</span><div><h3>Baixe o SHOGUN</h3><p>Copie e cole:</p><div class="code-box"><pre><code id="code-linux-clone">git clone https://github.com/dgreych/shogun.git
-cd shogun</code></pre><button class="copy-button" type="button" data-copy-target="code-linux-clone">Copiar</button></div></div></article>
-            <article class="step"><span class="step-number">3</span><div><h3>Instale e responda às quatro perguntas</h3><p>O instalador verifica o computador, instala as dependências e abre a configuração mostrada acima.</p><div class="code-box"><pre><code id="code-linux-install">bash scripts/install-linux.sh</code></pre><button class="copy-button" type="button" data-copy-target="code-linux-install">Copiar</button></div></div></article>
-            <article class="step"><span class="step-number">4</span><div><h3>Inicie, leia o QR e teste</h3><div class="code-box"><pre><code id="code-linux-start">npm start</code></pre><button class="copy-button" type="button" data-copy-target="code-linux-start">Copiar</button></div><p class="tiny-note">No WhatsApp: Configurações → Aparelhos conectados → Conectar aparelho. Depois do QR, envie <code>!menu</code> em um grupo de teste.</p></div></article>
-          </div>
-          <div class="zip-note"><strong>Baixou ZIP?</strong> Extraia, abra o terminal na pasta extraída e comece no passo 3.</div>
-        </div>
-
-        <div class="platform-panel" id="panel-windows" role="tabpanel" aria-labelledby="tab-windows" data-platform="windows" hidden>
-          <div class="steps">
-            <article class="step"><span class="step-number">1</span><div><h3>Instale o básico</h3><p>O Windows precisa de Git, FFmpeg, Node.js 20.19+ e npm 9+. Depois abra o PowerShell, que é o terminal do Windows.</p><div class="check-row"><span>Git</span><span>Node 20.19+</span><span>FFmpeg</span></div></div></article>
-            <article class="step"><span class="step-number">2</span><div><h3>Baixe o SHOGUN</h3><p>Copie e cole no PowerShell:</p><div class="code-box"><pre><code id="code-windows-clone">git clone https://github.com/dgreych/shogun.git
-cd shogun</code></pre><button class="copy-button" type="button" data-copy-target="code-windows-clone">Copiar</button></div></div></article>
-            <article class="step"><span class="step-number">3</span><div><h3>Instale e responda às quatro perguntas</h3><p>Este comando instala o projeto e abre a configuração mostrada acima.</p><div class="code-box"><pre><code id="code-windows-install">powershell -ExecutionPolicy Bypass -File .\scripts\install-windows.ps1</code></pre><button class="copy-button" type="button" data-copy-target="code-windows-install">Copiar</button></div></div></article>
-            <article class="step"><span class="step-number">4</span><div><h3>Inicie, conecte e teste</h3><div class="code-box"><pre><code id="code-windows-start">npm start</code></pre><button class="copy-button" type="button" data-copy-target="code-windows-start">Copiar</button></div><p class="tiny-note">No WhatsApp: Configurações → Aparelhos conectados → Conectar aparelho. Leia o QR e depois envie <code>!menu</code>. A janela do PowerShell precisa ficar aberta enquanto o bot estiver rodando.</p></div></article>
-          </div>
-          <div class="zip-note"><strong>Baixou ZIP?</strong> Clique com o botão direito → Extrair tudo → abra o PowerShell dentro da pasta → comece no passo 3.</div>
-        </div>
-      </div>
-      <p class="install-footnote">Os comandos acima seguem os instaladores existentes no repositório público. O fluxo do repositório ainda será validado plataforma por plataforma na próxima frente.</p>
+    <section class="services section" id="bunnyfy">
+      <div class="section-label"><span>SERVIÇOS OPCIONAIS</span></div>
+      <div class="service-row"><div class="service-name"><span class="service-index">API PARA BOTS E PROJETOS</span><h2>BUNNYFY</h2></div><div><h3>Integre os serviços de mídia.</h3><p>Na atualização em implantação, conversa e escolha de modelo ficam disponíveis em todas as instâncias. Sem chave paga, a BunnyFy oferece 20 chamadas por dia para downloads, transcrição, geração de imagens e outros serviços. A contagem é feita na API e renova à meia-noite de Brasília. Para ampliar o uso, consulte uma assinatura.</p><a class="text-link" href="https://wa.me/5522997028553?text=Quero%20conhecer%20a%20API%20BunnyFy" target="_blank" rel="noopener noreferrer">Consultar acesso à API ↗</a></div></div>
+      <div class="service-row" id="hospedagem"><div class="service-name"><span class="service-index">HOSPEDAGEM E CONFIGURAÇÃO</span><h2>SHOGUN</h2></div><div><h3>Instalação assistida para sua comunidade.</h3><p>Solicite uma proposta de hospedagem e configuração. Disponibilidade, suporte e valores são combinados no atendimento. Rodar a sua própria instância continua sendo gratuito.</p><a class="text-link" href="https://wa.me/5522997028553?text=Quero%20conversar%20sobre%20hospedagem%20do%20Shogun" target="_blank" rel="noopener noreferrer">Consultar hospedagem ↗</a></div></div>
     </section>
 
-    <section class="section split-offers" id="bunnyfy">
-      <article class="offer-card bunny-card reveal">
-        <div class="offer-top"><div class="offer-symbol">B</div><span>API OPCIONAL</span></div>
-        <h2>BunnyFy.<br><span>Mais potência quando você quiser.</span></h2>
-        <p>A BunnyFy é a API que pode atender serviços específicos do SHOGUN. Você assina <strong>somente se quiser usar as capacidades que dependem dela</strong>. O bot continua gratuito.</p>
-        <ul>
-          <li><span>↯</span> Integração pensada para o ecossistema SHOGUN</li>
-          <li><span>↯</span> Capacidades ativadas de forma modular</li>
-          <li><span>↯</span> Sem transformar o bot gratuito em assinatura obrigatória</li>
-        </ul>
-        <a class="button button-bunny" href="https://wa.me/5522999686677" data-whatsapp-context="bunnyfy" target="_blank" rel="noreferrer">Ver planos da BunnyFy no WhatsApp <span aria-hidden="true">↗</span></a>
-        <small>Atendimento comercial pela Domo.</small>
-      </article>
+    <section class="faq section" aria-labelledby="faq-title"><div class="section-label"><span>AJUDA</span></div><h2 id="faq-title">Perguntas frequentes.</h2><details><summary>Preciso pagar para usar o Shogun?<span aria-hidden="true">+</span></summary><p>Rodar sua própria instância do Shogun é gratuito. Você fornece o dispositivo ou servidor e mantém o processo ligado. Hospedagem assistida e serviços externos de API são opcionais e podem ter custos próprios.</p></details><details><summary>Funciona no celular?<span aria-hidden="true">+</span></summary><p>Sim, no Android com Termux. Siga o guia específico, mantenha a sessão do terminal ativa e confira as orientações de bateria. No iPhone, use um servidor ou computador para hospedar o processo do bot.</p></details><details><summary>Como conecto a conta do WhatsApp?<span aria-hidden="true">+</span></summary><p>Depois da configuração, inicie o bot e siga o QR ou código de conexão apresentado no terminal. Os tutoriais mostram o vínculo pelo menu de aparelhos conectados do WhatsApp.</p></details><details><summary>Onde encontro ajuda se algo falhar?<span aria-hidden="true">+</span></summary><p>Comece pelo <a href="https://github.com/dgreych/shogun/blob/main/docs/solucao-de-problemas.md" target="_blank" rel="noopener noreferrer">guia de solução de problemas</a>. Ele explica requisitos, instalação, conexão e os erros mais comuns. Para hospedagem e API, use o contato abaixo.</p></details></section>
 
-      <article class="offer-card hosting-card reveal" id="hospedagem">
-        <div class="offer-top"><div class="offer-symbol">∞</div><span>SEM TERMINAL</span></div>
-        <h2>Quer o SHOGUN<br><span>online 24/7?</span></h2>
-        <p>Se você não quer deixar computador ligado, cuidar de terminal ou descobrir às duas da manhã por que um processo morreu, existe a opção de <strong>hospedagem gerenciada</strong>.</p>
-        <div class="uptime-visual" aria-label="Ilustração de serviço sempre online"><i></i><span>SHOGUN</span><b>ONLINE</b><em>24 horas · 7 dias</em></div>
-        <a class="button button-hosting" href="https://wa.me/5522999686677" data-whatsapp-context="hosting" target="_blank" rel="noreferrer">Quero hospedar meu SHOGUN <span aria-hidden="true">↗</span></a>
-        <small>Serviço opcional. O projeto continua gratuito para quem hospeda por conta própria.</small>
-      </article>
-    </section>
-
-    <section class="section freedom-section">
-      <div class="freedom-card reveal">
-        <div class="freedom-copy">
-          <p class="kicker">A PARTE IMPORTANTE</p>
-          <h2>O SHOGUN é <span>gratuito.</span><br>Ponto.</h2>
-          <p>Você pode clonar, instalar e manter sua própria instância. BunnyFy e hospedagem são extras opcionais para quem quer recursos atendidos pela API ou conveniência de deixar o bot rodando em servidor.</p>
-        </div>
-        <div class="freedom-grid">
-          <div><strong>R$ 0</strong><span>para usar o bot</span></div>
-          <div><strong>3</strong><span>plataformas guiadas</span></div>
-          <div><strong>∞</strong><span>seu controle</span></div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section faq-section" id="faq">
-      <div class="section-heading reveal"><p class="kicker">ANTES QUE VOCÊ PERGUNTE</p><h2>Dúvidas <span>honestamente frequentes.</span></h2></div>
-      <div class="faq-list reveal">
-        <details><summary>Preciso pagar para usar o SHOGUN?<span>+</span></summary><p>Não. O bot é gratuito. Serviços externos opcionais, como capacidades atendidas pela BunnyFy ou hospedagem gerenciada 24/7, podem ter custo próprio.</p></details>
-        <details><summary>O que é o “dono” do bot?<span>+</span></summary><p>É a pessoa autorizada como responsável principal pela instância. Na instalação, você informa seu nome e seu número com país e DDD para o SHOGUN reconhecer essa identidade.</p></details>
-        <details><summary>O que é prefixo de comando?<span>+</span></summary><p>É o símbolo antes dos comandos. Se o prefixo for <code>!</code>, você usa <code>!menu</code>, <code>!ping</code> e assim por diante.</p></details>
-        <details><summary>Preciso de um número separado de WhatsApp?<span>+</span></summary><p>É recomendado usar um número dedicado ao bot. Ele conecta como um aparelho vinculado, usando o QR exibido no terminal.</p></details>
-        <details><summary>Meu PC ou celular precisa ficar ligado?<span>+</span></summary><p>Sim, se você hospedar por conta própria. O processo precisa continuar rodando. Se não quiser manter um aparelho ligado, a hospedagem gerenciada é justamente a alternativa opcional.</p></details>
-        <details><summary>Sou iniciante. Vou conseguir instalar?<span>+</span></summary><p>O tutorial reduz o processo a passos curtos, explica a configuração e fornece comandos copiáveis. Você escolhe Android, Linux ou Windows e segue na ordem.</p></details>
-      </div>
-    </section>
-
-    <section class="section final-cta">
-      <div class="final-cta-inner reveal">
-        <span class="kanji" aria-hidden="true">将軍</span>
-        <p class="kicker">PRONTO PARA COMEÇAR?</p>
-        <h2>Escolha seu aparelho.<br>Siga quatro passos.</h2>
-        <p>Baixar. Instalar. Configurar. Conectar ao WhatsApp. Sem adivinhar o que vem depois.</p>
-        <div class="hero-actions">
-          <a class="button button-primary" href="#instalar">Quero instalar o SHOGUN</a>
-          <a class="button button-secondary" href="https://github.com/dgreych/shogun" target="_blank" rel="noreferrer">Abrir repositório ↗</a>
-        </div>
-      </div>
-    </section>
+    <section class="contact section" id="contato" aria-labelledby="contact-title"><div><p class="section-label">CONTATO</p><h2 id="contact-title">Fale sobre<br>o seu projeto.</h2><p>Para hospedagem, acesso à BunnyFy ou orientação sobre o Shogun, escolha o assunto e continue pelo WhatsApp.</p><a class="text-link" href="https://wa.me/5522997028553" target="_blank" rel="noopener noreferrer">+55 (22) 99702-8553 ↗</a></div><form id="contact-form"><label for="contact-name">Seu nome <span>(opcional)</span></label><input id="contact-name" name="name" maxlength="80" autocomplete="name" placeholder="Como podemos chamar você?"><label for="contact-subject">Assunto</label><select id="contact-subject" name="subject"><option value="Hospedagem do Shogun">Hospedagem do Shogun</option><option value="Acesso à API BunnyFy">Acesso à API BunnyFy</option><option value="Instalação do Shogun">Instalação do Shogun</option></select><button type="submit" class="button primary">Abrir conversa no WhatsApp ↗</button><p class="contact-note">Você pode revisar a mensagem no WhatsApp antes de enviar.</p></form></section>
   </main>
-
-  <footer>
-    <a class="brand footer-brand" href="#inicio"><span class="brand-mark">将</span><span class="brand-copy"><strong>SHOGUN</strong><small>WhatsApp Bot</small></span></a>
-    <p>SHOGUN é software gratuito. BunnyFy e hospedagem são serviços opcionais.</p>
-    <div><a href="https://github.com/dgreych/shogun" target="_blank" rel="noreferrer">GitHub</a><a href="https://dgreych.github.io/DOMO-BJI/">Domo</a></div>
-  </footer>
-
-  <div class="toast" aria-live="polite" aria-atomic="true" data-toast></div>
-  <script src="./app.js" defer></script>
+  <footer><div class="footer-main"><a class="footer-brand" href="#inicio">SHOGUN<span>BOT PARA WHATSAPP</span></a><div class="footer-column"><strong>Projeto</strong><a href="#recursos">Recursos</a><a href="https://github.com/dgreych/shogun" target="_blank" rel="noopener noreferrer">Repositório ↗</a><a href="https://github.com/dgreych/shogun/blob/main/LICENSE" target="_blank" rel="noopener noreferrer">Licença ISC ↗</a></div><div class="footer-column"><strong>Documentação</strong><a href="#instalar">Guias de instalação</a><a href="https://github.com/dgreych/shogun/blob/main/docs/primeiros-passos.md" target="_blank" rel="noopener noreferrer">Primeiros passos ↗</a><a href="https://github.com/dgreych/shogun/blob/main/docs/solucao-de-problemas.md" target="_blank" rel="noopener noreferrer">Solução de problemas ↗</a></div><div class="footer-column"><strong>Atendimento</strong><a href="#bunnyfy">API BunnyFy</a><a href="#hospedagem">Hospedagem</a><a href="#contato">Contato</a></div></div><div class="footer-bottom"><p>Criado e mantido por Maurício Almeida.</p><p>Instalação própria gratuita. Serviços opcionais sob consulta.</p></div></footer>
 </body>
 </html>
