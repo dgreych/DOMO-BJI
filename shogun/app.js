@@ -1,3 +1,25 @@
+const prerequisites = {
+  "windows": {
+    "command": "winget install --id OpenJS.NodeJS.LTS --exact --source winget\nwinget install --id Git.Git --exact --source winget",
+    "note": "Feche e reabra o terminal. Confira node --version, npm.cmd --version e git --version.",
+    "ffmpeg": "winget install --id Gyan.FFmpeg --exact --source winget"
+  },
+  "linux": {
+    "command": "sudo apt update\nsudo apt install -y git curl\ncurl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.8/install.sh | bash\n. \"$HOME/.nvm/nvm.sh\"\nnvm install 24",
+    "note": "Comandos para Ubuntu/Debian. Confira node --version, npm --version e git --version. Outras distribuições: veja o guia completo.",
+    "ffmpeg": "sudo apt install -y ffmpeg"
+  },
+  "macos": {
+    "command": "brew install git node@24\nexport PATH=\"$(brew --prefix node@24)/bin:$PATH\"",
+    "note": "Instale o Homebrew pelo site brew.sh antes destes comandos. Confira node --version, npm --version e git --version. O guia explica como manter o PATH.",
+    "ffmpeg": "brew install ffmpeg"
+  },
+  "termux": {
+    "command": "pkg update -y\npkg install -y git nodejs-lts ffmpeg",
+    "note": "Use o Termux do F-Droid ou GitHub oficial, como explicado no guia. Aguarde cada comando terminar. Confira node --version e ffmpeg -version.",
+    "ffmpeg": "pkg install -y ffmpeg"
+  }
+};
 const navToggle = document.querySelector('.nav-toggle');
 const mainNav = document.getElementById('main-nav');
 navToggle.addEventListener('click', () => {
@@ -40,6 +62,10 @@ document.querySelectorAll('[data-platform]').forEach(button => {
   button.addEventListener('click', () => {
     document.querySelectorAll('[data-platform]').forEach(item => item.setAttribute('aria-pressed', String(item === button)));
     document.getElementById('platform-note').textContent = platformNotes[button.dataset.platform];
+    const prerequisitesForPlatform = prerequisites[button.dataset.platform];
+    document.getElementById('requirements-command').textContent = prerequisitesForPlatform.command;
+    document.getElementById('requirements-note').textContent = prerequisitesForPlatform.note;
+    document.getElementById('ffmpeg-command').textContent = prerequisitesForPlatform.ffmpeg;
     document.getElementById('platform-guide').href = 'https://github.com/dgreych/shogun/blob/main/docs/instalacao/' + button.dataset.platform + '.md';
     document.getElementById('copy-status').textContent = '';
   });
@@ -50,5 +76,14 @@ document.getElementById('copy-command').addEventListener('click', async () => {
     document.getElementById('copy-status').textContent = 'Comandos copiados.';
   } catch {
     document.getElementById('copy-status').textContent = 'Selecione os comandos acima para copiá-los.';
+  }
+});
+
+document.getElementById('copy-requirements').addEventListener('click', async () => {
+  try {
+    await navigator.clipboard.writeText(document.getElementById('requirements-command').textContent);
+    document.getElementById('copy-status').textContent = 'Requisitos copiados. Execute no terminal da plataforma escolhida.';
+  } catch {
+    document.getElementById('copy-status').textContent = 'Selecione os comandos dos requisitos para copiá-los.';
   }
 });
