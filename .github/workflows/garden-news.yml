@@ -1,0 +1,31 @@
+name: Garden — Björk news
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '23 */6 * * *'
+permissions:
+  contents: write
+concurrency:
+  group: garden-news
+  cancel-in-progress: false
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python .github/scripts/garden-update-news.py
+      - name: Publish new edition
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add garden/data/news.json
+          if ! git diff --cached --quiet; then
+            git commit -m 'chore(garden): refresh Björk news'
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
