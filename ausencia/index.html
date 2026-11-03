@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#07090e">
+  <meta name="color-scheme" content="dark">
+  <meta name="robots" content="noindex, nofollow, noarchive">
+  <title>Ausência | Vinicius de Moraes</title>
+  <meta name="description" content="Ausência, de Vinicius de Moraes.">
+  <meta property="og:title" content="Ausência | Vinicius de Moraes">
+  <meta property="og:description" content="Ausência, de Vinicius de Moraes.">
+  <link rel="icon" href="data:,">
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #07090e;
+      --paper: #e8e1d7;
+      --soft: #b8b2ac;
+      --gold: #bea88b;
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    html { background: var(--bg); scroll-behavior: smooth; }
+    body {
+      min-height: 100vh;
+      min-height: 100svh;
+      margin: 0;
+      color: var(--paper);
+      background: var(--bg);
+      font-family: "Iowan Old Style", Baskerville, "Palatino Linotype", "Book Antiqua", Georgia, serif;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+    ::selection { background: #cbb495; color: #0c0e12; }
+    .night {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      background:
+        radial-gradient(ellipse 30% 23% at 80% 16%, rgba(214,218,219,.11), transparent 80%),
+        radial-gradient(ellipse 63% 47% at 50% 1%, rgba(41,51,68,.65), transparent 100%),
+        linear-gradient(180deg, #121925 0%, #0c111a 42%, #07090e 100%);
+    }
+    .night::before {
+      content: "";
+      position: absolute;
+      width: min(28vw, 260px);
+      aspect-ratio: 1;
+      right: max(6vw, calc((100vw - 1240px) / 2));
+      top: 6%;
+      opacity: .17;
+      border-radius: 50%;
+      background: radial-gradient(circle at 41% 35%, #f1e7d2, #a9b0b9 70%, #778595);
+      box-shadow: 0 0 115px 48px rgba(188,195,205,.15);
+      filter: blur(1px);
+    }
+    .night::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      opacity: .14;
+      background-image: radial-gradient(rgba(234,235,224,.8) .65px, transparent .8px);
+      background-size: 101px 117px;
+      mask-image: linear-gradient(to bottom, black, transparent 65%);
+    }
+    .page {
+      position: relative;
+      z-index: 1;
+      width: min(calc(100% - 54px), 1080px);
+      margin: 0 auto;
+      padding: clamp(64px, 11vh, 112px) 0 clamp(85px, 13vh, 155px);
+    }
+    .topline {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      margin-bottom: 32px;
+      color: var(--gold);
+      font-family: "Helvetica Neue", Arial, sans-serif;
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: .33em;
+      text-transform: uppercase;
+    }
+    .topline::before {
+      content: "";
+      display: inline-block;
+      width: 39px;
+      height: 1px;
+      background: linear-gradient(90deg, rgba(190,168,139,.15), var(--gold));
+    }
+    h1 {
+      margin: 0;
+      color: #f2eae0;
+      font-size: clamp(78px, 11vw, 143px);
+      font-weight: 400;
+      font-style: italic;
+      letter-spacing: -.065em;
+      line-height: 1.08;
+    }
+    .thread {
+      display: block;
+      width: 1px;
+      height: clamp(56px, 8vh, 86px);
+      margin: clamp(38px, 6vh, 62px) 0 clamp(38px, 6vh, 58px) 7px;
+      background: linear-gradient(var(--gold), rgba(190,168,139,.12));
+    }
+    .poem { max-width: 990px; }
+    .stanza {
+      margin: 0 0 clamp(42px, 7vh, 72px);
+      padding: 0;
+      color: var(--paper);
+      font-size: clamp(18px, 2.15vw, 24px);
+      font-weight: 400;
+      line-height: 1.78;
+      letter-spacing: -.013em;
+      overflow-wrap: break-word;
+      text-wrap: pretty;
+    }
+    .verse { display: block; }
+    .stanza:last-child { margin-bottom: 0; }
+    .ending {
+      display: flex;
+      gap: 15px;
+      align-items: center;
+      margin-top: clamp(65px, 9vh, 110px);
+      color: var(--soft);
+      font-family: "Helvetica Neue", Arial, sans-serif;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: .25em;
+    }
+    .ending::before { content: ""; width: 35px; height: 1px; background: var(--gold); opacity: .67; }
+    header, .thread, .stanza, .ending {
+      animation: appear 1.35s cubic-bezier(.2,.7,.2,1) both;
+    }
+    .thread { animation-delay: .12s; }
+    .stanza:nth-child(1) { animation-delay: .24s; }
+    .stanza:nth-child(2) { animation-delay: .34s; }
+    .stanza:nth-child(3) { animation-delay: .44s; }
+    .ending { animation-delay: .5s; }
+    @keyframes appear {
+      from { opacity: 0; transform: translateY(13px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @media (max-width: 600px) {
+      .page { width: calc(100% - 42px); padding-top: 70px; padding-bottom: 90px; }
+      .topline { font-size: 10px; letter-spacing: .2em; gap: 12px; }
+      .topline::before { width: 22px; }
+      h1 { font-size: clamp(66px, 15vw, 93px); }
+      .stanza { font-size: clamp(19px, 4.95vw, 22px); line-height: 1.67; letter-spacing: -.011em; }
+      .thread { margin-left: 4px; height: 58px; }
+      .night::before { width: 48vw; right: -5vw; top: 10%; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      header, .thread, .stanza, .ending { animation: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="night" aria-hidden="true"></div>
+  <article class="page">
+    <header>
+      <div class="topline">Vinicius de Moraes</div>
+      <h1>Ausência</h1>
+    </header>
+    <span class="thread" aria-hidden="true"></span>
+    <main class="poem">
+<p class="stanza" aria-label="Estrofe 1">
+  <span class="verse">Eu deixarei que morra em mim o desejo de amar os teus olhos que são doces</span>
+  <span class="verse">Porque nada te poderei dar senão a mágoa de me veres eternamente exausto.</span>
+  <span class="verse">No entanto a tua presença é qualquer coisa como a luz e a vida</span>
+  <span class="verse">E eu sinto que em meu gesto existe o teu gesto e em minha voz a tua voz.</span>
+  <span class="verse">Não te quero ter porque em meu ser tudo estaria terminado</span>
+  <span class="verse">Quero só que surjas em mim como a fé nos desesperados</span>
+  <span class="verse">Para que eu possa levar uma gota de orvalho nesta terra amaldiçoada</span>
+  <span class="verse">Que ficou sobre a minha carne como uma nódoa do passado.</span>
+</p>
+<p class="stanza" aria-label="Estrofe 2">
+  <span class="verse">Eu deixarei... tu irás e encostarás a tua face em outra face</span>
+  <span class="verse">Teus dedos enlaçarão outros dedos e tu desabrocharás para a madrugada</span>
+  <span class="verse">Mas tu não saberás que quem te colheu fui eu, porque eu fui o grande íntimo da noite</span>
+  <span class="verse">Porque eu encostei minha face na face da noite e ouvi a tua fala amorosa</span>
+  <span class="verse">Porque meus dedos enlaçaram os dedos da névoa suspensos no espaço</span>
+  <span class="verse">E eu trouxe até mim a misteriosa essência do teu abandono desordenado.</span>
+</p>
+<p class="stanza" aria-label="Estrofe 3">
+  <span class="verse">Eu ficarei só como os veleiros nos portos silenciosos</span>
+  <span class="verse">Mas eu te possuirei mais que ninguém porque poderei partir</span>
+  <span class="verse">E todas as lamentações do mar, do vento, do céu, das aves, das estrelas</span>
+  <span class="verse">Serão a tua voz presente, a tua voz ausente, a tua voz serenizada.</span>
+</p>
+    </main>
+    <footer class="ending">Vinicius de Moraes</footer>
+  </article>
+</body>
+</html>
