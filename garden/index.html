@@ -1,199 +1,35 @@
 <!doctype html>
 <html lang="pt-BR">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#07090e">
-  <meta name="color-scheme" content="dark">
-  <meta name="robots" content="noindex, nofollow, noarchive">
-  <title>Ausência | Vinicius de Moraes</title>
-  <meta name="description" content="Ausência, de Vinicius de Moraes.">
-  <meta property="og:title" content="Ausência | Vinicius de Moraes">
-  <meta property="og:description" content="Ausência, de Vinicius de Moraes.">
-  <link rel="icon" href="data:,">
-  <style>
-    :root {
-      color-scheme: dark;
-      --bg: #07090e;
-      --paper: #e8e1d7;
-      --soft: #b8b2ac;
-      --gold: #bea88b;
-    }
-    *, *::before, *::after { box-sizing: border-box; }
-    html { background: var(--bg); scroll-behavior: smooth; }
-    body {
-      min-height: 100vh;
-      min-height: 100svh;
-      margin: 0;
-      color: var(--paper);
-      background: var(--bg);
-      font-family: "Iowan Old Style", Baskerville, "Palatino Linotype", "Book Antiqua", Georgia, serif;
-      -webkit-font-smoothing: antialiased;
-      text-rendering: optimizeLegibility;
-    }
-    ::selection { background: #cbb495; color: #0c0e12; }
-    .night {
-      position: fixed;
-      inset: 0;
-      z-index: 0;
-      pointer-events: none;
-      background:
-        radial-gradient(ellipse 30% 23% at 80% 16%, rgba(214,218,219,.11), transparent 80%),
-        radial-gradient(ellipse 63% 47% at 50% 1%, rgba(41,51,68,.65), transparent 100%),
-        linear-gradient(180deg, #121925 0%, #0c111a 42%, #07090e 100%);
-    }
-    .night::before {
-      content: "";
-      position: absolute;
-      width: min(28vw, 260px);
-      aspect-ratio: 1;
-      right: max(6vw, calc((100vw - 1240px) / 2));
-      top: 6%;
-      opacity: .17;
-      border-radius: 50%;
-      background: radial-gradient(circle at 41% 35%, #f1e7d2, #a9b0b9 70%, #778595);
-      box-shadow: 0 0 115px 48px rgba(188,195,205,.15);
-      filter: blur(1px);
-    }
-    .night::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      opacity: .14;
-      background-image: radial-gradient(rgba(234,235,224,.8) .65px, transparent .8px);
-      background-size: 101px 117px;
-      mask-image: linear-gradient(to bottom, black, transparent 65%);
-    }
-    .page {
-      position: relative;
-      z-index: 1;
-      width: min(calc(100% - 54px), 1080px);
-      margin: 0 auto;
-      padding: clamp(64px, 11vh, 112px) 0 clamp(85px, 13vh, 155px);
-    }
-    .topline {
-      display: flex;
-      align-items: center;
-      gap: 18px;
-      margin-bottom: 32px;
-      color: var(--gold);
-      font-family: "Helvetica Neue", Arial, sans-serif;
-      font-size: 11px;
-      font-weight: 400;
-      letter-spacing: .33em;
-      text-transform: uppercase;
-    }
-    .topline::before {
-      content: "";
-      display: inline-block;
-      width: 39px;
-      height: 1px;
-      background: linear-gradient(90deg, rgba(190,168,139,.15), var(--gold));
-    }
-    h1 {
-      margin: 0;
-      color: #f2eae0;
-      font-size: clamp(78px, 11vw, 143px);
-      font-weight: 400;
-      font-style: italic;
-      letter-spacing: -.065em;
-      line-height: 1.08;
-    }
-    .thread {
-      display: block;
-      width: 1px;
-      height: clamp(56px, 8vh, 86px);
-      margin: clamp(38px, 6vh, 62px) 0 clamp(38px, 6vh, 58px) 7px;
-      background: linear-gradient(var(--gold), rgba(190,168,139,.12));
-    }
-    .poem { max-width: 990px; }
-    .stanza {
-      margin: 0 0 clamp(42px, 7vh, 72px);
-      padding: 0;
-      color: var(--paper);
-      font-size: clamp(18px, 2.15vw, 24px);
-      font-weight: 400;
-      line-height: 1.78;
-      letter-spacing: -.013em;
-      overflow-wrap: break-word;
-      text-wrap: pretty;
-    }
-    .verse { display: block; }
-    .stanza:last-child { margin-bottom: 0; }
-    .ending {
-      display: flex;
-      gap: 15px;
-      align-items: center;
-      margin-top: clamp(65px, 9vh, 110px);
-      color: var(--soft);
-      font-family: "Helvetica Neue", Arial, sans-serif;
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: .25em;
-    }
-    .ending::before { content: ""; width: 35px; height: 1px; background: var(--gold); opacity: .67; }
-    header, .thread, .stanza, .ending {
-      animation: appear 1.35s cubic-bezier(.2,.7,.2,1) both;
-    }
-    .thread { animation-delay: .12s; }
-    .stanza:nth-child(1) { animation-delay: .24s; }
-    .stanza:nth-child(2) { animation-delay: .34s; }
-    .stanza:nth-child(3) { animation-delay: .44s; }
-    .ending { animation-delay: .5s; }
-    @keyframes appear {
-      from { opacity: 0; transform: translateY(13px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    @media (max-width: 600px) {
-      .page { width: calc(100% - 42px); padding-top: 70px; padding-bottom: 90px; }
-      .topline { font-size: 10px; letter-spacing: .2em; gap: 12px; }
-      .topline::before { width: 22px; }
-      h1 { font-size: clamp(66px, 15vw, 93px); }
-      .stanza { font-size: clamp(19px, 4.95vw, 22px); line-height: 1.67; letter-spacing: -.011em; }
-      .thread { margin-left: 4px; height: 58px; }
-      .night::before { width: 48vw; right: -5vw; top: 10%; }
-    }
-    @media (prefers-reduced-motion: reduce) {
-      html { scroll-behavior: auto; }
-      header, .thread, .stanza, .ending { animation: none; }
-    }
-  </style>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#151316"><meta name="robots" content="noindex, nofollow">
+<title>Garden — o lado B do meu peito</title>
+<meta name="description" content="Eu fiz tudo isso pensando em você. Com amor, Alaska.">
+<meta property="og:title" content="Garden — o lado B do meu peito"><meta property="og:description" content="Kaio, eu te amo tanto. Esse lugar é teu."><meta property="og:type" content="website"><meta property="og:image" content="./assets/night-letter.webp">
+<link rel="icon" href="./assets/flower.svg" type="image/svg+xml"><link rel="stylesheet" href="./fonts.css"><link rel="stylesheet" href="./styles.css"><link rel="stylesheet" href="./underground.css">
+<link rel="preload" href="./assets/night-letter.webp" as="image">
 </head>
 <body>
-  <div class="night" aria-hidden="true"></div>
-  <article class="page">
-    <header>
-      <div class="topline">Vinicius de Moraes</div>
-      <h1>Ausência</h1>
-    </header>
-    <span class="thread" aria-hidden="true"></span>
-    <main class="poem">
-<p class="stanza" aria-label="Estrofe 1">
-  <span class="verse">Eu deixarei que morra em mim o desejo de amar os teus olhos que são doces</span>
-  <span class="verse">Porque nada te poderei dar senão a mágoa de me veres eternamente exausto.</span>
-  <span class="verse">No entanto a tua presença é qualquer coisa como a luz e a vida</span>
-  <span class="verse">E eu sinto que em meu gesto existe o teu gesto e em minha voz a tua voz.</span>
-  <span class="verse">Não te quero ter porque em meu ser tudo estaria terminado</span>
-  <span class="verse">Quero só que surjas em mim como a fé nos desesperados</span>
-  <span class="verse">Para que eu possa levar uma gota de orvalho nesta terra amaldiçoada</span>
-  <span class="verse">Que ficou sobre a minha carne como uma nódoa do passado.</span>
-</p>
-<p class="stanza" aria-label="Estrofe 2">
-  <span class="verse">Eu deixarei... tu irás e encostarás a tua face em outra face</span>
-  <span class="verse">Teus dedos enlaçarão outros dedos e tu desabrocharás para a madrugada</span>
-  <span class="verse">Mas tu não saberás que quem te colheu fui eu, porque eu fui o grande íntimo da noite</span>
-  <span class="verse">Porque eu encostei minha face na face da noite e ouvi a tua fala amorosa</span>
-  <span class="verse">Porque meus dedos enlaçaram os dedos da névoa suspensos no espaço</span>
-  <span class="verse">E eu trouxe até mim a misteriosa essência do teu abandono desordenado.</span>
-</p>
-<p class="stanza" aria-label="Estrofe 3">
-  <span class="verse">Eu ficarei só como os veleiros nos portos silenciosos</span>
-  <span class="verse">Mas eu te possuirei mais que ninguém porque poderei partir</span>
-  <span class="verse">E todas as lamentações do mar, do vento, do céu, das aves, das estrelas</span>
-  <span class="verse">Serão a tua voz presente, a tua voz ausente, a tua voz serenizada.</span>
-</p>
-    </main>
-    <footer class="ending">Vinicius de Moraes</footer>
-  </article>
-</body>
-</html>
+<a class="skip" href="#main">Ir para o conteúdo</a>
+<header class="header"><a class="brand" href="#inicio" aria-label="Garden, início"><svg class="flower-icon" viewBox="0 0 40 40" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.5"><ellipse cx="20" cy="20" rx="7" ry="18"/><ellipse cx="20" cy="20" rx="7" ry="18" transform="rotate(60 20 20)"/><ellipse cx="20" cy="20" rx="7" ry="18" transform="rotate(120 20 20)"/></g><circle cx="20" cy="20" r="3" fill="currentColor"/></svg>garden<span>†</span></a><nav aria-label="Principal"><a href="#inicio" data-nav="inicio">Pra você</a><a href="#poemas" data-nav="poemas">O que eu sinto</a><a href="#bjork" data-nav="bjork">Björk, claro</a><a href="#jogos" data-nav="jogos">Vem brincar</a><a href="#musica" data-nav="musica">Suas músicas</a></nav><button id="progress-button" class="progress-pill" aria-label="Ver meu jardim de descobertas"><span aria-hidden="true">✧</span> <span id="seed-count">0</span><span class="seed-label"> sementes</span></button><button class="menu-toggle" aria-label="Abrir navegação" aria-expanded="false">☰</button></header>
+<main id="main" tabindex="-1">
+<section id="view-inicio" class="view">
+<div class="hero"><img class="hero-image" src="./assets/night-letter.webp" alt="Colagem noturna de flores translúcidas, uma mariposa e filme fotográfico riscado" fetchpriority="high"><div class="hero-shade"></div><div class="hero-copy"><p class="eyebrow light"><span class="tiny-star">♡</span> DE ALASKA, PRA GARDEN. SEM FILTRO.</p><h1>O LADO B<br>DO MEU<br><em>peito.</em></h1><p class="hero-description">Kaio, tem umas coisas aqui dentro que eu não sei cantar.<br>Fiz este lugar pra você poder ouvir mesmo assim.</p><a class="button coral" href="#explorar">Dá o play. Entra. <span>↗</span></a></div><button class="secret secret-moon" data-secret="moon" aria-label="Explorar o brilho da lua" title="A lua parece guardar alguma coisa…">✧</button><button class="secret secret-flower" data-secret="flower" aria-label="Tocar a flor luminosa" title="Algumas flores guardam palavras…">✧</button><div class="hero-bottom"><span>EU FIZ CADA COISA PENSANDO EM VOCÊ</span><button id="ambience" class="audio-toggle" aria-pressed="false"><span class="sound-bars"><i></i><i></i><i></i><i></i></span><span id="ambience-label">Som pra ler isso</span></button></div><span class="love-sticker" aria-hidden="true">pra<br>garden. ✶</span><div class="hero-side">PRA VOCÊ. SEMPRE PRA VOCÊ.</div></div>
+<div class="love-strip"><span>✺</span> é você. meu amor, é você. <span>✺</span><span class="strip-extra"> eu queria conseguir te explicar o quanto <span>✺</span></span></div>
+<section class="intro section-wrap" id="explorar"><p class="eyebrow">TEM UMA COISA QUE EU QUERIA TE DIZER</p><h2>Se eu te emprestasse meus olhos,<br>você ia <em>entender.</em></h2><p>Você não tem ideia do que acontece comigo quando penso em você.<br class="desktop-br"> Eu queria conseguir te mostrar. De verdade.<br class="desktop-br"> Então fui deixando um pouco aqui.</p><button class="text-link" data-letter>Lê o que eu te escrevi <span>↗</span></button><span class="intro-flower" aria-hidden="true">♡<small>meu deus,<br>esse menino.</small></span></section>
+<section class="section-wrap explore-section"><div class="section-heading"><div><p class="eyebrow">EU FUI DEIXANDO AMOR POR AQUI</p><h2>Eu guardei tudo isso <em>pra você.</em></h2></div><span class="quiet">Pode mexer em tudo. É seu.</span></div><div class="explore-grid"><a href="#poemas" class="explore-card poetry-card"><span class="card-number">LADO A / O QUE EU SINTO</span><div class="poem-art" aria-hidden="true">“<br><i>e o vivo e puro amor<br>de que sou feito</i><span>LUÍS DE CAMÕES</span></div><div class="card-caption"><div><h3>Lê. Eu pensei em você.</h3><p>Tem verso aqui que me desmonta.</p></div><span class="circle-arrow">↗</span></div></a><a href="#bjork" class="explore-card bjork-card"><img src="./assets/utopia.jpg" alt="Capa do álbum Utopia, de Björk" loading="lazy"><span class="card-number">LADO B / BJÖRK, ÓBVIO</span><div class="card-caption"><div><h3>É claro que ia ter Björk.</h3><p>Eu sei. Essa parte tinha que existir.</p></div><span class="circle-arrow">↗</span></div></a><a href="#jogos" class="explore-card games-card"><span class="card-number">FAIXA BÔNUS / VEM BRINCAR</span><div class="orbital-art" aria-hidden="true"><span>✺</span><i></i><b>✧</b></div><div class="card-caption"><div><h3>Fica mais um pouquinho.</h3><p>Fiz umas coisas pra gente brincar.</p></div><span class="circle-arrow">↗</span></div></a><a href="#musica" class="explore-card music-card"><span class="card-number">PLAY / PENSANDO EM VOCÊ</span><div class="vinyl-art" aria-hidden="true"><div>g.</div></div><div class="card-caption"><div><h3>Me mostra o que você ouve.</h3><p>Quero conhecer essas partes de você.</p></div><span class="circle-arrow">↗</span></div></a></div></section>
+<section class="daily-poem section-wrap"><div><p class="eyebrow">ESSE AQUI ME PEGOU</p><span class="date-label" id="today-label"></span><div class="stem-art" aria-hidden="true">❧</div></div><div><h2 id="daily-quote"></h2><span class="quiet" id="daily-author"></span><button class="text-link" id="daily-button">Ler o poema inteiro <span>↗</span></button></div></section>
+<section class="bjork-feature section-wrap"><div class="feature-image"><img src="./assets/fossora.jpg" alt="Björk na capa de Fossora, entre elementos botânicos" loading="lazy"><span class="image-label">DÁ PLAY. PENSA EM MIM UM POUQUINHO.</span></div><div class="feature-copy"><p class="eyebrow">ESSA TINHA QUE ESTAR AQUI</p><h2>All is full<br>of <em>love.</em></h2><p>Fico imaginando você ouvindo. Queria estar perto, só pra ver a tua cara naquela parte da música que você mais gosta.</p><a class="button green" href="#bjork">Vem ouvir Björk <span>↗</span></a></div></section>
+<section class="section-wrap news-section"><div class="section-heading"><div><p class="eyebrow"><span class="live-dot"></span> EU DEIXEI ISSO AQUI PRA VOCÊ ACOMPANHAR</p><h2>Saiu coisa <em>da Björk.</em></h2></div><button class="text-link refresh-news">Atualizar <span>↻</span></button></div><p class="news-status quiet" aria-live="polite">Buscando notícias da Björk…</p><div class="news-list" data-news-list></div><a class="small-link" href="https://bjork.com/" target="_blank" rel="noopener noreferrer">Visitar o site oficial da Björk ↗</a></section>
+<section class="closing"><span class="eyebrow">EU AINDA TENHO TANTA COISA PRA TE DIZER</span><h2>Eu podia escrever a noite inteira.<br><em>Ainda ia faltar.</em></h2><button class="text-link" data-letter>Com amor, Alaska <span>♡</span></button></section>
+</section>
+<section id="view-poemas" class="view inner-view" hidden><div class="page-heading"><p class="eyebrow">TEM COISA QUE EU SÓ CONSIGO DIZER ASSIM</p><h1>Eu leio isso<br>e só penso <em>em você.</em></h1><p>Alguns versos são de gente que já sentiu coisas enormes.<br>Outros estão aqui porque eu precisava te dizer.</p></div><div class="poem-grid section-wrap" id="poem-grid"></div><div class="section-wrap secret-note"><span>✧</span><p>Eu escondi mais umas coisas.<br>Queria que você encontrasse sem esperar.</p><button class="text-link" id="hint-button">Uma pequena pista ↗</button></div></section>
+<section id="view-bjork" class="view inner-view" hidden><div class="page-heading bjork-heading"><p class="eyebrow">EU SEI O QUANTO VOCÊ AMA</p><h1>Essa parte<br>é muito <em>você.</em></h1><p>Eu podia deixar só uma música. Mas era pra você.<br>Então, bem… deixei um pouco mais.</p><div class="button-row"><a class="button green" href="#jogos">Jogar o quiz Björk <span>↗</span></a><a class="text-link" href="#noticias">Ver as notícias ↓</a></div></div><div class="section-wrap"><div class="section-heading"><h2>Qual desses você <em>colocaria agora?</em></h2><span class="quiet">Eu quero ouvir com você.</span></div><div class="album-grid" id="album-grid"></div><p class="credits">Capas e links de escuta: Apple Music. Uma seleção afetiva, não a discografia completa.</p></div><section id="noticias" class="section-wrap news-section"><div class="section-heading"><div><p class="eyebrow"><span class="live-dot"></span> PRA VOCÊ FICAR POR DENTRO</p><h2>Novidades <em>dela.</em></h2></div><button class="text-link refresh-news">Atualizar ↻</button></div><p class="news-status quiet" aria-live="polite">Buscando notícias da Björk…</p><div class="news-list" data-news-list></div><p class="credits">Manchetes de fontes externas via Google Notícias. Uma nova edição é preparada automaticamente a cada 6 horas. A página procura novas edições ao abrir e a cada 15 minutos.</p></section></section>
+<section id="view-jogos" class="view inner-view" hidden><div class="page-heading"><p class="eyebrow">ESSA PARTE É SÓ PRA TE VER SORRIR</p><h1>Vem cá.<br><em>Brinca comigo.</em></h1><p>Quero ver quantas você acerta sobre a Björk.<br>E depois você faz uma música pra mim?</p></div><div class="game-tabs section-wrap" role="tablist" aria-label="Escolher jogo"><button role="tab" aria-selected="true" data-game="quiz">✧ Quiz Björk</button><button role="tab" aria-selected="false" data-game="memory">❋ Memória dos discos</button><button role="tab" aria-selected="false" data-game="sound">♫ Jardim sonoro</button></div><div class="section-wrap game-container" id="game-container" role="tabpanel"></div><div class="section-wrap achievement-strip"><span>✺</span><div><h3>Olha o tanto que você já encontrou.</h3><p>As sementes e os segredos ficam guardados neste navegador.</p></div><button class="text-link" id="view-progress">Ver minhas descobertas ↗</button></div></section>
+<section id="view-musica" class="view inner-view" hidden><div class="page-heading"><p class="eyebrow">EU GOSTO DE TE IMAGINAR OUVINDO</p><h1>Me conta.<br>O que você tá <em>ouvindo?</em></h1><p>Escreve um nome aqui. Eu quero que você encontre<br>uma coisa que ainda não sabia sobre quem você ama ouvir.</p></div><div class="section-wrap music-room"><form id="artist-form" class="artist-form"><label class="sr-only" for="artist-input">Nome de uma cantora ou artista</label><span aria-hidden="true">⌕</span><input id="artist-input" name="artist" placeholder="Björk, Jazmin Bean, Melanie…" maxlength="80" minlength="2" autocomplete="off" required><button class="button green" type="submit">Explorar <span>↗</span></button></form><div class="suggestions"><span>EU LEMBREI DESSAS:</span><button data-search="Björk">Björk</button><button data-search="Jazmin Bean">Jazmin Bean</button><button data-search="Melanie Martinez">Melanie Martinez</button><button data-search="Mars Argo">Mars Argo</button><button data-search="IC3PEAK">IC3PEAK</button></div><div id="artist-results" aria-live="polite"><div class="music-empty"><button class="record-secret" data-secret="vinyl" aria-label="Investigar o centro do disco"><span class="vinyl-art"><span>g.</span></span></button><h2>Eu queria dividir <em>o fone com você.</em></h2><p>Enquanto isso, escolhe quem você quer ouvir.</p></div></div></div></section>
+</main>
+<footer class="footer"><a class="brand" href="#inicio">garden<span>†</span></a><p>Eu te amo, Kaio.<br>Foi por isso que eu fiz tudo isso.</p><button class="signature" data-secret="signature" aria-label="Explorar a assinatura de Alaska">Alaska <span>♡</span></button><div class="footer-bottom"><span>MÚSICA · POESIA · VOCÊ</span><button class="small-link" id="credits-button">Sobre este jardim</button><span>É TUDO SEU, MEU AMOR.</span></div></footer>
+<dialog id="modal" aria-labelledby="modal-title"><button class="modal-close" aria-label="Fechar">×</button><div id="modal-content"></div></dialog><div class="toast" role="status" aria-live="polite" id="toast"></div><div id="particles" aria-hidden="true"></div>
+<noscript><p class="noscript">Ative o JavaScript para explorar os poemas, jogos e músicas deste jardim.</p></noscript>
+<script type="module" src="./app.js"></script>
+</body></html>
