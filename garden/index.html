@@ -3,139 +3,272 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#030303">
-  <meta name="robots" content="noindex, nofollow, noarchive">
+  <meta name="theme-color" content="#080b10">
   <meta name="color-scheme" content="dark">
-  <meta name="description" content="Para todos os efeitos, eu não existo mais em lugar algum pra além das suas memórias.">
+  <meta name="robots" content="noindex, nofollow, noarchive">
+  <meta name="description" content="Ausência, de Vinicius de Moraes. Um poema sobre o que permanece depois da partida.">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="...">
-  <meta property="og:description" content="Para todos os efeitos, eu não existo mais em lugar algum pra além das suas memórias.">
-  <title>...</title>
+  <meta property="og:title" content="Ausência · Vinicius de Moraes">
+  <meta property="og:description" content="Um poema sobre o que permanece depois da partida.">
+  <title>Ausência · Vinicius de Moraes</title>
   <link rel="icon" href="data:,">
   <style>
-    :root { color-scheme: dark; }
+    :root {
+      color-scheme: dark;
+      --night: #080b10;
+      --cream: #e5ded2;
+      --faded: #a5a4a4;
+      --gold: #c6aa82;
+    }
     *, *::before, *::after { box-sizing: border-box; }
-    html { min-height: 100%; background: #030303; }
+    html { min-height: 100%; background: var(--night); }
     body {
       min-height: 100vh;
       min-height: 100svh;
       margin: 0;
-      display: grid;
-      place-items: center;
       overflow-x: hidden;
-      background: #030303;
-      color: #e8e4df;
+      color: var(--cream);
+      background: var(--night);
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
       -webkit-font-smoothing: antialiased;
-      text-rendering: optimizeLegibility;
     }
-    body::before {
-      content: "";
+    ::selection { color: #080b10; background: #d4bc97; }
+    .scene {
       position: fixed;
       inset: 0;
       z-index: 0;
       pointer-events: none;
-      background: radial-gradient(ellipse 62% 55% at 50% 46%, #121110 0%, #080808 49%, #030303 100%);
+      background:
+        radial-gradient(ellipse 34% 25% at 50% 39%, rgba(154,161,177,.09), transparent 85%),
+        radial-gradient(ellipse 90% 60% at 50% 0%, #1a2029 0%, #0e141c 47%, #080b10 100%);
     }
-    body::after {
+    .scene::before {
       content: "";
+      position: absolute;
+      inset: 0;
+      opacity: .23;
+      background-image: radial-gradient(rgba(222,228,238,.68) .55px, transparent .7px);
+      background-size: 83px 91px;
+      background-position: 19px 27px;
+      mask-image: linear-gradient(to bottom, black, transparent 75%);
+    }
+    .moon {
+      position: absolute;
+      width: min(37vw, 360px);
+      aspect-ratio: 1;
+      top: 7%;
+      left: 50%;
+      border-radius: 50%;
+      transform: translateX(-50%);
+      opacity: .17;
+      background: radial-gradient(circle at 40% 33%, #e8e2d5, #b8b6b0 54%, #818794);
+      box-shadow: 0 0 120px 50px rgba(198,194,175,.12), 0 0 220px 85px rgba(154,162,177,.06);
+      filter: blur(.7px);
+    }
+    .sea {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      height: 24%;
+      opacity: .72;
+      background:
+        linear-gradient(to bottom, transparent, rgba(6,11,16,.6) 13%, #04080b 100%),
+        repeating-linear-gradient(174deg, transparent 0 10px, rgba(201,205,197,.035) 11px, transparent 12px 29px);
+      border-top: 1px solid rgba(213,218,208,.065);
+    }
+    .grain {
       position: fixed;
       inset: 0;
-      z-index: 0;
+      z-index: 4;
       pointer-events: none;
-      opacity: .12;
-      background: repeating-linear-gradient(0deg, transparent 0 3px, rgba(255,255,255,.014) 3px 4px);
+      opacity: .13;
+      background-image: repeating-linear-gradient(90deg, transparent 0 3px, rgba(255,255,255,.016) 3px 4px);
     }
-    main {
+    .page {
       position: relative;
       z-index: 1;
-      width: min(100%, 1100px);
-      padding: clamp(64px, 9vh, 112px) clamp(28px, 7vw, 90px);
+      width: min(100% - 64px, 1130px);
+      min-height: 100vh;
+      min-height: 100svh;
+      margin: auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .masthead {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: clamp(29px, 5.5vh, 62px);
+      color: #a4a09d;
+      font-size: 10px;
+      font-weight: 400;
+      letter-spacing: .27em;
+      text-transform: uppercase;
+    }
+    .masthead .mark {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      color: #d3c5ae;
+    }
+    .mark::before {
+      content: "";
+      width: 22px;
+      height: 1px;
+      background: var(--gold);
+    }
+    main {
+      width: 100%;
+      margin: auto;
+      padding: clamp(72px, 13vh, 130px) 0 clamp(56px, 10vh, 98px);
       text-align: center;
-      isolation: isolate;
     }
-    .rule {
-      display: block;
-      width: 1px;
-      height: 55px;
-      margin-inline: auto;
-      background: linear-gradient(to bottom, transparent, rgba(215,207,196,.46));
-      transform-origin: center;
-    }
-    .opening {
-      margin: clamp(40px, 6vh, 66px) 0 26px;
-      color: #b8b0a9;
-      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-      font-size: clamp(13px, 1.55vw, 17px);
-      font-weight: 300;
-      letter-spacing: .055em;
-      line-height: 1.8;
+    .eyebrow {
+      color: var(--gold);
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: .37em;
+      text-transform: uppercase;
+      margin: 0 0 clamp(24px, 5vh, 50px);
     }
     h1 {
-      max-width: 960px;
-      margin: 0 auto;
-      font-family: "Iowan Old Style", "Baskerville", "Palatino Linotype", "Book Antiqua", Georgia, serif;
-      font-size: clamp(40px, 6.5vw, 84px);
-      font-weight: 400;
-      letter-spacing: -.044em;
-      line-height: 1.14;
-      text-wrap: balance;
-    }
-    h1 span {
-      display: block;
-      color: #cbc4bb;
+      margin: 0;
+      font-family: "Iowan Old Style", Baskerville, "Palatino Linotype", "Book Antiqua", Georgia, serif;
+      font-size: clamp(77px, 13vw, 164px);
       font-style: italic;
       font-weight: 400;
-      letter-spacing: -.05em;
+      letter-spacing: -.07em;
+      line-height: .95;
+      color: #ede7dc;
+      text-shadow: 0 3px 36px rgba(225,211,192,.08);
     }
-    .closing {
-      margin: 33px 0 clamp(48px, 7vh, 78px);
-      color: #a6a09a;
-      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-      font-size: clamp(16px, 1.8vw, 20px);
-      font-weight: 300;
-      letter-spacing: .015em;
-      line-height: 1.7;
+    .divider {
+      display: block;
+      width: 1px;
+      height: clamp(48px, 7vh, 78px);
+      margin: clamp(32px, 6.5vh, 72px) auto 27px;
+      background: linear-gradient(to bottom, rgba(198,170,130,.15), rgba(198,170,130,.72), rgba(198,170,130,.15));
     }
-    .closing em {
-      color: #e6dfd5;
-      font-family: "Iowan Old Style", "Baskerville", "Palatino Linotype", Georgia, serif;
-      font-size: 1.22em;
+    blockquote {
+      max-width: 810px;
+      margin: 0 auto;
+      padding: 0;
+      font-family: "Iowan Old Style", Baskerville, "Palatino Linotype", Georgia, serif;
+      font-size: clamp(25px, 3.3vw, 42px);
       font-weight: 400;
+      font-style: normal;
+      letter-spacing: -.027em;
+      line-height: 1.47;
+      text-wrap: balance;
     }
-    .rule.bottom {
-      height: 35px;
-      background: linear-gradient(to bottom, rgba(215,207,196,.36), transparent);
+    blockquote em { font-style: italic; color: #cdbb9f; }
+    .byline {
+      margin: 34px 0 0;
+      color: #b2aaa0;
+      font-size: 11px;
+      letter-spacing: .22em;
+      text-transform: uppercase;
     }
-    .rule, .opening, h1, .closing {
-      animation: appear 1.45s cubic-bezier(.22, 1, .36, 1) both;
+    .byline span { color: #777b80; margin: 0 11px; }
+    .read {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 13px;
+      min-height: 48px;
+      margin-top: 49px;
+      padding: 12px 8px;
+      color: #e5d1b4;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: .19em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border-bottom: 1px solid rgba(198,170,130,.55);
+      transition: color .25s, gap .25s, border-color .25s;
     }
-    .opening { animation-delay: .16s; }
-    h1 { animation-delay: .36s; }
-    .closing { animation-delay: .63s; }
-    .rule.bottom { animation-delay: .85s; }
-    @keyframes appear {
-      from { opacity: 0; transform: translateY(13px); filter: blur(3px); }
+    .read:hover, .read:focus-visible {
+      color: #fff4e2;
+      gap: 20px;
+      border-color: #e5d1b4;
+    }
+    .read:focus-visible { outline: 2px solid #e5d1b4; outline-offset: 5px; }
+    .arrow { font-size: 20px; line-height: 0; font-weight: 300; }
+    footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+      padding: 0 0 clamp(26px, 4vh, 45px);
+      color: #898b8c;
+      font-family: "Iowan Old Style", Baskerville, Georgia, serif;
+      font-size: 13px;
+      font-style: italic;
+      letter-spacing: .01em;
+    }
+    footer .detail {
+      color: #686b70;
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-size: 10px;
+      font-style: normal;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+    }
+    .eyebrow, h1, .divider, blockquote, .byline, .read {
+      animation: enter 1.6s cubic-bezier(.2,.7,.2,1) both;
+    }
+    h1 { animation-delay: .12s; }
+    .divider { animation-delay: .27s; }
+    blockquote { animation-delay: .38s; }
+    .byline { animation-delay: .56s; }
+    .read { animation-delay: .72s; }
+    @keyframes enter {
+      from { opacity: 0; transform: translateY(17px); filter: blur(4px); }
       to { opacity: 1; transform: translateY(0); filter: blur(0); }
     }
     @media (max-width: 600px) {
-      main { padding-inline: 25px; }
-      .rule { height: 38px; }
-      .opening { margin-top: 36px; margin-bottom: 20px; }
-      h1 { font-size: clamp(39px, 10.4vw, 57px); line-height: 1.19; }
-      .closing { margin-top: 27px; }
+      .page { width: calc(100% - 44px); }
+      .masthead { font-size: 9px; letter-spacing: .17em; }
+      main { padding-block: 78px 65px; }
+      h1 { font-size: clamp(65px, 17vw, 96px); }
+      blockquote { max-width: 350px; font-size: clamp(27px, 7vw, 35px); line-height: 1.43; }
+      .moon { width: 66vw; top: 14%; }
+      .read { margin-top: 34px; }
+      footer { flex-direction: column; text-align: center; gap: 10px; }
     }
     @media (prefers-reduced-motion: reduce) {
-      .rule, .opening, h1, .closing { animation: none; }
+      .eyebrow, h1, .divider, blockquote, .byline, .read { animation: none; }
+      .read { transition: none; }
     }
   </style>
 </head>
 <body>
-  <main aria-label="Mensagem">
-    <span class="rule" aria-hidden="true"></span>
-    <p class="opening">Para todos os efeitos,</p>
-    <h1>eu não existo mais <span>em lugar algum</span></h1>
-    <p class="closing">pra além das suas <em>memórias.</em></p>
-    <span class="rule bottom" aria-hidden="true"></span>
-  </main>
+  <div class="scene" aria-hidden="true"><div class="moon"></div><div class="sea"></div></div>
+  <div class="grain" aria-hidden="true"></div>
+  <div class="page">
+    <header class="masthead">
+      <span class="mark">Poesia</span>
+      <span>Uma página de silêncio</span>
+    </header>
+
+    <main>
+      <p class="eyebrow">Vinicius de Moraes</p>
+      <h1>Ausência</h1>
+      <span class="divider" aria-hidden="true"></span>
+      <blockquote cite="https://www.viniciusdemoraes.com.br/br/poesia/texto/47/ausencia">
+        “Eu ficarei só como os <em>veleiros</em> nos portos silenciosos”
+      </blockquote>
+      <p class="byline">Trecho de <cite>Ausência</cite> <span aria-hidden="true">·</span> 1935</p>
+      <a class="read" href="https://www.viniciusdemoraes.com.br/br/poesia/texto/47/ausencia" target="_blank" rel="noopener noreferrer">
+        Ler o poema completo <span class="arrow" aria-hidden="true">↗</span>
+      </a>
+    </main>
+
+    <footer>
+      <span>Há presenças que continuam mesmo na distância.</span>
+      <span class="detail">Texto integral no acervo oficial</span>
+    </footer>
+  </div>
 </body>
 </html>
