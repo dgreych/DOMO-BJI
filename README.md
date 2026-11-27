@@ -3,7 +3,7 @@
 <h1 align="center">DOMO</h1>
 <p align="center"><strong>Interfaces reais para demandas reais.</strong><br>Vitrine de sites e demonstrações digitais da Domo, publicada em GitHub Pages com páginas estáticas independentes.</p>
 <p align="center"><code>ESTÚDIO DIGITAL · PORTFÓLIO</code></p>
-<p align="center">[**Portfólio**](https://dgreych.github.io/DOMO-BJI/) · [**DiMeo Family**](https://dgreych.github.io/DOMO-BJI/dimeo-family/) · [**Atendimento**](https://wa.me/5522999686677)</p>
+<p align="center">[**Portfólio**](https://dgreych.github.io/DOMO-BJI/) · [**DiMeo Family**](https://dgreych.github.io/DOMO-BJI/dimeo-family/) · [**Atendimento**](https://wa.me/5522997028553)</p>
 
 ---
 
@@ -19,7 +19,7 @@
 
 - [Portfólio](https://dgreych.github.io/DOMO-BJI/)
 - [DiMeo Family](https://dgreych.github.io/DOMO-BJI/dimeo-family/)
-- [Atendimento](https://wa.me/5522999686677)
+- [Atendimento](https://wa.me/5522997028553)
 
 > [!IMPORTANT]
 > Demonstração não significa venda ou autorização para usar o negócio como caso público. Dados privados de prospecção ficam fora deste repositório.

@@ -1,5 +1,5 @@
 (() => {
-  const BASE = 'https://wa.me/5522999686677';
+  const BASE = 'https://wa.me/5522997028553';
   const messages = {
     header: 'Olá! Conheci a Domo pela vitrine e quero explicar um gargalo do meu negócio.',
     menu: 'Olá! Vi a vitrine da Domo e quero conversar sobre uma solução sob medida.',
